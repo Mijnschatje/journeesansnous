@@ -19,6 +19,7 @@
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
     .btn.ghost{background:#fff}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
 
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
@@ -40,7 +41,7 @@
     label{display:block;font-weight:600;margin:.3rem 0 .25rem}
     input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:none}
     input:focus,select:focus,textarea:focus{border-color:#ffcabf;box-shadow:0 0 0 3px #ffe7e2}
-    textarea{min-height:160px;resize:vertical}
+    textarea{min-height:220px;resize:vertical}
 
     .two{display:grid;gap:12px}
     @media(min-width:680px){.two{grid-template-columns:1fr 1fr}}
@@ -49,6 +50,8 @@
     .note{border-left:4px solid var(--brand);background:#fff2f1;padding:.8rem;border-radius:12px}
 
     .preview{white-space:pre-wrap;border:1px dashed var(--line);border-radius:12px;padding:12px;background:#fff7f6}
+
+    .muted{color:#64748b;font-size:14px}
 
     footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:18px}
   </style>
@@ -68,40 +71,33 @@
 
   <section class="hero">
     <div class="wrap">
-      <h1>Générer mon mail aux syndicats</h1>
-      <p class="lede">Même design que le guide. En 2 minutes, interpelle ton syndicat pour couvrir la grève du 18 décembre et sécuriser tout le monde.</p>
+      <h1>Générateur de mails aux syndicats</h1>
+      <p class="lede">Même design que le guide. Choisis ton syndicat et ta section locale dans la base, personnalise, puis envoie.</p>
     </div>
   </section>
 
   <main>
     <div class="grid">
+      <!-- FORMULAIRE -->
       <div class="card">
         <div class="card-head">
-          <h2>1) Renseigner les infos</h2>
+          <h2>1) Choisir les destinataires</h2>
           <button class="btn" id="btnPreavis"><i class="fa-solid fa-copy"></i> Copier le modèle de préavis</button>
         </div>
         <div class="card-body">
           <div class="two">
             <div>
               <label for="syndicat">Syndicat</label>
-              <select id="syndicat">
-                <option value="">— choisir —</option>
-                <option>CGT</option>
-                <option>Solidaires</option>
-                <option>FSU</option>
-                <option>CFDT</option>
-                <option>UNSA</option>
-                <option>CNT</option>
-                <option>FO</option>
-              </select>
+              <select id="syndicat"></select>
             </div>
             <div>
-              <label for="branche">Secteur / Branche</label>
-              <input id="branche" placeholder="ex : nettoyage, restauration, éducation…" />
+              <label for="structure">Section / Territoire</label>
+              <select id="structure"></select>
             </div>
             <div>
               <label for="destinataire">Destinataire (email)</label>
               <input id="destinataire" type="email" placeholder="ex : contact@syndicat-xx.org" />
+              <div class="muted">Pré-rempli si trouvé dans la base. Modifiable.</div>
             </div>
             <div>
               <label for="cc">Copie (CC optionnel)</label>
@@ -112,39 +108,71 @@
               <input id="nom" placeholder="Ton nom (ou collectif)" />
             </div>
             <div>
-              <label for="lieu">Ville / Site</label>
+              <label for="lieu">Ville / Lieu de travail</label>
               <input id="lieu" placeholder="ex : Paris 20e, entrepôt X, collège Y…" />
             </div>
           </div>
 
           <label for="sujet" style="margin-top:10px">Objet</label>
-          <input id="sujet" value="Préavis et appel à la grève du 18 décembre – Journée Sans Nous" />
+          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
+        </div>
+      </div>
 
-          <label for="message" style="margin-top:10px">Message (pré‑rempli, modifiable)</label>
-          <textarea id="message"></textarea>
-
-          <div class="note" style="margin-top:10px">
-            Astuce : tu peux ajouter le <strong>modèle de préavis</strong> à ton message. Le syndicat peut ensuite déposer le préavis qui couvrira toutes et tous, y compris les collègues sans papiers.
-          </div>
-
+      <!-- MESSAGE -->
+      <div class="card">
+        <div class="card-head">
+          <h2>2) Personnaliser le message</h2>
           <div class="actions">
-            <button class="btn" id="btnRemplir"><i class="fa-solid fa-wand-magic-sparkles"></i> Remplir un message type</button>
-            <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
+            <button class="btn" id="btnRemplir"><i class="fa-solid fa-wand-magic-sparkles"></i> Charger le modèle</button>
+            <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier</button>
             <button class="btn primary" id="btnApercu"><i class="fa-solid fa-eye"></i> Aperçu</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <label for="message">Message (modèle officiel, modifiable)</label>
+          <textarea id="message"></textarea>
+          <div class="note" style="margin-top:10px">
+            Ce modèle est celui fourni par la campagne. Tu peux l’adapter (ajouter des infos locales, etc.).
           </div>
         </div>
       </div>
 
+      <!-- APERÇU & ENVOI -->
       <div class="card">
         <div class="card-head">
-          <h2>2) Vérifier & envoyer</h2>
+          <h2>3) Vérifier & envoyer</h2>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
             <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger en .txt</button>
           </div>
         </div>
         <div class="card-body">
-          <div id="preview" class="preview" aria-live="polite">Remplis le formulaire de gauche puis clique « Aperçu ».</div>
+          <div id="preview" class="preview" aria-live="polite">Clique sur « Charger le modèle », complète les champs, puis vérifie ici avant envoi.</div>
+        </div>
+      </div>
+
+      <!-- BASE D'EMAILS -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Base d’emails (optionnelle)</h2>
+          <div class="actions">
+            <button class="btn" id="btnReload"><i class="fa-solid fa-rotate"></i> Recharger</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="muted">Ce générateur peut charger une base JSON locale `./data/emails-syndicats.json`. S’il n’y en a pas, tu peux saisir l’email à la main.</p>
+          <pre class="preview" style="font-size:12px">Format attendu :
+{
+  "CGT": {
+    "national": "contact@cgt.fr",
+    "sections": [
+      {"label": "CGT Paris (75)", "email": "paris@cgt.fr"},
+      {"label": "CGT Seine-Saint-Denis (93)", "email": "ud93@cgt.fr"}
+    ]
+  },
+  "Solidaires": { "national": "contact@solidaires.org", "sections": [ ... ] }
+}
+          </pre>
         </div>
       </div>
     </div>
@@ -154,61 +182,135 @@
 
   <script>
     const el = id => document.getElementById(id);
-    const MODELE_PREAVIS = "Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
 
-    const MESSAGE_TYPE = () => {
-      const nom = el('nom').value || '—';
-      const syndicat = el('syndicat').value || '—';
-      const branche = el('branche').value || '—';
-      const lieu = el('lieu').value || '—';
+    // --- Modèle officiel du mail (issu de la campagne) ---
+    const MODELE_OFFICIEL = () => {
+      const nom  = (el('nom').value || '[Prénom Nom]').trim();
+      const lieu = (el('lieu').value || '[Ville / Lieu de travail / Établissement]').trim();
+      const contact = '[Contact (facultatif)]';
       return (
-`Bonjour,
+`Objet : Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique
 
-Je vous écris en tant que ${nom} (${branche}, ${lieu}). Dans le cadre de la Journée internationale des migrant·e·s (18 décembre) et de la mobilisation « Journée Sans Nous », nous souhaitons que ${syndicat} dépose un préavis couvrant les salarié·es (y compris sans papiers) et appelle à la grève solidaire et politique ce jour‑là.
+Bonjour,
 
-Pourquoi ? ➜ La régularisation et l’égalité des droits protègent tout le monde : fin de la concurrence déloyale, alignement des salaires, amélioration des conditions de travail. La grève permet d’exprimer collectivement ces exigences et de sécuriser les plus exposé·es.
+Je vous écris dans le cadre de la Journée Sans Nous – “Si on s’arrête, tout s’arrête !”, organisée le 18 décembre 2025, à l’occasion de la Journée internationale des migrant·e·s.
+ À l’initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l’échelle nationale.
+ 👉 L’appel complet est consultable ici : https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
 
-Nos revendications locales :
-• … (ex : régularisation par le travail de collègues identifiés, fin des contrôles discriminatoires, amélioration des plannings…)
+Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.
+ Cette journée d’action me permettra de m’exprimer en solidarité avec les personnes immigrées et sans papiers, qui sont mes ami·es, mes voisin·es et mes collègues — celles et ceux qui font tourner le pays mais restent privé·es de droits, exploité·es dans des conditions indignes et constamment discriminé·es.
 
-Vous trouverez ci‑dessous un modèle de formulation d’appel/préavis :
-—
-${MODELE_PREAVIS}
-—
+Aujourd’hui, les politiques racistes et inhumaines menées par l’État (rafles, enfermements en CRA, durcissement des lois sur l’immigration, atteintes aux droits sociaux) ne sont pas seulement une attaque contre les personnes étrangères :
+ elles fragilisent tout le socle social en remettant en cause le droit du travail, en banalisant le travail dissimulé et l’exploitation humaine, en organisant une mise en concurrence destructrice entre salarié·es, et en affaiblissant la solidarité collective.
+ Ces atteintes participent à un glissement général vers une société d’inégalités et de peur, où les droits fondamentaux de chacun deviennent négociables.
 
-Pouvez‑vous nous confirmer rapidement la procédure (préavis, communication, relais sections locales) ?
+Face à cette urgence, nous avons besoin que les syndicats prennent position et ouvrent la voie à une grève politique et solidaire, comme ils l’ont déjà fait dans l’histoire pour des causes universelles :
+ contre la guerre d’Algérie, pour les droits civiques, pour la régularisation des sans-papiers, ou pour la défense des libertés publiques.
+
+👉 Je vous demande :
+
+• de vous prononcer publiquement en faveur de la Journée Sans Nous,
+• d’informer vos adhérent·es et salarié·es sur la possibilité de se mobiliser le 18 décembre,
+• et de mettre en œuvre les moyens légaux pour permettre une grève solidaire (préavis, communication, appui logistique…).
+
+Cette journée sera l’occasion de manifester, débattre, fermer symboliquement nos lieux de travail, d’enseignement ou d’activité, pour rappeler que la solidarité n’a pas de papiers et que la société ne fonctionne que grâce à celles et ceux qu’on invisibilise.
+
+https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
+
+Merci pour votre écoute et pour l’engagement que vous prendrez.
+ Je reste à votre disposition pour toute information complémentaire ou pour participer à l’organisation locale.
 
 Solidairement,
-${nom}
-`)}
 
-    function remplirType(){ el('message').value = MESSAGE_TYPE(); }
+${nom}
+ ${lieu}
+ ${contact}
+`)};
+
+    const MODELE_PREAVIS = "Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
+
+    // --- Remplissage du modèle officiel ---
+    function chargerModele(){ el('message').value = MODELE_OFFICIEL(); apercu(); }
     function apercu(){ el('preview').textContent = el('message').value || 'Aucun message saisi.'; }
     function copier(){ navigator.clipboard.writeText(el('message').value).then(()=>alert('Message copié dans le presse‑papiers.')); }
+
+    // --- Mailto & téléchargement ---
     function toMailto(){
       const to = el('destinataire').value || '';
       const cc = el('cc').value || '';
-      const sujet = el('sujet').value || 'Préavis et appel – Journée Sans Nous';
-      const body = el('message').value || MESSAGE_TYPE();
+      const sujet = el('sujet').value || 'Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique';
+      const body = el('message').value || MODELE_OFFICIEL();
       const enc = s => encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
       const url = `mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}${cc?`&cc=${encodeURIComponent(cc)}`:''}`;
       window.location.href = url;
     }
     function telecharger(){
-      const blob = new Blob([el('message').value || MESSAGE_TYPE()], {type:'text/plain'});
+      const blob = new Blob([el('message').value || MODELE_OFFICIEL()], {type:'text/plain'});
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = 'mail-pour-syndicat.txt';
       a.click();
       URL.revokeObjectURL(a.href);
     }
-    el('btnRemplir').addEventListener('click', remplirType);
+
+    // --- Base d'emails (JSON optionnel) ---
+    let DB = {};
+    async function loadDB(){
+      try{
+        const res = await fetch('./data/emails-syndicats.json',{cache:'no-store'});
+        if(!res.ok) throw new Error('no db');
+        DB = await res.json();
+      }catch(e){ DB = {}; }
+      fillSyndicats();
+    }
+
+    function fillSyndicats(){
+      const s = el('syndicat'); s.innerHTML = '';
+      const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='— choisir —'; s.appendChild(opt0);
+      const keys = Object.keys(DB).sort();
+      if(keys.length===0){
+        ['CGT','Solidaires','FSU','CFDT','UNSA','CNT','FO'].forEach(k=>{
+          const o=document.createElement('option');o.textContent=k;o.value=k;s.appendChild(o);
+        });
+      }else{
+        keys.forEach(k=>{const o=document.createElement('option');o.textContent=k;o.value=k;s.appendChild(o);});
+      }
+      fillStructures();
+    }
+
+    function fillStructures(){
+      const synd = el('syndicat').value;
+      const t = el('structure'); t.innerHTML='';
+      const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='— section / territoire —'; t.appendChild(opt0);
+      if(DB[synd] && Array.isArray(DB[synd].sections)){
+        DB[synd].sections.forEach(rec=>{
+          const o=document.createElement('option'); o.value=rec.email||''; o.textContent=rec.label||rec.email; t.appendChild(o);
+        });
+        if(DB[synd].national){
+          const o=document.createElement('option'); o.value=DB[synd].national; o.textContent=`${synd} — National (${DB[synd].national})`;
+          t.insertBefore(o, t.children[1]);
+        }
+      }
+      el('destinataire').value='';
+    }
+
+    // Quand on choisit une structure, on pré-remplit l'email
+    el('structure').addEventListener('change',()=>{
+      const v = el('structure').value; if(v) el('destinataire').value = v;
+    });
+    el('syndicat').addEventListener('change', fillStructures);
+
+    // Boutons
+    el('btnRemplir').addEventListener('click', chargerModele);
     el('btnApercu').addEventListener('click', apercu);
     el('btnCopier').addEventListener('click', copier);
     el('btnMailto').addEventListener('click', toMailto);
     el('btnTelecharger').addEventListener('click', telecharger);
     el('btnPreavis').addEventListener('click', ()=>{navigator.clipboard.writeText(MODELE_PREAVIS).then(()=>alert('Modèle de préavis copié.'))});
-    document.addEventListener('DOMContentLoaded', ()=>{remplirType();apercu();});
+    el('btnReload').addEventListener('click', loadDB);
+
+    // Init
+    document.addEventListener('DOMContentLoaded', ()=>{ loadDB(); chargerModele(); });
   </script>
 </body>
 </html>
