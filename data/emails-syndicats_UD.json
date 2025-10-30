@@ -1,0 +1,3149 @@
+{
+  "CFDT": {
+    "national": "paris@sgen.cfdt.fr",
+    "sections": [
+      {
+        "label": "CFDT fédération des banques et assurances",
+        "email": "banqueassurance@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération communication, conseil, culture",
+        "email": "f3c@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération chimie et énergie",
+        "email": "fce@fce.cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération formation et enseignement privés",
+        "email": "fep@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération générale agroalimentaire",
+        "email": "fga@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération générale des mines et de la métallurgie",
+        "email": "fgmm@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération générale des transports et de l'environnement",
+        "email": "federation@fgte.cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération des finances",
+        "email": "finances@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération nationale construction bois",
+        "email": "fncb@construction-bois.cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération interco (intérieur et collectivités)",
+        "email": "interco@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération protection sociale, travail, emploi",
+        "email": "pste@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération des services de santé et services sociaux",
+        "email": "santesociaux@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération des services",
+        "email": "services@cfdt.fr"
+      },
+      {
+        "label": "CFDT fédération des établissements et arsenaux de l'état",
+        "email": "feae@cfdt.fr"
+      },
+      {
+        "label": "UD 01",
+        "email": "uti01@aura.cfdt.fr"
+      },
+      {
+        "label": "UD 02",
+        "email": "aisne@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 03",
+        "email": "uti031563@aura.cfdt.fr"
+      },
+      {
+        "label": "UD 04",
+        "email": "alpes-provence@cfdt.fr"
+      },
+      {
+        "label": "UD 05",
+        "email": "hautes-alpes@cfdt.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "alpes-maritimes@cfdt.fr"
+      },
+      {
+        "label": "UD 07",
+        "email": "uti2607@aura.cfdt.fr"
+      },
+      {
+        "label": "UD 08",
+        "email": "accueilardennes@cfdt.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "uti09@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "accueilaube@cfdt.fr"
+      },
+      {
+        "label": "UD 11",
+        "email": "ud11@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "ud12@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "bouches-rhone@cfdt.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "uip.plainedecaen@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "cfdt-uit-bayeux@orange.fr"
+      },
+      {
+        "label": "UD 16",
+        "email": "UD-charente@poitou-charentes.cfdt.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "UD-charentemaritime@poitou-charentes.cfdt.fr"
+      },
+      {
+        "label": "UD 18",
+        "email": "cher@centre.cfdt.fr"
+      },
+      {
+        "label": "UD 19",
+        "email": "UD-Correze@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "Corse (2A)",
+        "email": "corse@cfdt.fr"
+      },
+      {
+        "label": "UD 21",
+        "email": "utidijon@bfc.cfdt.fr"
+      },
+      {
+        "label": "UD 22",
+        "email": "cotesdarmor@bretagne.cfdt.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "UD-creuse@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 24",
+        "email": "UD-dordogne@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 25",
+        "email": "utibesancon@bfc.cfdt.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "eure@cfdt.fr"
+      },
+      {
+        "label": "UD 28",
+        "email": "eure-loir@centre.cfdt.fr"
+      },
+      {
+        "label": "UD 29",
+        "email": "finistere@bretagne.cfdt.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "ud30@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 31",
+        "email": "ud31@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "uti32@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "UD-gironde@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "utimontpellier-herault@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "utisete–bassindethau@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "utibeziers@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 35",
+        "email": "illeetvilaine@bretagne.cfdt.fr"
+      },
+      {
+        "label": "UD 36",
+        "email": "indre@centre.cfdt.fr"
+      },
+      {
+        "label": "UD 37",
+        "email": "indre-loire@centre.cfdt.fr"
+      },
+      {
+        "label": "UD 38",
+        "email": "uti38@aura.cfdt.fr"
+      },
+      {
+        "label": "UD 39",
+        "email": "antennelons@bfc.cfdt.fr"
+      },
+      {
+        "label": "UD 40",
+        "email": "UD-landes@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 41",
+        "email": "loir-cher@cfdt.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "uti4243@aura.cfdt.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "loire-atlantique@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 45",
+        "email": "loiret@centre.cfdt.fr"
+      },
+      {
+        "label": "UD 46",
+        "email": "ud46@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 47",
+        "email": "UD-lot-garonne@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 48",
+        "email": "cfdt.lozere@wanadoo.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "maine-loire@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "cholet@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "uip.centremanche@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "uip.paysducotentin@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "uip.sudmanche@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 51",
+        "email": "accueilmarne@cfdt.fr"
+      },
+      {
+        "label": "UD 52",
+        "email": "accueilhautemarne@grandest.cfdt.fr"
+      },
+      {
+        "label": "UD 53",
+        "email": "mayenne@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 54",
+        "email": "accueilmeurthemoselle@cfdt.fr"
+      },
+      {
+        "label": "UD 55",
+        "email": "accueilmeuse@grandest.cfdt.fr"
+      },
+      {
+        "label": "UD 56",
+        "email": "morbihan@bretagne.cfdt.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "accueilmoselle@cfdt.fr"
+      },
+      {
+        "label": "UD 58",
+        "email": "utinevers@cfdt.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "metropolelilloise@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "sambreescaut@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 60",
+        "email": "oise@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "uip.orneest@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "uip.paysdubocage@normandie.cfdt.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "artoisdouaisis@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "littoral@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "UIS-bearn@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "UIS-paysbasque@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 65",
+        "email": "ud65@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 66",
+        "email": "ud66@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 67",
+        "email": "accueilstrasbourg@grandest.cfdt.fr"
+      },
+      {
+        "label": "UD 68",
+        "email": "accueilmulhouse@grandest.cfdt.fr"
+      },
+      {
+        "label": "UD 69",
+        "email": "uti69@auvergne-rhone-alpes.cfdt.fr"
+      },
+      {
+        "label": "UD 70",
+        "email": "antennevesoul@bfc.cfdt.fr"
+      },
+      {
+        "label": "UD 71",
+        "email": "utichalon@cfdt.fr"
+      },
+      {
+        "label": "UD 72",
+        "email": "sarthe@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "uti-7374@auvergne-rhone-alpes.cfdt.fr"
+      },
+      {
+        "label": "UD 75",
+        "email": "utiparis@iledefrance.cfdt.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "lehavre@cfdt.fr"
+      },
+      {
+        "label": "UD 77",
+        "email": "utiestfrancilien@iledefrance.cfdt.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "utisudfrancilien@iledefrance.cfdt.fr"
+      },
+      {
+        "label": "UD 79",
+        "email": "UD-deuxsevres@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 80",
+        "email": "somme@hdf.cfdt.fr"
+      },
+      {
+        "label": "UD 81",
+        "email": "ud81@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 82",
+        "email": "uti82@occitanie.cfdt.fr"
+      },
+      {
+        "label": "UD 83",
+        "email": "var@cfdt.fr"
+      },
+      {
+        "label": "UD 84",
+        "email": "vaucluse@cfdt.fr"
+      },
+      {
+        "label": "UD 85",
+        "email": "vendee@paysdelaloire.cfdt.fr"
+      },
+      {
+        "label": "UD 86",
+        "email": "UD-vienne@nouvelle-aquitaine.cfdt.fr"
+      },
+      {
+        "label": "UD 87",
+        "email": "secretariat.cfdt87@wanadoo.fr"
+      },
+      {
+        "label": "UD 88",
+        "email": "accueilvosges@cfdt.fr"
+      },
+      {
+        "label": "UD 89",
+        "email": "utiauxerre@cfdt.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "utibelfort@bfc.cfdt.fr"
+      },
+      {
+        "label": "UD 92",
+        "email": "uitouestfrancilien@iledefrance.cfdt.fr"
+      },
+      {
+        "label": "UD 972",
+        "email": "sdpcdm-cfdt@orange.fr"
+      },
+      {
+        "label": "UD 973",
+        "email": "cdtg-cfdt@wanadoo.fr"
+      },
+      {
+        "label": "UD 974",
+        "email": "uir-cfdt@wanadoo.fr"
+      },
+      {
+        "label": "UD 975",
+        "email": "cfdt.spm@cheznoo.net"
+      },
+      {
+        "label": "UD 976",
+        "email": "cisma3@wanadoo.fr"
+      }
+    ]
+  },
+  "CFE-CGC": {
+    "national": "pap@cfecgc.fr",
+    "sections": [
+      {
+        "label": "Confédération Française de l'Encadrement-Confédération Générale des Cadres",
+        "email": "pap@cfecgc.fr"
+      },
+      {
+        "label": "Institutions de Prévoyance et de Retraite Complémentaire et Régimes des TNS",
+        "email": "iprc@cfecgc.fr"
+      },
+      {
+        "label": "Fédération des Métiers des Casinos, Restauration Collective et Rapide, Hôtellerie, Cafés, Restaurants, Loisirs & Sports",
+        "email": "fd@cfecgc-inova.fr"
+      },
+      {
+        "label": "Chambre Syndicale Nationale des Forces de vente",
+        "email": "csn@cfecgc.fr"
+      },
+      {
+        "label": "Syndicat National de l'Entreprise Crédit Agricole",
+        "email": "contact@sneca.fr"
+      },
+      {
+        "label": "Fédération de l'Eau et Assainissement",
+        "email": "fdea@cfecgc.fr"
+      },
+      {
+        "label": "FÉDÉRATION DE LA CULTURE, COMMUNICATION & SPECTACLE",
+        "email": "communication@cfecgc.fr"
+      },
+      {
+        "label": "Fédération Santé social",
+        "email": "federation@cfecgc-santesocial.fr"
+      },
+      {
+        "label": "Fédération nationale  Transports",
+        "email": "transports@cfecgc.fr"
+      },
+      {
+        "label": "Fédération Sécurité sociale",
+        "email": "securitesociale@cfecgc.fr"
+      },
+      {
+        "label": "Syndicat National de la Banque et du Crédit",
+        "email": "contact@snb-services.org"
+      },
+      {
+        "label": "FÉDÉRATION ENCADREMENT MINES",
+        "email": "fnem.cfecgc@orange.fr"
+      },
+      {
+        "label": "FÉDÉRATION ENERMINE",
+        "email": "enermine@cfecgc.fr"
+      },
+      {
+        "label": "FÉDÉRATION DES METIERS DE L'AERIEN",
+        "email": "fnema.cfecgc@gmail.com"
+      },
+      {
+        "label": "FÉDÉRATION MÉTALLURGIE",
+        "email": "federation@metallurgie-cfecgc.com"
+      },
+      {
+        "label": "FÉDÉRATION MEDIAS 2000",
+        "email": "jacques.larose@francetv.fr"
+      },
+      {
+        "label": "Fédération Services Publics",
+        "email": "fonctions.publiques@cfecgc.org"
+      },
+      {
+        "label": "Fédération Nationale Encadrement Commerce Services",
+        "email": "commerceservices@cfecgc.fr"
+      },
+      {
+        "label": "Fédération  ENERGIES",
+        "email": "contact@cfe-energies.com"
+      },
+      {
+        "label": "FÉDÉRATION NATIONALE DU PERSONNEL DE L'ENCADREMENT DES SOCIETES DE SERVICE INFORMATIQUE",
+        "email": "contact@fieci-cgc.com"
+      },
+      {
+        "label": "GROUPEMENT FÉDÉRAL PLURI-PROFESSIONNEL",
+        "email": "gfpp@cfecgc.fr"
+      },
+      {
+        "label": "Fédération CFE CGC de la Chimie",
+        "email": "secretariat@cfecgc-chimie.org"
+      },
+      {
+        "label": "Fédération CFE CGC de la Construction",
+        "email": "construction@cfecgc.fr"
+      },
+      {
+        "label": "Fédération CFE CGC d l'assurance et de l'assistance",
+        "email": "federation@assuance-cfecgc.fr"
+      },
+      {
+        "label": "Fédération CFE CGC de l'Agro-alimentaire",
+        "email": "agro@cfecgcagro.fr"
+      },
+      {
+        "label": "UD 01",
+        "email": "ud01@cfecgc.fr"
+      },
+      {
+        "label": "UD 02",
+        "email": "ud02@cfecgc.fr"
+      },
+      {
+        "label": "UD 03",
+        "email": "ud03@cfecgc.fr"
+      },
+      {
+        "label": "UD 04",
+        "email": "ud04@cfecgc.fr"
+      },
+      {
+        "label": "UD 05",
+        "email": "ud05@cfecgc.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "ud06@cfecgc.fr"
+      },
+      {
+        "label": "UD 07",
+        "email": "ud07@cfecgc.fr"
+      },
+      {
+        "label": "UD 08",
+        "email": "ud08@cfecgc.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "ud09@cfecgc.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "ud10@cfecgc.fr"
+      },
+      {
+        "label": "UD 11",
+        "email": "ud11@cfecgc.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "ud12@cfecgc.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "ud13@cfecgc.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "ud14@cfecgc.fr"
+      },
+      {
+        "label": "UD 15",
+        "email": "ud15@cfecgc.fr"
+      },
+      {
+        "label": "UD 16",
+        "email": "ud16@cfecgc.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "ud17@cfecgc.fr"
+      },
+      {
+        "label": "UD 18",
+        "email": "ud18@cfecgc.fr"
+      },
+      {
+        "label": "UD 19",
+        "email": "ud19@cfecgc.fr"
+      },
+      {
+        "label": "Corse du Sud (2A)",
+        "email": "ud20a@cfecgc.fr"
+      },
+      {
+        "label": "Haute Corse (2B)",
+        "email": "ud20b@cfecgc.fr"
+      },
+      {
+        "label": "UD 21",
+        "email": "ud21@cfecgc.fr"
+      },
+      {
+        "label": "UD 22",
+        "email": "ud22@cfecgc.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "ud23@cfecgc.fr"
+      },
+      {
+        "label": "UD 24",
+        "email": "ud24@cfecgc.fr"
+      },
+      {
+        "label": "UD 25",
+        "email": "ud25@cfecgc.fr"
+      },
+      {
+        "label": "UD 26",
+        "email": "ud26@cfecgc.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "ud27@cfecgc.fr"
+      },
+      {
+        "label": "UD 28",
+        "email": "ud28@cfecgc.fr"
+      },
+      {
+        "label": "UD 29",
+        "email": "ud29@cfecgc.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "ud30@cfecgc.fr"
+      },
+      {
+        "label": "UD 31",
+        "email": "ud31@cfecgc.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "ud32@cfecgc.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "ud33@cfecgc.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "ud34@cfecgc.fr"
+      },
+      {
+        "label": "UD 35",
+        "email": "ud35@cfecgc.fr"
+      },
+      {
+        "label": "UD 36",
+        "email": "ud36@cfecgc.fr"
+      },
+      {
+        "label": "UD 37",
+        "email": "ud37@cfecgc.fr"
+      },
+      {
+        "label": "UD 38",
+        "email": "ud38@cfecgc.fr"
+      },
+      {
+        "label": "UD 39",
+        "email": "ud39@cfecgc.fr"
+      },
+      {
+        "label": "UD 40",
+        "email": "ud40@cfecgc.fr"
+      },
+      {
+        "label": "UD 41",
+        "email": "ud41@cfecgc.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "ud42@cfecgc.fr"
+      },
+      {
+        "label": "UD 43",
+        "email": "ud43@cfecgc.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "ud44@cfecgc.fr"
+      },
+      {
+        "label": "UD 45",
+        "email": "ud45@cfecgc.fr"
+      },
+      {
+        "label": "UD 46",
+        "email": "ud46@cfecgc.fr"
+      },
+      {
+        "label": "UD 47",
+        "email": "ud47@cfecgc.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "ud49@cfecgc.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "ud50@cfecgc.fr"
+      },
+      {
+        "label": "UD 51",
+        "email": "ud51@cfecgc.fr"
+      },
+      {
+        "label": "UD 52",
+        "email": "ud52@cfecgc.fr"
+      },
+      {
+        "label": "UD 53",
+        "email": "ud53@cfecgc.fr"
+      },
+      {
+        "label": "UD 54",
+        "email": "ud54@cfecgc.fr"
+      },
+      {
+        "label": "UD 55",
+        "email": "ud55@cfecgc.fr"
+      },
+      {
+        "label": "UD 56",
+        "email": "ud56@cfecgc.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "ud57@cfecgc.fr"
+      },
+      {
+        "label": "UD 58",
+        "email": "ud58@cfecgc.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "ud59@cfecgc.fr"
+      },
+      {
+        "label": "UD 60",
+        "email": "ud60@cfecgc.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "ud61@cfecgc.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "cfecgc-ud62@wanadoo.fr"
+      },
+      {
+        "label": "UD 63",
+        "email": "ud63@cfecgc.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "ud64@cfecgc.fr"
+      },
+      {
+        "label": "UD 65",
+        "email": "ud65@cfecgc.fr"
+      },
+      {
+        "label": "UD 66",
+        "email": "ud66@cfecgc.fr"
+      },
+      {
+        "label": "UD 67",
+        "email": "ud67@cfecgc.fr"
+      },
+      {
+        "label": "UD 68",
+        "email": "ud68@cfecgc.fr"
+      },
+      {
+        "label": "UD 69",
+        "email": "ud69@cfecgc.fr"
+      },
+      {
+        "label": "UD 70",
+        "email": "ud70@cfecgc.fr"
+      },
+      {
+        "label": "UD 71",
+        "email": "ud71@cfecgc.fr"
+      },
+      {
+        "label": "UD 72",
+        "email": "ud72@cfecgc.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "ud73@cfecgc.fr"
+      },
+      {
+        "label": "UD 74",
+        "email": "ud74@cfecgc.fr"
+      },
+      {
+        "label": "UD 75",
+        "email": "ud75@cfecgc.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "ud76@cfecgc.fr"
+      },
+      {
+        "label": "UD 77",
+        "email": "ud77@cfecgc.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "ud78@cfecgc.fr"
+      },
+      {
+        "label": "UD 79",
+        "email": "ud79@cfecgc.fr"
+      },
+      {
+        "label": "UD 80",
+        "email": "ud80@cfecgc.fr"
+      },
+      {
+        "label": "UD 81",
+        "email": "ud81@cfecgc.fr"
+      },
+      {
+        "label": "UD 82",
+        "email": "ud82@cfecgc.fr"
+      },
+      {
+        "label": "UD 83",
+        "email": "ud83@cfecgc.fr"
+      },
+      {
+        "label": "UD 84",
+        "email": "ud84@cfecgc.fr"
+      },
+      {
+        "label": "UD 85",
+        "email": "ud85@cfecgc.fr"
+      },
+      {
+        "label": "UD 86",
+        "email": "ud86@cfecgc.fr"
+      },
+      {
+        "label": "UD 87",
+        "email": "ud87@cfecgc.fr"
+      },
+      {
+        "label": "UD 88",
+        "email": "ud88@cfecgc.fr"
+      },
+      {
+        "label": "UD 89",
+        "email": "ud89@cfecgc.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "ud90@cfecgc.fr"
+      },
+      {
+        "label": "UD 91",
+        "email": "ud91@cfecgc.fr"
+      },
+      {
+        "label": "UD 92",
+        "email": "ud92@cfecgc.fr"
+      },
+      {
+        "label": "UD 93",
+        "email": "ud93@cfecgc.fr"
+      },
+      {
+        "label": "UD 94",
+        "email": "ud94@cfecgc.fr"
+      },
+      {
+        "label": "UD 95",
+        "email": "ud95@cfecgc.fr"
+      }
+    ]
+  },
+  "CFTC": {
+    "national": "organisation@cftc.fr",
+    "sections": [
+      {
+        "label": "Confédération Française des Travailleurs Chrétiens (Confédération)",
+        "email": "organisation@cftc.fr"
+      },
+      {
+        "label": "UD 01",
+        "email": "cftc-ud-ain@orange.fr"
+      },
+      {
+        "label": "UD 02",
+        "email": "cftcud02@orange.fr"
+      },
+      {
+        "label": "UD 03",
+        "email": "cftc.vichy@cegetel.net"
+      },
+      {
+        "label": "UD 04",
+        "email": "uidalpes@cftc13.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "cftc-ud06@orange.fr"
+      },
+      {
+        "label": "UD 07",
+        "email": "cftc260743@gmail.com"
+      },
+      {
+        "label": "UD 08",
+        "email": "udcftc08@wanadoo.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "ud09cftc@sfr.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "udcftc10@orange.fr"
+      },
+      {
+        "label": "UD 11",
+        "email": "cftcud11@wanadoo.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "cftc12@wanadoo.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "ud13@cftc13.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "cftcudcalvados14@orange.fr"
+      },
+      {
+        "label": "UD 15",
+        "email": "ud16cftc@orange.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "cftc17@sfr.fr"
+      },
+      {
+        "label": "UD 18",
+        "email": "cftccentre@wanadoo.fr"
+      },
+      {
+        "label": "UD 19",
+        "email": "udcftc19@free.fr"
+      },
+      {
+        "label": "UD 21",
+        "email": "cftc.ud21@wanadoo.fr"
+      },
+      {
+        "label": "UD 22",
+        "email": "udcftc22@orange.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "ud-ur.cftclimousin@laposte.net"
+      },
+      {
+        "label": "UD 24",
+        "email": "pr.udcftc.49@orange.fr"
+      },
+      {
+        "label": "UD 25",
+        "email": "uddudoubs@cftcfranchecomte.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "cftc.ud27@cftcnormandie.com"
+      },
+      {
+        "label": "UD 29",
+        "email": "ud29@cftc.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "uid.cftc30-48@orange.fr"
+      },
+      {
+        "label": "UD 31",
+        "email": "ud31@cftc-occitanie.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "cftcud65@orange.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "ud-cftc-gironde@wanadoo.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "ud34.cftc@free.fr"
+      },
+      {
+        "label": "UD 35",
+        "email": "cftc35000@gmail.fr"
+      },
+      {
+        "label": "UD 38",
+        "email": "contact@ud38-cftc.fr"
+      },
+      {
+        "label": "UD 39",
+        "email": "cftc-ud39@wanadoo.fr"
+      },
+      {
+        "label": "UD 40",
+        "email": "ud-cftc-40mdm@orange.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "udcftc.loire@orange.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "secretariat.ud@cftc44.org"
+      },
+      {
+        "label": "UD 46",
+        "email": "cftcundep46@gmail.com"
+      },
+      {
+        "label": "UD 47",
+        "email": "udcftc.47@orange.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "ud50cftcmanche@gmail.com"
+      },
+      {
+        "label": "UD 51",
+        "email": "cftc51@orange.fr"
+      },
+      {
+        "label": "UD 52",
+        "email": "ud.cftc52@wanadoo.fr"
+      },
+      {
+        "label": "UD 53",
+        "email": "udcftc53@gmail.com"
+      },
+      {
+        "label": "UD 54",
+        "email": "ud54cftc@gmail.com"
+      },
+      {
+        "label": "UD 55",
+        "email": "udcftc55@free.fr"
+      },
+      {
+        "label": "UD 56",
+        "email": "tresorier.ud56cftc@gmail.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "ud@cftc57.fr"
+      },
+      {
+        "label": "UD 58",
+        "email": "udcftcnievre@ovh.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "secretariat@cftc-nord.fr"
+      },
+      {
+        "label": "UD 60",
+        "email": "ud60@cftc.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "udcftc-orne@orange.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "udcftc62@orange.fr"
+      },
+      {
+        "label": "UD 63",
+        "email": "cftcud63@orange.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "cftc64@gmail.com"
+      },
+      {
+        "label": "UD 66",
+        "email": "cftcud66@gmail.com"
+      },
+      {
+        "label": "UD 67",
+        "email": "syndicat@cftc-67.fr"
+      },
+      {
+        "label": "UD 68",
+        "email": "accueil@cftc68.fr"
+      },
+      {
+        "label": "UD 69",
+        "email": "udcftc69@gmail.com"
+      },
+      {
+        "label": "UD 70",
+        "email": "ud70cftc@gmail.com"
+      },
+      {
+        "label": "UD 72",
+        "email": "ud-cftc72@orange.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "contact@cftc-ud73.fr"
+      },
+      {
+        "label": "UD 74",
+        "email": "cftc74ud@gmail.com"
+      },
+      {
+        "label": "UD 75",
+        "email": "accueil@cftc-paris.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "ud76.syndicatcftc@gmail.com"
+      },
+      {
+        "label": "UD 77",
+        "email": "udcftc77@cftc77.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "ud78.cftc@orange.fr"
+      },
+      {
+        "label": "UD 79",
+        "email": "uid7986@cftc.fr"
+      },
+      {
+        "label": "UD 80",
+        "email": "cftc80@orange.fr"
+      },
+      {
+        "label": "UD 81",
+        "email": "cftc81@gmail.com"
+      },
+      {
+        "label": "UD 82",
+        "email": "cftc.ud82@sfr.fr"
+      },
+      {
+        "label": "UD 83",
+        "email": "cftcvar@gmail.com"
+      },
+      {
+        "label": "UD 84",
+        "email": "cftc.ud84@free.fr"
+      },
+      {
+        "label": "UD 85",
+        "email": "cftc85ud@gmail.com"
+      },
+      {
+        "label": "UD 88",
+        "email": "ud.cftc.88@wanadoo.fr"
+      },
+      {
+        "label": "UD 89",
+        "email": "syndicatcftcyonne@free.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "UD90@CFTC.FR"
+      },
+      {
+        "label": "UD 92",
+        "email": "contact@cftc92.fr"
+      },
+      {
+        "label": "UD 93",
+        "email": "udcftc93@wanadoo.fr"
+      },
+      {
+        "label": "UD 94",
+        "email": "contact@cftc94.fr"
+      },
+      {
+        "label": "UD 95",
+        "email": "cftcud95@gmail.com"
+      },
+      {
+        "label": "UD 973",
+        "email": "president@cftc-guyane.fr"
+      },
+      {
+        "label": "UD 975",
+        "email": "cormierjac@yahoo.fr"
+      }
+    ]
+  },
+  "CGT": {
+    "national": "site@cgt.org",
+    "sections": [
+      {
+        "label": "Fédération CGT agro-alimentaire et forestière",
+        "email": "fnaf@fnaf.cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des travailleurs cadres et techniciens des chemins de fer",
+        "email": "coord@cheminotcgt.fr"
+      },
+      {
+        "label": "Fédération CGT des industries chimiques",
+        "email": "fnic@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des personnels du commerce de la distribution et des services",
+        "email": "fd.commerce.services@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des salariés de la construction, du bois et de l'ameublement",
+        "email": "construction@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT de l'équipement et de l'environnement",
+        "email": "fd.equipement@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des salariés du secteur des activités postales et télécom.",
+        "email": "fede@cgt-fapt.fr"
+      },
+      {
+        "label": "Fédération CGT de l'éducation, de la recherche et de la culture",
+        "email": "ferc@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des travailleurs des indus. du livre, du papier et de la communication",
+        "email": "filpac@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des finances",
+        "email": "contact@cgtfinances.fr"
+      },
+      {
+        "label": "Fédération CGT des mines et de l'énergie",
+        "email": "fnme@fnme-cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des syndicats du personnel de la banque et de l'assurance",
+        "email": "fspba@cgt.fr"
+      },
+      {
+        "label": "Union Syndicale CGT de l'interim",
+        "email": "contact@usi.cgt.fr"
+      },
+      {
+        "label": "Syndicat national des journalistes CGT",
+        "email": "snj@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des syndicats maritimes",
+        "email": "fnsm@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des travailleurs de la métallurgie",
+        "email": "metaux@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des personnels des organismes sociaux",
+        "email": "fede@orgasociaux.cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des officiers de la marine marchande",
+        "email": "fedeoffmarmarugict.cgt@orange.fr"
+      },
+      {
+        "label": "Fédération CGT des ports et docks",
+        "email": "portsetdocks-cgt@wanadoo.fr"
+      },
+      {
+        "label": "Fédération CGT de la santé et de l'action sociale",
+        "email": "com@sante.cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des services publics",
+        "email": "fdsp@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des sociétés d'etude, de conseil et de prévention",
+        "email": "fsetud@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT audio-visuel spectacle",
+        "email": "cgtspectacle@fnsac-cgt.com"
+      },
+      {
+        "label": "Fédération CGT textile habillement cuir blanchisserie",
+        "email": "thc@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des syndicats de transports",
+        "email": "fede@transports.cgt.fr"
+      },
+      {
+        "label": "Union fédérale des syndicats CGT de l'Etat",
+        "email": "ufse@cgt.fr"
+      },
+      {
+        "label": "Fédération CGT des travailleurs du verre et de la céramique",
+        "email": "ver-ceram@cgt.fr"
+      },
+      {
+        "label": "UD 01",
+        "email": "ud1@cgt.fr"
+      },
+      {
+        "label": "UD 02",
+        "email": "ud2@cgt.fr"
+      },
+      {
+        "label": "UD 03",
+        "email": "ud3@cgt.fr"
+      },
+      {
+        "label": "UD 04",
+        "email": "union.cgt.ahp@wanadoo.fr"
+      },
+      {
+        "label": "UD 05",
+        "email": "ud5@cgt.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "ud@cgt06.fr"
+      },
+      {
+        "label": "UD 07",
+        "email": "ud07@cgtardeche.org"
+      },
+      {
+        "label": "UD 08",
+        "email": "08ardennes.cgt@wanadoo.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "udcgt.09@orange.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "udcgt10@gmail.com"
+      },
+      {
+        "label": "UD 11",
+        "email": "ud.cgt.aude@wanadoo.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "ud.cgt.aveyron@wanadoo.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "ud-cgt-13@wanadoo.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "cgt.14@wanadoo.fr"
+      },
+      {
+        "label": "UD 15",
+        "email": "ud15@cgt.fr"
+      },
+      {
+        "label": "UD 16",
+        "email": "ud-cgt16@orange.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "ud-cgt.17@wanadoo.fr"
+      },
+      {
+        "label": "UD 18",
+        "email": "cher.cgt@gmail.com"
+      },
+      {
+        "label": "UD 19",
+        "email": "ud19@cgt.fr"
+      },
+      {
+        "label": "Corse du Sud (2A)",
+        "email": "ud20a@cgt.fr"
+      },
+      {
+        "label": "Haute Corse (2B)",
+        "email": "udcgt20b@orange.fr"
+      },
+      {
+        "label": "UD 21",
+        "email": "ud.cgt21@wanadoo.fr"
+      },
+      {
+        "label": "UD 22",
+        "email": "accueil@udcgt22.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "udcgt23@wanadoo.fr"
+      },
+      {
+        "label": "UD 24",
+        "email": "udcgt.24@wanadoo.fr"
+      },
+      {
+        "label": "UD 25",
+        "email": "sg.cgtdoubs@gmail.com"
+      },
+      {
+        "label": "UD 26",
+        "email": "ud@cgt26.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "cgteure@orange.fr"
+      },
+      {
+        "label": "UD 28",
+        "email": "ud28@cgt.fr"
+      },
+      {
+        "label": "UD 29",
+        "email": "ud29@cgt.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "ud30@cgt.fr"
+      },
+      {
+        "label": "UD 31",
+        "email": "ud@cgt31.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "cgt.gers@wanadoo.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "ud@cgt-gironde.org"
+      },
+      {
+        "label": "UD 34",
+        "email": "ud34@cgt.fr"
+      },
+      {
+        "label": "UD 35",
+        "email": "ud35@cgt.fr"
+      },
+      {
+        "label": "UD 36",
+        "email": "ud36@cgt.fr"
+      },
+      {
+        "label": "UD 37",
+        "email": "ud37@cgt.fr"
+      },
+      {
+        "label": "UD 38",
+        "email": "accueil@cgtisere.org"
+      },
+      {
+        "label": "UD 39",
+        "email": "ud39@cgt.fr"
+      },
+      {
+        "label": "UD 40",
+        "email": "ud40@cgt.fr"
+      },
+      {
+        "label": "UD 41",
+        "email": "udcgt41@orange.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "ud42@cgt.fr"
+      },
+      {
+        "label": "UD 43",
+        "email": "ud43@cgt.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "ud44@cgt.fr"
+      },
+      {
+        "label": "UD 45",
+        "email": "secretariat@udcgtloiret.fr"
+      },
+      {
+        "label": "UD 46",
+        "email": "ud46@cgt.fr"
+      },
+      {
+        "label": "UD 47",
+        "email": "contact@udcgt47.fr"
+      },
+      {
+        "label": "UD 48",
+        "email": "ud48@cgt.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "ud49@cgt.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "udcgt50@orange.fr"
+      },
+      {
+        "label": "UD 51",
+        "email": "ud51@cgt.fr"
+      },
+      {
+        "label": "UD 52",
+        "email": "ud52@cgt.fr"
+      },
+      {
+        "label": "UD 53",
+        "email": "cgt-mayenne@wanadoo.fr"
+      },
+      {
+        "label": "UD 54",
+        "email": "secretariat@cgt-ud54.fr"
+      },
+      {
+        "label": "UD 55",
+        "email": "ud55@cgt.fr"
+      },
+      {
+        "label": "UD 56",
+        "email": "ud56@cgt.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "ud57@cgt.fr"
+      },
+      {
+        "label": "UD 58",
+        "email": "udcgtnievre@orange.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "coordination@cgt59.fr"
+      },
+      {
+        "label": "UD 60",
+        "email": "ud60@cgt.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "udcgt.61@wanadoo.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "ud62@cgt.fr"
+      },
+      {
+        "label": "UD 63",
+        "email": "ud@cgt63.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "cgt.64@wanadoo.fr"
+      },
+      {
+        "label": "UD 65",
+        "email": "ud65@cgt.fr"
+      },
+      {
+        "label": "UD 66",
+        "email": "udcgt66@wanadoo.fr"
+      },
+      {
+        "label": "UD 67",
+        "email": "ud67@cgt67.com"
+      },
+      {
+        "label": "UD 68",
+        "email": "ud68@cgt.fr"
+      },
+      {
+        "label": "UD 69",
+        "email": "ud69@cgt.fr"
+      },
+      {
+        "label": "UD 70",
+        "email": "ud-cgt70@wanadoo.fr"
+      },
+      {
+        "label": "UD 71",
+        "email": "ud71@cgt.fr"
+      },
+      {
+        "label": "UD 72",
+        "email": "ud-cgt72@wanadoo.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "ud73@cgt.fr"
+      },
+      {
+        "label": "UD 74",
+        "email": "cgt.haute-savoie@wanadoo.fr"
+      },
+      {
+        "label": "UD 75",
+        "email": "accueil@cgtparis.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "ud76@cgt.fr"
+      },
+      {
+        "label": "UD 77",
+        "email": "udcgt77@wanadoo.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "ud78@cgt.fr"
+      },
+      {
+        "label": "UD 79",
+        "email": "ud79@cgt.fr"
+      },
+      {
+        "label": "UD 80",
+        "email": "cgtsomme@orange.fr"
+      },
+      {
+        "label": "UD 81",
+        "email": "ud.cgt.tarn@wanadoo.fr"
+      },
+      {
+        "label": "UD 82",
+        "email": "secretariat@ud-cgt82.fr"
+      },
+      {
+        "label": "UD 83",
+        "email": "ud83@cgt.fr"
+      },
+      {
+        "label": "UD 84",
+        "email": "ud84@cgt.fr"
+      },
+      {
+        "label": "UD 85",
+        "email": "la.cgt.85@gmail.com"
+      },
+      {
+        "label": "UD 86",
+        "email": "ud86.cgt@orange.fr"
+      },
+      {
+        "label": "UD 87",
+        "email": "ud87@cgt.fr"
+      },
+      {
+        "label": "UD 88",
+        "email": "udcgt.vosges@wanadoo.fr"
+      },
+      {
+        "label": "UD 89",
+        "email": "ud89@cgt.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "ud90@cgt.fr"
+      },
+      {
+        "label": "UD 91",
+        "email": "ud91@cgt.fr"
+      },
+      {
+        "label": "UD 92",
+        "email": "cgt.ud92@wanadoo.fr"
+      },
+      {
+        "label": "UD 93",
+        "email": "contact@cgt93.fr"
+      },
+      {
+        "label": "UD 94",
+        "email": "infos@cgt94.fr"
+      },
+      {
+        "label": "UD 95",
+        "email": "ud@cgt95.fr"
+      }
+    ]
+  },
+  "CGT-FO": {
+    "national": "secretariatnego@force-ouvriere.fr",
+    "sections": [
+      {
+        "label": "Fédération FO Action Sociale",
+        "email": "lafnas@fnasfo.fr"
+      },
+      {
+        "label": "Fédération FO Administration Générale de l'Etat",
+        "email": "contact@fagefo.fr"
+      },
+      {
+        "label": "Fédération FO Bâtiment, travaux publics, bois, céramique, papier carton …",
+        "email": "franckserra@wanadoo.fr"
+      },
+      {
+        "label": "Fédération FO Cheminots",
+        "email": "federation@fo-cheminots.fr"
+      },
+      {
+        "label": "Fédération FO Industries chimiques",
+        "email": "secretariat@fedechimie-fo.fr"
+      },
+      {
+        "label": "Fédération FO Communication (Postes et télécommunications)",
+        "email": "secgen@fo-communication.fr"
+      },
+      {
+        "label": "Fédération FO Défense (Défense, industries de l'armement)",
+        "email": "secretariat@fodefense.fr"
+      },
+      {
+        "label": "Fédération FO Employés Cadres",
+        "email": "fecfo@force-ouvriere.fr"
+      },
+      {
+        "label": "Fédération FO Énergie et mines",
+        "email": "secretariat.general@fnem-fo.org"
+      },
+      {
+        "label": "Fédération FO Enseignement, culture et Formation professionnelle",
+        "email": "fnecfp@fo-fnecfp.fr"
+      },
+      {
+        "label": "Fédération FO Equipement Environnement Transports Services",
+        "email": "contact@feetsfo.fr"
+      },
+      {
+        "label": "Fédération FO Agriculture, alimentation, tabacs et activités annexes",
+        "email": "fgtafo@fgta-fo.org"
+      },
+      {
+        "label": "Fédération FO des syndicats des Arts et Spectacles, de l'Audiovisuel, de la Presse…",
+        "email": "contact@fasap-fo.fr"
+      },
+      {
+        "label": "Fédération FO Finances",
+        "email": "fo.finances@orange.fr"
+      },
+      {
+        "label": "Fédération FO Cadres / UCI (Union des cadres et ingénieurs)",
+        "email": "secretariat@fo-cadres.fr"
+      },
+      {
+        "label": "Fédération FO Fonctionnaires",
+        "email": "secretariat@fo-fonctionnaires.fr"
+      },
+      {
+        "label": "Fédération FO de syndicats du Ministère de l'Intérieur",
+        "email": "contact@un1te.fr"
+      },
+      {
+        "label": "Fédération FO du Livre",
+        "email": "livre.fo@fo-communication.fr"
+      },
+      {
+        "label": "Fédération FO Métaux",
+        "email": "contact@fo-metaux.fr"
+      },
+      {
+        "label": "Fédération FO Pharmacie (Pharmacie, LabM, Cuirs et Habillement)",
+        "email": "secretariat@fo-pharma-cuir-habillement.com"
+      },
+      {
+        "label": "Fédération FO Services publics et de santé",
+        "email": "fo.sante-sociaux@fosps.com"
+      },
+      {
+        "label": "Fédération FO Transports et logistique",
+        "email": "patrice.clos@fo-transports.com"
+      },
+      {
+        "label": "UD 01",
+        "email": "udfo01@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 02",
+        "email": "udfo02@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 03",
+        "email": "udfo03@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 04",
+        "email": "udfo04@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 05",
+        "email": "udfo05@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "udfo06@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 07",
+        "email": "udfo26@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 08",
+        "email": "udfo08@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "udfo09@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "udfo10@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 11",
+        "email": "udfo11@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "udfo12@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "udfo13@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "udfo14@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 15",
+        "email": "udfo15@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 16",
+        "email": "udfo16@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "udfo17@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 18",
+        "email": "udfo18@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 19",
+        "email": "udfo19@force-ouvriere.fr"
+      },
+      {
+        "label": "Corse du Sud (2A)",
+        "email": "udfo2a@force-ouvriere.fr"
+      },
+      {
+        "label": "Haute Corse (2B)",
+        "email": "udfo20b@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 21",
+        "email": "udfo21@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 22",
+        "email": "udfo22@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "udfo23@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 24",
+        "email": "udfo24@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 25",
+        "email": "udfo25@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "udfo27@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 28",
+        "email": "udfo28@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 29",
+        "email": "udfo29@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "udfo30@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 31",
+        "email": "udfo31@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "udfo32@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "udfo33@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "udfo34@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 35",
+        "email": "udfo35@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 36",
+        "email": "udfo36@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 37",
+        "email": "udfo37@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 38",
+        "email": "udfo38@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 39",
+        "email": "udfo39@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 40",
+        "email": "udfo40@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 41",
+        "email": "udfo41@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "udfo42@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 43",
+        "email": "udfo43@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "udfo44@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 45",
+        "email": "udfo45@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 46",
+        "email": "udfo46@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 47",
+        "email": "udfo47@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 48",
+        "email": "udfo48@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "udfo49@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 50",
+        "email": "udfo50@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 51",
+        "email": "udfo51@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 52",
+        "email": "udfo52@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 53",
+        "email": "udfo53@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 54",
+        "email": "udfo54@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 55",
+        "email": "udfo55@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 56",
+        "email": "udfo56@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "udfo57@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 58",
+        "email": "udfo58@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "udfo59@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 60",
+        "email": "udfo60@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 61",
+        "email": "udfo61@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 62",
+        "email": "udfo62@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 63",
+        "email": "udfo63@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 64",
+        "email": "udfo64@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 65",
+        "email": "udfo65@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 66",
+        "email": "udfo66@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 67",
+        "email": "udfo67@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 68",
+        "email": "udfo68@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 69",
+        "email": "udfo69@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 70",
+        "email": "udfo70@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 71",
+        "email": "udfo71@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 72",
+        "email": "udfo72@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "udfo73@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 74",
+        "email": "udfo74@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 75",
+        "email": "udfo75@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "udfo76@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 77",
+        "email": "udfo77@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "udfo78@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 79",
+        "email": "udfo79@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 80",
+        "email": "udfo80@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 81",
+        "email": "udfo81@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 82",
+        "email": "udfo82@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 83",
+        "email": "udfo83@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 84",
+        "email": "udfo84@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 85",
+        "email": "udfo85@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 86",
+        "email": "udfo86@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 87",
+        "email": "udfo87@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 88",
+        "email": "udfo88@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 89",
+        "email": "udfo89@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "udfo90@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 91",
+        "email": "udfo91@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 92",
+        "email": "udfo92@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 93",
+        "email": "udfo93@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 94",
+        "email": "udfo94@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 95",
+        "email": "udfo95@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 972",
+        "email": "udfomartinique@wanadoo.fr"
+      },
+      {
+        "label": "UD 973",
+        "email": "udfo973@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 975",
+        "email": "udfo975@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 976",
+        "email": "udfo976@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 986",
+        "email": "utfo986@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 987",
+        "email": "cstpfo987@force-ouvriere.fr"
+      },
+      {
+        "label": "UD 988",
+        "email": "cstcfo988@force-ouvriere.fr"
+      }
+    ]
+  },
+  "Solidaires": {
+    "national": "contact@solidaires.org",
+    "sections": [
+      {
+        "label": "Union Syndicale SUD Education",
+        "email": "contact@solidaires.org"
+      },
+      {
+        "label": "Union Syndicale SUD Industrie",
+        "email": "permanence@ussi.fr"
+      },
+      {
+        "label": "SUD Culture et Médias Solidaires",
+        "email": "contact@sud-culture.org"
+      },
+      {
+        "label": "SNJ - Syndicat National des Journalistes",
+        "email": "snj@snj.fr"
+      },
+      {
+        "label": "SUD PTT",
+        "email": "bf@sudptt.fr"
+      },
+      {
+        "label": "SUD Commerces & Services - Solidaires",
+        "email": "fdsudcommerce@yahoo.fr"
+      },
+      {
+        "label": "SUD AERIEN",
+        "email": "sudaf@wanadoo.fr"
+      },
+      {
+        "label": "SUD Autoroutes",
+        "email": "sudautoroutes@gmail.com"
+      },
+      {
+        "label": "SUD-Rail",
+        "email": "sud.rail.federation@gmail.com"
+      },
+      {
+        "label": "SUD Santé sociaux",
+        "email": "contact@sudsantesociaux.org"
+      },
+      {
+        "label": "Syndicat ASSO Solidaires - Action pour les salariés du secteur associatif",
+        "email": "contact@syndicat-asso.fr"
+      },
+      {
+        "label": "SUD CAM Crédit Agricole Mutuel",
+        "email": "jysalvat@yahoo.fr"
+      },
+      {
+        "label": "SUD-Solidaires Banque Populaire Caisses d'Epargne",
+        "email": "sudbpce@gmail.com"
+      },
+      {
+        "label": "SUD Solidaires  Prévention Sécurité",
+        "email": "sudsolidairespreventionsecu@gmail.com"
+      },
+      {
+        "label": "Solidaires Assurances Assistance",
+        "email": "solidaires.assurancesassistance@yahoo.fr"
+      },
+      {
+        "label": "Syndicat des travailleurs et travailleuses de la Confédération paysanne et organismes",
+        "email": "stcpoa@yahoo.fr"
+      },
+      {
+        "label": "UD 01",
+        "email": "solidaires.ain@mailo.com"
+      },
+      {
+        "label": "UD 02",
+        "email": "bureausolidaires02@framalistes.org"
+      },
+      {
+        "label": "UD 03",
+        "email": "contact@solidaires03.org"
+      },
+      {
+        "label": "UD 04",
+        "email": "solidaires04@lilo.org"
+      },
+      {
+        "label": "UD 05",
+        "email": "solidaires-05@orange.fr"
+      },
+      {
+        "label": "UD 06",
+        "email": "solidaires.06@laposte.net"
+      },
+      {
+        "label": "UD 07",
+        "email": "solidaires0726@no-log.org"
+      },
+      {
+        "label": "UD 08",
+        "email": "solidaires08@free.fr"
+      },
+      {
+        "label": "UD 09",
+        "email": "solidaires09@free.fr"
+      },
+      {
+        "label": "UD 10",
+        "email": "solidaires10@gmail.com"
+      },
+      {
+        "label": "UD 11",
+        "email": "sud.solidairesaude@orange.fr"
+      },
+      {
+        "label": "UD 12",
+        "email": "solidaires12@orange.fr"
+      },
+      {
+        "label": "UD 13",
+        "email": "solidaires.13@orange.fr"
+      },
+      {
+        "label": "UD 14",
+        "email": "solidaires.calvados@solidaires14.org"
+      },
+      {
+        "label": "UD 15",
+        "email": "solidaires.cantal@laposte.net"
+      },
+      {
+        "label": "UD 16",
+        "email": "solidaires16@wanadoo.fr"
+      },
+      {
+        "label": "UD 17",
+        "email": "solidaires.saintes@laposte.net"
+      },
+      {
+        "label": "UD 18",
+        "email": "solidaires18@orange.fr"
+      },
+      {
+        "label": "UD 19",
+        "email": "solidairescorreze@etik.com"
+      },
+      {
+        "label": "UD 21",
+        "email": "contact@solidaires21.org"
+      },
+      {
+        "label": "UD 22",
+        "email": "solidaires22@orange.fr"
+      },
+      {
+        "label": "UD 23",
+        "email": "charles.bertheau@libertysurf.fr"
+      },
+      {
+        "label": "UD 24",
+        "email": "solidaires24@laposte.net"
+      },
+      {
+        "label": "UD 25",
+        "email": "unionsolidaires25@orange.fr"
+      },
+      {
+        "label": "UD 27",
+        "email": "solidaires27@gmail.com"
+      },
+      {
+        "label": "UD 28",
+        "email": "solidaires28@laposte.net"
+      },
+      {
+        "label": "UD 29",
+        "email": "contact@solidaires29.infini.fr"
+      },
+      {
+        "label": "UD 30",
+        "email": "contact@solidaires30.org"
+      },
+      {
+        "label": "UD 31",
+        "email": "solidaires31@wanadoo.fr"
+      },
+      {
+        "label": "UD 32",
+        "email": "solidaires32@orange.fr"
+      },
+      {
+        "label": "UD 33",
+        "email": "contact@solidaires33.fr"
+      },
+      {
+        "label": "UD 34",
+        "email": "contact@solidaires34.org"
+      },
+      {
+        "label": "UD 35",
+        "email": "contact@solidaires35.fr"
+      },
+      {
+        "label": "UD 36",
+        "email": "solidaires36@gmail.com"
+      },
+      {
+        "label": "UD 37",
+        "email": "solidaires37@gmail.com"
+      },
+      {
+        "label": "UD 38",
+        "email": "solidaires38@gmail.com"
+      },
+      {
+        "label": "UD 39",
+        "email": "solidaires.jura@gmail.com"
+      },
+      {
+        "label": "UD 40",
+        "email": "zurma@sfr.fr"
+      },
+      {
+        "label": "UD 41",
+        "email": "solidaires41@wanadoo.fr"
+      },
+      {
+        "label": "UD 42",
+        "email": "solidaires.loire@gmail.com"
+      },
+      {
+        "label": "UD 43",
+        "email": "solidaires.sud43@orange.fr"
+      },
+      {
+        "label": "UD 44",
+        "email": "contact@solidaires44.org"
+      },
+      {
+        "label": "UD 45",
+        "email": "contact@solidairesloiret.org"
+      },
+      {
+        "label": "UD 46",
+        "email": "solidaires46@sudeduc46.org"
+      },
+      {
+        "label": "UD 47",
+        "email": "solidaires47@laposte.net"
+      },
+      {
+        "label": "UD 48",
+        "email": "solidaires48@wanadoo.fr"
+      },
+      {
+        "label": "UD 49",
+        "email": "contact@solidaires49.org"
+      },
+      {
+        "label": "UD 50",
+        "email": "solidaires50@wanadoo.fr"
+      },
+      {
+        "label": "UD 51",
+        "email": "contact@solidaires51.org"
+      },
+      {
+        "label": "UD 52",
+        "email": "solidaires.haute.marne52@gmail.com"
+      },
+      {
+        "label": "UD 53",
+        "email": "us.solidaires53@orange.fr"
+      },
+      {
+        "label": "UD 54",
+        "email": "solidaires54@gmail.com"
+      },
+      {
+        "label": "UD 55",
+        "email": "solidairesmeuse@gmail.com"
+      },
+      {
+        "label": "UD 56",
+        "email": "solidaires.56@orange.fr"
+      },
+      {
+        "label": "UD 57",
+        "email": "solidaires57@solidaires-moselle.org"
+      },
+      {
+        "label": "UD 58",
+        "email": "solidaires58@orange.fr"
+      },
+      {
+        "label": "UD 59",
+        "email": "solidaires59@gmail.com"
+      },
+      {
+        "label": "UD 60",
+        "email": "solidaires60@gmail.com"
+      },
+      {
+        "label": "UD 61",
+        "email": "solidaires61@gmail.com"
+      },
+      {
+        "label": "UD 62",
+        "email": "solidaires62@mailo.fr"
+      },
+      {
+        "label": "UD 63",
+        "email": "contact@solidaires-auvergne.org"
+      },
+      {
+        "label": "UD 64",
+        "email": "syndicat.solidaires.64@gmail.com"
+      },
+      {
+        "label": "UD 65",
+        "email": "solidaires65@wanadoo.fr"
+      },
+      {
+        "label": "UD 66",
+        "email": "solidaires66@gmail.com"
+      },
+      {
+        "label": "UD 67",
+        "email": "solidaires.alsace@zaclys.net"
+      },
+      {
+        "label": "UD 68",
+        "email": "solidairesalsace@gmail.com"
+      },
+      {
+        "label": "UD 69",
+        "email": "contact@listes.solidairesrhone.org"
+      },
+      {
+        "label": "UD 70",
+        "email": "sud70@wanadoo.fr"
+      },
+      {
+        "label": "UD 71",
+        "email": "solidaires71@orange.fr"
+      },
+      {
+        "label": "UD 72",
+        "email": "g10solidaires72@wanadoo.fr"
+      },
+      {
+        "label": "UD 73",
+        "email": "contact@solidaires73.org"
+      },
+      {
+        "label": "UD 74",
+        "email": "solidaires.74@wanadoo.fr"
+      },
+      {
+        "label": "UD 75",
+        "email": "solidaires-paris@wanadoo.fr"
+      },
+      {
+        "label": "UD 76",
+        "email": "solidaires.76@wanadoo.fr"
+      },
+      {
+        "label": "UD 77",
+        "email": "solidaires77@orange.fr"
+      },
+      {
+        "label": "UD 78",
+        "email": "contact@solidaires78.org"
+      },
+      {
+        "label": "UD 79",
+        "email": "udsolidaires79@gmail.com"
+      },
+      {
+        "label": "UD 80",
+        "email": "solidaires80@gmail.com"
+      },
+      {
+        "label": "UD 81",
+        "email": "solidairestarn@gmail.com"
+      },
+      {
+        "label": "UD 82",
+        "email": "solidaires82@laposte.net"
+      },
+      {
+        "label": "UD 83",
+        "email": "contact@solidaires83.org"
+      },
+      {
+        "label": "UD 84",
+        "email": "solidaires84@riseup.net"
+      },
+      {
+        "label": "UD 85",
+        "email": "us.solidaires85@gmail.com"
+      },
+      {
+        "label": "UD 86",
+        "email": "contact@solidaires86.ouvaton.org"
+      },
+      {
+        "label": "UD 87",
+        "email": "contact@solidaires87.org"
+      },
+      {
+        "label": "UD 88",
+        "email": "solidaires88@gmail.com"
+      },
+      {
+        "label": "UD 89",
+        "email": "solidaires89820@orange.fr"
+      },
+      {
+        "label": "UD 90",
+        "email": "solidaires.nfc@orange.fr"
+      },
+      {
+        "label": "UD 91",
+        "email": "solidaires91@free.fr"
+      },
+      {
+        "label": "UD 92",
+        "email": "solidaires92@gmail.com"
+      },
+      {
+        "label": "UD 93",
+        "email": "contact@solidaires93.org"
+      },
+      {
+        "label": "UD 94",
+        "email": "solidaires94@orange.fr"
+      },
+      {
+        "label": "UD 95",
+        "email": "solidaires95@ouvaton.org"
+      },
+      {
+        "label": "UD 971",
+        "email": "solidaires-guadeloupe@hotmail.com"
+      },
+      {
+        "label": "UD 972",
+        "email": "unionsolidaires972@gmail.com"
+      },
+      {
+        "label": "UD 973",
+        "email": "solidaires.guyane@laposte.net"
+      },
+      {
+        "label": "UD 974",
+        "email": "solidaires974@pm.me"
+      },
+      {
+        "label": "UD 976",
+        "email": "union.syndicale.solidaires976@gmail.com"
+      }
+    ]
+  },
+  "UNSA": {
+    "national": null,
+    "sections": [
+      {
+        "label": "UD 01",
+        "email": "ud-01@unsa.org"
+      },
+      {
+        "label": "UD 02",
+        "email": "ud-02@unsa.org"
+      },
+      {
+        "label": "UD 03",
+        "email": "ud-03@unsa.org"
+      },
+      {
+        "label": "UD 04",
+        "email": "ud-04@unsa.org"
+      },
+      {
+        "label": "UD 05",
+        "email": "ud-05@unsa.org"
+      },
+      {
+        "label": "UD 06",
+        "email": "ud-06@unsa.org"
+      },
+      {
+        "label": "UD 07",
+        "email": "ud-07@unsa.org"
+      },
+      {
+        "label": "UD 08",
+        "email": "ud-08@unsa.org"
+      },
+      {
+        "label": "UD 09",
+        "email": "ud-09@unsa.org"
+      },
+      {
+        "label": "UD 10",
+        "email": "ud-10@unsa.org"
+      },
+      {
+        "label": "UD 11",
+        "email": "ud-11@unsa.org"
+      },
+      {
+        "label": "UD 12",
+        "email": "ud-12@unsa.org"
+      },
+      {
+        "label": "UD 13",
+        "email": "ud-13@unsa.org"
+      },
+      {
+        "label": "UD 14",
+        "email": "ud-14@unsa.org"
+      },
+      {
+        "label": "UD 15",
+        "email": "ud-15@unsa.org"
+      },
+      {
+        "label": "UD 16",
+        "email": "ud-16@unsa.org"
+      },
+      {
+        "label": "UD 17",
+        "email": "ud-17@unsa.org"
+      },
+      {
+        "label": "UD 18",
+        "email": "ud-18@unsa.org"
+      },
+      {
+        "label": "UD 19",
+        "email": "ud-19@unsa.org"
+      },
+      {
+        "label": "Corse du Sud (2A)",
+        "email": "ud-2a@unsa.org"
+      },
+      {
+        "label": "Haute Corse (2B)",
+        "email": "ud-2b@unsa.org"
+      },
+      {
+        "label": "UD 21",
+        "email": "ud-21@unsa.org"
+      },
+      {
+        "label": "UD 22",
+        "email": "ud-22@unsa.org"
+      },
+      {
+        "label": "UD 23",
+        "email": "ud-23@unsa.org"
+      },
+      {
+        "label": "UD 24",
+        "email": "ud-24@unsa.org"
+      },
+      {
+        "label": "UD 25",
+        "email": "ud-25@unsa.org"
+      },
+      {
+        "label": "UD 26",
+        "email": "ud-26@unsa.org"
+      },
+      {
+        "label": "UD 27",
+        "email": "ud-27@unsa.org"
+      },
+      {
+        "label": "UD 28",
+        "email": "ud-28@unsa.org"
+      },
+      {
+        "label": "UD 29",
+        "email": "ud-29@unsa.org"
+      },
+      {
+        "label": "UD 30",
+        "email": "ud-30@unsa.org"
+      },
+      {
+        "label": "UD 31",
+        "email": "ud-31@unsa.org"
+      },
+      {
+        "label": "UD 32",
+        "email": "ud-32@unsa.org"
+      },
+      {
+        "label": "UD 33",
+        "email": "ud-33@unsa.org"
+      },
+      {
+        "label": "UD 34",
+        "email": "ud-34@unsa.org"
+      },
+      {
+        "label": "UD 35",
+        "email": "ud-35@unsa.org"
+      },
+      {
+        "label": "UD 36",
+        "email": "ud-36@unsa.org"
+      },
+      {
+        "label": "UD 37",
+        "email": "ud-37@unsa.org"
+      },
+      {
+        "label": "UD 38",
+        "email": "ud-38@unsa.org"
+      },
+      {
+        "label": "UD 39",
+        "email": "ud-39@unsa.org"
+      },
+      {
+        "label": "UD 40",
+        "email": "ud-40@unsa.org"
+      },
+      {
+        "label": "UD 41",
+        "email": "ud-41@unsa.org"
+      },
+      {
+        "label": "UD 42",
+        "email": "ud-42@unsa.org"
+      },
+      {
+        "label": "UD 43",
+        "email": "ud-43@unsa.org"
+      },
+      {
+        "label": "UD 44",
+        "email": "ud-44@unsa.org"
+      },
+      {
+        "label": "UD 45",
+        "email": "ud-45@unsa.org"
+      },
+      {
+        "label": "UD 46",
+        "email": "ud-46@unsa.org"
+      },
+      {
+        "label": "UD 47",
+        "email": "ud-47@unsa.org"
+      },
+      {
+        "label": "UD 48",
+        "email": "ud-48@unsa.org"
+      },
+      {
+        "label": "UD 49",
+        "email": "ud-49@unsa.org"
+      },
+      {
+        "label": "UD 50",
+        "email": "ud-50@unsa.org"
+      },
+      {
+        "label": "UD 51",
+        "email": "ud-51@unsa.org"
+      },
+      {
+        "label": "UD 52",
+        "email": "ud-52@unsa.org"
+      },
+      {
+        "label": "UD 53",
+        "email": "ud-53@unsa.org"
+      },
+      {
+        "label": "UD 54",
+        "email": "ud-54@unsa.org"
+      },
+      {
+        "label": "UD 55",
+        "email": "ud-55@unsa.org"
+      },
+      {
+        "label": "UD 56",
+        "email": "ud-56@unsa.org"
+      },
+      {
+        "label": "UD 57",
+        "email": "ud-57@unsa.org"
+      },
+      {
+        "label": "UD 58",
+        "email": "ud-58@unsa.org"
+      },
+      {
+        "label": "UD 59",
+        "email": "ud-59@unsa.org"
+      },
+      {
+        "label": "UD 60",
+        "email": "ud-60@unsa.org"
+      },
+      {
+        "label": "UD 61",
+        "email": "ud-61@unsa.org"
+      },
+      {
+        "label": "UD 62",
+        "email": "ud-62@unsa.org"
+      },
+      {
+        "label": "UD 63",
+        "email": "ud-63@unsa.org"
+      },
+      {
+        "label": "UD 64",
+        "email": "ud-64@unsa.org"
+      },
+      {
+        "label": "UD 65",
+        "email": "ud-65@unsa.org"
+      },
+      {
+        "label": "UD 66",
+        "email": "ud-66@unsa.org"
+      },
+      {
+        "label": "UD 67",
+        "email": "ud-67@unsa.org"
+      },
+      {
+        "label": "UD 68",
+        "email": "ud-68@unsa.org"
+      },
+      {
+        "label": "UD 69",
+        "email": "ud-69@unsa.org"
+      },
+      {
+        "label": "UD 70",
+        "email": "ud-70@unsa.org"
+      },
+      {
+        "label": "UD 71",
+        "email": "ud-71@unsa.org"
+      },
+      {
+        "label": "UD 72",
+        "email": "ud-72@unsa.org"
+      },
+      {
+        "label": "UD 73",
+        "email": "ud-73@unsa.org"
+      },
+      {
+        "label": "UD 74",
+        "email": "ud-74@unsa.org"
+      },
+      {
+        "label": "UD 75",
+        "email": "ud-75@unsa.org"
+      },
+      {
+        "label": "UD 76",
+        "email": "ud-76@unsa.org"
+      },
+      {
+        "label": "UD 77",
+        "email": "ud-77@unsa.org"
+      },
+      {
+        "label": "UD 78",
+        "email": "ud-78@unsa.org"
+      },
+      {
+        "label": "UD 79",
+        "email": "ud-79@unsa.org"
+      },
+      {
+        "label": "UD 80",
+        "email": "ud-80@unsa.org"
+      },
+      {
+        "label": "UD 81",
+        "email": "ud-81@unsa.org"
+      },
+      {
+        "label": "UD 82",
+        "email": "ud-82@unsa.org"
+      },
+      {
+        "label": "UD 83",
+        "email": "ud-83@unsa.org"
+      },
+      {
+        "label": "UD 84",
+        "email": "ud-84@unsa.org"
+      },
+      {
+        "label": "UD 85",
+        "email": "ud-85@unsa.org"
+      },
+      {
+        "label": "UD 86",
+        "email": "ud-86@unsa.org"
+      },
+      {
+        "label": "UD 87",
+        "email": "ud-87@unsa.org"
+      },
+      {
+        "label": "UD 88",
+        "email": "ud-88@unsa.org"
+      },
+      {
+        "label": "UD 89",
+        "email": "ud-89@unsa.org"
+      },
+      {
+        "label": "UD 90",
+        "email": "ud-90@unsa.org"
+      },
+      {
+        "label": "UD 91",
+        "email": "ud-91@unsa.org"
+      },
+      {
+        "label": "UD 92",
+        "email": "ud-92@unsa.org"
+      },
+      {
+        "label": "UD 93",
+        "email": "ud-93@unsa.org"
+      },
+      {
+        "label": "UD 94",
+        "email": "ud-94@unsa.org"
+      },
+      {
+        "label": "UD 95",
+        "email": "ud-95@unsa.org"
+      },
+      {
+        "label": "UD 971",
+        "email": "ur-guadeloupe@unsa.org"
+      },
+      {
+        "label": "UD 972",
+        "email": "ur-martinique@unsa.org"
+      },
+      {
+        "label": "UD 973",
+        "email": "ur-guyane@unsa.org"
+      },
+      {
+        "label": "UD 974",
+        "email": "ur-reunion@unsa.org"
+      },
+      {
+        "label": "UD 976",
+        "email": "ud-976@unsa.org"
+      }
+    ]
+  }
+}
