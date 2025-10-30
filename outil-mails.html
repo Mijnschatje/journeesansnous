@@ -11,7 +11,6 @@
     *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fff}
     a{color:var(--brand);text-decoration:none}
-
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
     .wrap{max-width:1100px;margin:auto;padding:0 18px}
     .topbar{display:flex;justify-content:space-between;align-items:center;height:64px}
@@ -20,40 +19,29 @@
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
     .btn.ghost{background:#fff}
     .btn:disabled{opacity:.6;cursor:not-allowed}
-
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
     .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
     h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
     .lede{color:var(--muted);margin:.4rem 0 0}
-
     main{max-width:1100px;margin:auto;padding:18px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid{grid-template-columns:1.05fr .95fr}}
-
     .card{background:#fff;border:1px solid var(--line);border-radius:16px}
     .card-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
     .card-head h2{margin:0;color:var(--brand);font-size:18px}
     .card-body{padding:14px 18px}
-
     label{display:block;font-weight:600;margin:.3rem 0 .25rem}
     input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:none}
     input:focus,select:focus,textarea:focus{border-color:#ffcabf;box-shadow:0 0 0 3px #ffe7e2}
     textarea{min-height:220px;resize:vertical}
-
     .two{display:grid;gap:12px}
     @media(min-width:680px){.two{grid-template-columns:1fr 1fr}}
-
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .note{border-left:4px solid var(--brand);background:#fff2f1;padding:.8rem;border-radius:12px}
-
     .preview{white-space:pre-wrap;border:1px dashed var(--line);border-radius:12px;padding:12px;background:#fff7f6}
-
     .muted{color:#64748b;font-size:14px}
-    .hidden{display:none}
-
     footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:18px}
   </style>
 </head>
@@ -165,103 +153,6 @@
 
   <footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
 
-  <script>
-    const el = id => document.getElementById(id);
-
-    // --- Modèle officiel du mail (issu de la campagne) ---
-    const MODELE_OFFICIEL = () => {
-      const nom  = (el('nom').value || '[Prénom Nom]').trim();
-      const lieu = (el('lieu').value || '[Ville / Lieu de travail / Établissement]').trim();
-      const mandatChecked = el('hasMandat').checked;
-      const mandatTxt = (el('mandat').value || '').trim();
-      const mandatLine = mandatChecked ? `\nJe précise que je dispose d’un mandat syndical ou de représentation${mandatTxt?` ( ${mandatTxt} )`:''}.` : '';
-      const contact = '[Contact (facultatif)]';
-      return (
-`Objet : Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique\n\nBonjour,\n\nJe vous écris dans le cadre de la Journée Sans Nous – “Si on s’arrête, tout s’arrête !”, organisée le 18 décembre 2025, à l’occasion de la Journée internationale des migrant·e·s.\n À l’initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l’échelle nationale.\n 👉 L’appel complet est consultable ici : https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous\n\nJe souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.\n Cette journée d’action me permettra de m’exprimer en solidarité avec les personnes immigrées et sans papiers, qui sont mes ami·es, mes voisin·es et mes collègues — celles et ceux qui font tourner le pays mais restent privé·es de droits, exploité·es dans des conditions indignes et constamment discriminé·es.\n\nAujourd’hui, les politiques racistes et inhumaines menées par l’État (rafles, enfermements en CRA, durcissement des lois sur l’immigration, atteintes aux droits sociaux) ne sont pas seulement une attaque contre les personnes étrangères :\n elles fragilisent tout le socle social en remettant en cause le droit du travail, en banalisant le travail dissimulé et l’exploitation humaine, en organisant une mise en concurrence destructrice entre salarié·es, et en affaiblissant la solidarité collective.\n Ces atteintes participent à un glissement général vers une société d’inégalités et de peur, où les droits fondamentaux de chacun deviennent négociables.\n\nFace à cette urgence, nous avons besoin que les syndicats prennent position et ouvrent la voie à une grève politique et solidaire, comme ils l’ont déjà fait dans l’histoire pour des causes universelles :\n contre la guerre d’Algérie, pour les droits civiques, pour la régularisation des sans-papiers, ou pour la défense des libertés publiques.\n\n👉 Je vous demande :\n\n• de vous prononcer publiquement en faveur de la Journée Sans Nous,\n• d’informer vos adhérent·es et salarié·es sur la possibilité de se mobiliser le 18 décembre,\n• et de mettre en œuvre les moyens légaux pour permettre une grève solidaire (préavis, communication, appui logistique…).\n${mandatLine}\nCette journée sera l’occasion de manifester, débattre, fermer symboliquement nos lieux de travail, d’enseignement ou d’activité, pour rappeler que la solidarité n’a pas de papiers et que la société ne fonctionne que grâce à celles et ceux qu’on invisibilise.\n\nhttps://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous\n\nMerci pour votre écoute et pour l’engagement que vous prendrez.\n Je reste à votre disposition pour toute information complémentaire ou pour participer à l’organisation locale.\n\nSolidairement,\n\n${nom}\n ${lieu}\n ${contact}\n`)};
-
-    const MODELE_PREAVIS = "Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
-
-    // --- Chargement base JSON ---
-    let DB = {};
-    async function loadDB(){
-      const here = location.pathname.replace(/[^/]+$/, '');
-      const tryPaths = [here + 'data/emails-syndicats.json', '/journeesansnous/data/emails-syndicats.json'];
-      for (const url of tryPaths){
-        try{ const res = await fetch(url, {cache:'no-store'}); if(res.ok){ DB = await res.json(); break; } }catch(e){}
-      }
-      fillSyndicats();
-    }
-
-    function fillSyndicats(){
-      const s = el('syndicat'); s.innerHTML = '';
-      const opt0 = new Option('— choisir —',''); s.add(opt0);
-      const keys = Object.keys(DB).sort();
-      if(keys.length===0){ ['CGT','Solidaires','FSU','CFDT','UNSA','CNT','FO'].forEach(k=>s.add(new Option(k,k))); }
-      else { keys.forEach(k=>s.add(new Option(k,k))); }
-      fillStructures();
-    }
-
-    function fillStructures(){
-      const synd = el('syndicat').value;
-      const dept = el('dept'); const fede = el('fede');
-      dept.innerHTML=''; fede.innerHTML='';
-      dept.add(new Option('— UD (département) —',''));
-      fede.add(new Option('— Fédération (secteur) —',''));
-      const rec = DB[synd];
-      if(rec && Array.isArray(rec.sections)){
-        rec.sections.forEach(x=>{
-          const isUD = /^UD\b|\(\d{2,3}\)$/.test(x.label||'');
-          if(isUD) dept.add(new Option(x.label, x.email||''));
-          else fede.add(new Option(x.label, x.email||''));
-        });
-      }
-      updateEmail();
-    }
-
-    function updateEmail(){
-      const fedeVal = el('fede').value; const deptVal = el('dept').value;
-      const synd = el('syndicat').value; const national = (DB[synd]||{}).national || '';
-      el('destinataire').value = fedeVal || deptVal || national || '';
-    }
-
-    // --- Remplissage / Actions ---
-    function chargerModele(){ el('message').value = MODELE_OFFICIEL(); apercu(); }
-    function apercu(){ el('preview').textContent = el('message').value || 'Aucun message saisi.'; }
-    function copier(){ navigator.clipboard.writeText(el('message').value).then(()=>alert('Message copié dans le presse‑papiers.')); }
-
-    function toMailto(){
-      const to = el('destinataire').value || '';
-      const cc = el('cc').value || '';
-      const sujet = el('sujet').value || 'Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique';
-      const body = el('message').value || MODELE_OFFICIEL();
-      const enc = s => encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
-      const url = `mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}${cc?`&cc=${encodeURIComponent(cc)}`:''}`;
-      window.location.href = url;
-    }
-
-    function telecharger(){
-      const blob = new Blob([el('message').value || MODELE_OFFICIEL()], {type:'text/plain'});
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'mail-pour-syndicat.txt'; a.click(); URL.revokeObjectURL(a.href);
-    }
-
-    // Listeners
-    el('btnRemplir').addEventListener('click', chargerModele);
-    el('btnApercu').addEventListener('click', apercu);
-    el('btnCopier').addEventListener('click', copier);
-    el('btnMailto').addEventListener('click', toMailto);
-    el('btnTelecharger').addEventListener('click', telecharger);
-    el('btnPreavis').addEventListener('click', ()=>{navigator.clipboard.writeText(MODELE_PREAVIS).then(()=>alert('Modèle de préavis copié.'))});
-
-    el('syndicat').addEventListener('change', fillStructures);
-    el('dept').addEventListener('change', updateEmail);
-    el('fede').addEventListener('change', updateEmail);
-
-    el('hasMandat').addEventListener('change', (e)=>{
-      el('mandat').classList.toggle('hidden', !e.target.checked);
-    });
-
-    // Init
-    document.addEventListener('DOMContentLoaded', ()=>{ loadDB(); chargerModele(); });
-  </script>
+  <script src="https://mijnschatje.github.io/journeesansnous/js/generator-ud-fede.js"></script>
 </body>
 </html>
