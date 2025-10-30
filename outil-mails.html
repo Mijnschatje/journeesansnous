@@ -9,143 +9,213 @@
   <style>
     :root{--brand:#ee4943;--brand-600:#d33e38;--ink:#0f172a;--muted:#475569;--line:#e5e7eb;--radius:16px}
     *{box-sizing:border-box}
-    body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fff}
+    body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fafafa}
     a{color:var(--brand);text-decoration:none}
-    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.05)}
     .wrap{max-width:1100px;margin:auto;padding:0 18px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;flex-wrap:wrap;gap:10px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;transition:all .2s;font-weight:600}
+    .btn:hover{background:#f8f9fa;transform:translateY(-1px)}
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
-    .btn.ghost{background:#fff}
-    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .btn.primary:hover{background:var(--brand-600)}
+    .btn.ghost{background:transparent;border-color:transparent}
+    .btn.ghost:hover{background:#f8f9fa}
+    .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .btn i{font-size:14px}
+    
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    
     .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
     h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
-    .lede{color:var(--muted);margin:.4rem 0 0}
-    main{max-width:1100px;margin:auto;padding:18px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid{grid-template-columns:1.05fr .95fr}}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px}
-    .card-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
-    .card-head h2{margin:0;color:var(--brand);font-size:18px}
-    .card-body{padding:14px 18px}
-    label{display:block;font-weight:600;margin:.3rem 0 .25rem}
-    input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:none}
-    input:focus,select:focus,textarea:focus{border-color:#ffcabf;box-shadow:0 0 0 3px #ffe7e2}
-    textarea{min-height:220px;resize:vertical}
-    .two{display:grid;gap:12px}
-    @media(min-width:680px){.two{grid-template-columns:1fr 1fr}}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:.8rem;border-radius:12px}
-    .preview{white-space:pre-wrap;border:1px dashed var(--line);border-radius:12px;padding:12px;background:#fff7f6}
-    .muted{color:#64748b;font-size:14px}
-    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:18px}
+    .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
+    
+    main{max-width:900px;margin:auto;padding:24px 18px}
+    
+    .step-card{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s}
+    .step-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .step-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);background:#fafafa;border-radius:16px 16px 0 0}
+    .step-head h2{margin:0;color:var(--brand);font-size:18px;display:flex;align-items:center;gap:10px}
+    .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--brand);color:#fff;border-radius:50%;font-size:14px;font-weight:800}
+    .step-body{padding:20px}
+    
+    .form-group{margin-bottom:18px}
+    .form-group:last-child{margin-bottom:0}
+    label{display:block;font-weight:600;margin-bottom:6px;color:var(--ink);font-size:14px}
+    .helper{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
+    input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;outline:none;font-family:inherit;font-size:15px;transition:all .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(238,73,67,.1)}
+    textarea{min-height:280px;resize:vertical;font-size:14px;line-height:1.6}
+    select{cursor:pointer}
+    
+    .grid-2{display:grid;gap:14px;grid-template-columns:1fr}
+    @media(min-width:680px){.grid-2{grid-template-columns:1fr 1fr}}
+    
+    .checkbox-group{display:flex;align-items:center;gap:10px;padding:12px;background:#f8f9fa;border-radius:10px;cursor:pointer;transition:background .2s}
+    .checkbox-group:hover{background:#f1f3f5}
+    .checkbox-group input[type="checkbox"]{width:auto;margin:0;cursor:pointer}
+    .checkbox-group label{margin:0;cursor:pointer;font-weight:500}
+    
+    #mandat-details{display:none;margin-top:10px}
+    #mandat-details.show{display:block}
+    
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    @media(max-width:680px){.actions{flex-direction:column}}
+    
+    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.5}
+    .note strong{color:var(--brand)}
+    
+    .preview-box{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;background:#fafafa;font-size:14px;line-height:1.7;max-height:400px;overflow-y:auto;color:#334155}
+    .preview-box.empty{color:var(--muted);font-style:italic;text-align:center;padding:40px 20px}
+    
+    .success-banner{background:#10b981;color:#fff;padding:12px 20px;border-radius:10px;display:none;align-items:center;gap:10px;margin-bottom:16px}
+    .success-banner.show{display:flex}
+    
+    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
+    
+    @media(max-width:680px){
+      .topbar{height:auto;padding:12px 0}
+      .step-head{flex-direction:column;align-items:flex-start;gap:12px}
+      .step-head .actions{width:100%}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap topbar">
-      <div class="brand"><i></i><span>Journée Sans Nous</span></div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour au guide</a>
-        <a class="btn primary" target="_blank" rel="noopener" href="https://mijnschatje.github.io/journeesansnous/"><i class="fa-solid fa-house"></i> Accueil</a>
+      <div class="brand"><span>Journée Sans Nous</span></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour</a>
       </div>
     </div>
   </header>
 
-  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d’organisation – 3 rue du Château d’Eau • À L’ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l’appel</div></div>
+  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
   <section class="hero">
     <div class="wrap">
       <h1>Générateur de mails aux syndicats</h1>
-      <p class="lede">Choisis ton syndicat, ton département (UD) et ta fédération (secteur), indique si tu as un mandat, puis envoie.</p>
+      <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
     </div>
   </section>
 
   <main>
-    <div class="grid">
-      <!-- FORMULAIRE -->
-      <div class="card">
-        <div class="card-head">
-          <h2>1) Choisir les destinataires</h2>
-          <button class="btn" id="btnPreavis"><i class="fa-solid fa-copy"></i> Copier le modèle de préavis</button>
+    <div>
+      <!-- ÉTAPE 1 -->
+    <div class="step-card">
+      <div class="step-head">
+        <h2><span class="step-num">1</span> Choisis ton syndicat</h2>
+      </div>
+      <div class="step-body">
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="syndicat">Syndicat *</label>
+            <select id="syndicat" required>
+              <option value="">— Sélectionner —</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dept">Département (UD)</label>
+            <select id="dept">
+              <option value="">— Optionnel —</option>
+            </select>
+            <div class="helper">Union Départementale de ton département</div>
+          </div>
+          <div class="form-group">
+            <label for="fede">Fédération (secteur)</label>
+            <select id="fede">
+              <option value="">— Optionnel —</option>
+            </select>
+            <div class="helper">Fédération de ton secteur professionnel</div>
+          </div>
+          <div class="form-group">
+            <label for="destinataire">Email du destinataire *</label>
+            <input id="destinataire" type="email" placeholder="contact@syndicat.org" required />
+            <div class="helper">Auto-rempli selon ta sélection, modifiable</div>
+          </div>
         </div>
-        <div class="card-body">
-          <div class="two">
-            <div>
-              <label for="syndicat">Syndicat</label>
-              <select id="syndicat"></select>
-            </div>
-            <div>
-              <label for="dept">Département (UD)</label>
-              <select id="dept"></select>
-            </div>
-            <div>
-              <label for="fede">Fédération (secteur)</label>
-              <select id="fede"></select>
-            </div>
-            <div>
-              <label for="destinataire">Destinataire (email)</label>
-              <input id="destinataire" type="email" placeholder="ex : contact@syndicat-xx.org" />
-              <div class="muted">Auto‑rempli : priorité Fédération ➜ UD ➜ National. Modifiable.</div>
-            </div>
-            <div>
-              <label for="cc">Copie (CC optionnel)</label>
-              <input id="cc" type="email" placeholder="ex : section.locale@…" />
-            </div>
-            <div>
-              <label for="nom">Nom / Prénom</label>
-              <input id="nom" placeholder="Ton nom (ou collectif)" />
-            </div>
-            <div>
-              <label for="lieu">Ville / Lieu de travail</label>
-              <input id="lieu" placeholder="ex : Paris 20e, entrepôt X, collège Y…" />
-            </div>
-          </div>
+        <div class="form-group" style="margin-top:10px">
+          <label for="cc">Copie (CC - optionnel)</label>
+          <input id="cc" type="email" placeholder="section.locale@..." />
+        </div>
+      </div>
+    </div>
 
-          <div style="margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <label style="display:flex;align-items:center;gap:8px;margin:0"><input type="checkbox" id="hasMandat"> J’ai un mandat</label>
-            <input id="mandat" class="hidden" placeholder="ex : délégué·e syndical·e, élu·e CSE…" />
+    <!-- ÉTAPE 2 -->
+    <div class="step-card">
+      <div class="step-head">
+        <h2><span class="step-num">2</span> Tes informations</h2>
+      </div>
+      <div class="step-body">
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="nom">Nom / Prénom *</label>
+            <input id="nom" placeholder="Ton nom ou collectif" required />
           </div>
+          <div class="form-group">
+            <label for="lieu">Ville / Lieu de travail *</label>
+            <input id="lieu" placeholder="Paris 20e, entrepôt X..." required />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="checkbox-group" onclick="document.getElementById('hasMandat').click()">
+            <input type="checkbox" id="hasMandat" onclick="event.stopPropagation()">
+            <label for="hasMandat">J'ai un mandat syndical</label>
+          </div>
+          <div id="mandat-details">
+            <input id="mandat" placeholder="Ex : délégué·e syndical·e, élu·e CSE..." style="margin-top:10px" />
+            <div class="helper">Précise ton mandat pour renforcer ta légitimité</div>
+          </div>
+        </div>
 
-          <label for="sujet" style="margin-top:10px">Objet</label>
+        <div class="form-group">
+          <label for="sujet">Objet de l'email</label>
           <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
         </div>
       </div>
+    </div>
 
-      <!-- MESSAGE -->
-      <div class="card">
-        <div class="card-head">
-          <h2>2) Personnaliser le message</h2>
-          <div class="actions">
-            <button class="btn" id="btnRemplir"><i class="fa-solid fa-wand-magic-sparkles"></i> Charger le modèle</button>
-            <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier</button>
-            <button class="btn primary" id="btnApercu"><i class="fa-solid fa-eye"></i> Aperçu</button>
-          </div>
+    <!-- ÉTAPE 3 -->
+    <div class="step-card">
+      <div class="step-head">
+        <h2><span class="step-num">3</span> Personnaliser le message</h2>
+      </div>
+      <div class="step-body">
+        <div class="form-group">
+          <label for="message">Corps du message (modifiable si besoin)</label>
+          <textarea id="message" placeholder="Le message se génère automatiquement avec tes informations..."></textarea>
         </div>
-        <div class="card-body">
-          <label for="message">Message (modèle officiel, modifiable)</label>
-          <textarea id="message"></textarea>
-          <div class="note" style="margin-top:10px">
-            Le texte ci‑dessous est le modèle officiel. Si tu as coché « mandat », une ligne dédiée s’ajoutera automatiquement.
-          </div>
+        <div class="note">
+          <strong>💡 Le message se remplit automatiquement</strong> avec tes informations. Tu peux le modifier directement dans la zone de texte si tu veux le personnaliser davantage.
         </div>
       </div>
+    </div>
 
-      <!-- APERÇU & ENVOI -->
-      <div class="card">
-        <div class="card-head">
-          <h2>3) Vérifier & envoyer</h2>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
-            <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger en .txt</button>
-          </div>
+    <!-- ÉTAPE 4 -->
+    <div class="step-card">
+      <div class="step-head">
+        <h2><span class="step-num">4</span> Vérifier et envoyer</h2>
+      </div>
+      <div class="step-body">
+        <div class="form-group">
+          <label>Aperçu du message</label>
+          <div id="preview" class="preview-box empty">Charge le modèle pour voir l'aperçu...</div>
         </div>
-        <div class="card-body">
-          <div id="preview" class="preview" aria-live="polite">Clique sur « Charger le modèle », complète les champs, puis vérifie ici avant envoi.</div>
+        
+        <div class="actions" style="margin-top:16px">
+          <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon logiciel mail</button>
+          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
+          <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
+        </div>
+        
+        <div class="note" style="margin-top:12px">
+          <strong>📧 Comment envoyer :</strong><br>
+          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail (Gmail, Outlook, etc.) avec tout pré-rempli<br>
+          • <strong>"Copier le message"</strong> : copie juste le texte pour le coller où tu veux<br>
+          • <strong>"Télécharger"</strong> : sauvegarde le message en fichier texte
         </div>
       </div>
     </div>
@@ -154,28 +224,58 @@
   <footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
 
 <script>
-/* ===== Mapping départements pour affichage “code – nom” ===== */
+/* ===== Mapping départements ===== */
 const DEPTS={"01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence","05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes","09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime","18":"Cher","19":"Corrèze","2A":"Corse-du-Sud","2B":"Haute-Corse","21":"Côte-d'Or","22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère","30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord","60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme","64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales","67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône","71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie","75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines","79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne","83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe","972":"Martinique","973":"Guyane","974":"La Réunion","975":"Saint-Pierre-et-Miquelon","976":"Mayotte","977":"Saint-Barthélemy","978":"Saint-Martin","986":"Wallis-et-Futuna","987":"Polynésie française","988":"Nouvelle-Calédonie"};
 
-/* ===== Chargement de la base JSON structurée ===== */
-let DB={};
+/* ===== Chargement de la base JSON ===== */
+let DB={
+  "CFDT": {"national": "paris@sgen.cfdt.fr", "ud": [], "fede": []},
+  "CFTC": {"national": "organisation@cftc.fr", "ud": [], "fede": []},
+  "Solidaires": {"national": "contact@solidaires.org", "ud": [], "fede": []},
+  "CGT-FO": {"national": "secretariatnego@force-ouvriere.fr", "ud": [], "fede": []},
+  "CFE-CGC": {"national": "pap@cfecgc.fr", "ud": [], "fede": []},
+  "CGT": {"national": "site@cgt.org", "ud": [], "fede": []},
+  "UNSA": {"national": null, "ud": [], "fede": []}
+};
+
 async function loadDB(){
   const here=location.pathname.replace(/[^/]+$/,'');
-  for(const url of [here+'data/emails-syndicats.json','/journeesansnous/data/emails-syndicats.json']){
-    try{const r=await fetch(url,{cache:'no-store'});if(r.ok){DB=await r.json();break;}}catch(e){}
+  const urls = [
+    here+'data/emails-syndicats.json',
+    '/journeesansnous/data/emails-syndicats.json',
+    './data/emails-syndicats.json',
+    '../data/emails-syndicats.json'
+  ];
+  
+  for(const url of urls){
+    try{
+      console.log('Tentative de chargement:', url);
+      const r=await fetch(url,{cache:'no-store'});
+      if(r.ok){
+        const data = await r.json();
+        DB = data;
+        console.log('✅ Base de données chargée avec succès depuis:', url);
+        console.log('Syndicats disponibles:', Object.keys(DB));
+        fillSyndicats();
+        return;
+      }
+    }catch(e){
+      console.log('❌ Échec pour:', url, e.message);
+    }
   }
+  console.warn('⚠️ Impossible de charger la base - utilisation des valeurs par défaut');
   fillSyndicats();
 }
 
-/* ===== Remplissage des listes ===== */
+/* ===== Helpers ===== */
 const el=id=>document.getElementById(id);
 
 function fillSyndicats(){
-  const s=el('syndicat'); s.innerHTML='';
-  s.add(new Option('— choisir —',''));
+  const s=el('syndicat'); 
+  s.innerHTML='<option value="">— Sélectionner —</option>';
   const keys=Object.keys(DB).sort();
-  (keys.length?keys:['CGT','CFDT','FO','CFE-CGC','CFTC','UNSA','Solidaires','FSU','CNT'])
-    .forEach(k=>s.add(new Option(k,k)));
+  console.log('Remplissage syndicats:', keys);
+  keys.forEach(k=>s.add(new Option(k,k)));
   fillStructures();
 }
 
@@ -190,20 +290,45 @@ function udSortKey(x){
 
 function fillStructures(){
   const synd=el('syndicat').value;
-  const dept=el('dept'); const fede=el('fede');
-  dept.innerHTML=''; fede.innerHTML='';
-  dept.add(new Option('— UD (département) —',''));
-  fede.add(new Option('— Fédération (secteur) —',''));
+  const dept=el('dept'); 
+  const fede=el('fede');
+  
+  dept.innerHTML='<option value="">— Optionnel —</option>';
+  fede.innerHTML='<option value="">— Optionnel —</option>';
+
+  if(!synd){
+    console.log('Aucun syndicat sélectionné');
+    updateEmail();
+    return;
+  }
 
   const rec=DB[synd]||{};
-  (rec.fede||[]).forEach(x=>fede.add(new Option(x.label, x.email||'')));
+  console.log('Syndicat sélectionné:', synd);
+  console.log('Données:', rec);
+  console.log('Nombre de fédérations:', (rec.fede||[]).length);
+  console.log('Nombre d\'UDs:', (rec.ud||[]).length);
 
-  (rec.ud||[]).slice().sort(udSortKey).forEach(x=>{
+  // Fédérations
+  (rec.fede||[]).forEach(x=>{
+    console.log('Ajout fédé:', x.label, x.email);
+    fede.add(new Option(x.label, x.email||''));
+  });
+
+  // Départements
+  const udList = (rec.ud||[]).slice().sort((a,b)=>{
+    const [an,ac]=udSortKey(a);
+    const [bn,bc]=udSortKey(b);
+    return an-bn || ac.localeCompare(bc);
+  });
+  
+  udList.forEach(x=>{
     const code=x.code||''; 
     const nice = (code && DEPTS[code]) ? `${code} – ${DEPTS[code]}` : (x.label || code || 'UD');
+    console.log('Ajout UD:', nice, x.email);
     dept.add(new Option(nice, x.email||''));
   });
 
+  console.log('Fin remplissage - Fédés:', fede.length-1, 'UDs:', dept.length-1);
   updateEmail();
 }
 
@@ -212,84 +337,141 @@ function updateEmail(){
   const deptVal=el('dept').value||'';
   const synd=el('syndicat').value;
   const national=(DB[synd]||{}).national||'';
-  el('destinataire').value = fedeVal || deptVal || national || '';
+  
+  const emailFinal = fedeVal || deptVal || national || '';
+  console.log('Mise à jour email:', {fede: fedeVal, dept: deptVal, national, final: emailFinal});
+  
+  el('destinataire').value = emailFinal;
 }
 
-/* ===== Actions ===== */
+/* ===== Génération du modèle ===== */
 function MODELE_OFFICIEL(){
-  const nom=(el('nom').value||'[Prénom Nom]').trim();
-  const lieu=(el('lieu').value||'[Ville / Lieu de travail / Établissement]').trim();
-  const contact='[Contact (facultatif)]';
+  const nom=(el('nom').value||'').trim() || '[Prénom Nom]';
+  const lieu=(el('lieu').value||'').trim() || '[Ville / Lieu de travail / Établissement]';
+  const hasMandat=el('hasMandat').checked;
+  const mandat=hasMandat ? (el('mandat').value||'').trim() : '';
+  
+  // Construction de la phrase selon le mandat
+  let phraseMobilisation;
+  if (hasMandat && mandat) {
+    phraseMobilisation = `En tant que ${mandat}, je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`;
+  } else {
+    phraseMobilisation = `Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`;
+  }
+  
+  // Signature avec mandat si applicable
+  let signature = `${nom}\n${lieu}`;
+  if (hasMandat && mandat) {
+    signature += `\nMandat : ${mandat}`;
+  }
+  
   return `Bonjour,
 
-Je vous écris dans le cadre de la Journée Sans Nous – “Si on s’arrête, tout s’arrête !”, organisée le 18 décembre 2025, à l’occasion de la Journée internationale des migrant·e·s.
- À l’initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l’échelle nationale.
- 👉 L’appel complet est consultable ici : https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
+Je vous écris dans le cadre de la Journée Sans Nous – "Si on s'arrête, tout s'arrête !", organisée le 18 décembre 2025, à l'occasion de la Journée internationale des migrant·e·s.
 
-Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.
- Cette journée d’action me permettra de m’exprimer en solidarité avec les personnes immigrées et sans papiers, qui sont mes ami·es, mes voisin·es et mes collègues — celles et ceux qui font tourner le pays mais restent privé·es de droits, exploité·es dans des conditions indignes et constamment discriminé·es.
+À l'initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l'échelle nationale.
+👉 L'appel complet : https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
 
-Aujourd’hui, les politiques racistes et inhumaines menées par l’État (rafles, enfermements en CRA, durcissement des lois sur l’immigration, atteintes aux droits sociaux) ne sont pas seulement une attaque contre les personnes étrangères :
- elles fragilisent tout le socle social en remettant en cause le droit du travail, en banalisant le travail dissimulé et l’exploitation humaine, en organisant une mise en concurrence destructrice entre salarié·es, et en affaiblissant la solidarité collective.
- Ces atteintes participent à un glissement général vers une société d’inégalités et de peur, où les droits fondamentaux de chacun deviennent négociables.
+${phraseMobilisation}
 
-Face à cette urgence, nous avons besoin que les syndicats prennent position et ouvrent la voie à une grève politique et solidaire, comme ils l’ont déjà fait dans l’histoire pour des causes universelles :
- contre la guerre d’Algérie, pour les droits civiques, pour la régularisation des sans-papiers, ou pour la défense des libertés publiques.
+Cette journée d'action me permettra de m'exprimer en solidarité avec les personnes immigrées et sans papiers, qui sont mes ami·es, mes voisin·es et mes collègues — celles et ceux qui font tourner le pays mais restent privé·es de droits, exploité·es dans des conditions indignes et constamment discriminé·es.
+
+Aujourd'hui, les politiques racistes et inhumaines menées par l'État (rafles, enfermements en CRA, durcissement des lois sur l'immigration, atteintes aux droits sociaux) ne sont pas seulement une attaque contre les personnes étrangères : elles fragilisent tout le socle social en remettant en cause le droit du travail, en banalisant le travail dissimulé et l'exploitation humaine, en organisant une mise en concurrence destructrice entre salarié·es, et en affaiblissant la solidarité collective.
+
+Face à cette urgence, nous avons besoin que les syndicats prennent position et ouvrent la voie à une grève politique et solidaire.
 
 👉 Je vous demande :
 
 • de vous prononcer publiquement en faveur de la Journée Sans Nous,
-• d’informer vos adhérent·es et salarié·es sur la possibilité de se mobiliser le 18 décembre,
+• d'informer vos adhérent·es et salarié·es sur la possibilité de se mobiliser le 18 décembre,
 • et de mettre en œuvre les moyens légaux pour permettre une grève solidaire (préavis, communication, appui logistique…).
 
-Cette journée sera l’occasion de manifester, débattre, fermer symboliquement nos lieux de travail, d’enseignement ou d’activité, pour rappeler que la solidarité n’a pas de papiers et que la société ne fonctionne que grâce à celles et ceux qu’on invisibilise.
+Cette journée sera l'occasion de manifester, débattre, fermer symboliquement nos lieux de travail, pour rappeler que la solidarité n'a pas de papiers.
 
-https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
-
-Merci pour votre écoute et pour l’engagement que vous prendrez.
- Je reste à votre disposition pour toute information complémentaire ou pour participer à l’organisation locale.
+Merci pour votre écoute et pour l'engagement que vous prendrez.
+Je reste à votre disposition pour toute information complémentaire.
 
 Solidairement,
 
-${nom}
-${lieu}
-${contact}
+${signature}
 `;}
 
-const MODELE_PREAVIS="Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
+const MODELE_PREAVIS="Pour la Journée Sans Nous à l'occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleur·ses migrant·es] et pour dénoncer le racisme d'État qui nie ces droits.";
 
-function chargerModele(){el('message').value=MODELE_OFFICIEL(); apercu();}
-function apercu(){el('preview').textContent=el('message').value||'Aucun message saisi.';}
-function copier(){navigator.clipboard.writeText(el('message').value).then(()=>alert('Message copié dans le presse-papiers.'));}
+/* ===== Actions ===== */
+function chargerModele(){
+  el('message').value=MODELE_OFFICIEL();
+  apercu();
+  showSuccess();
+}
+
+function apercu(){
+  const msg=el('message').value;
+  const prev=el('preview');
+  if(msg){
+    prev.textContent=msg;
+    prev.classList.remove('empty');
+  }else{
+    prev.textContent='Aucun message saisi.';
+    prev.classList.add('empty');
+  }
+}
+
+function copier(){
+  const msg=el('message').value;
+  if(!msg){alert('Charge d\'abord le modèle !');return;}
+  navigator.clipboard.writeText(msg).then(()=>alert('✅ Message copié dans le presse-papiers !'));
+}
 
 function toMailto(){
   const to=el('destinataire').value||'';
+  if(!to){alert('⚠️ Indique un email destinataire !');return;}
   const cc=el('cc').value||'';
-  const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique';
+  const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre';
   const body=el('message').value||MODELE_OFFICIEL();
   const enc=s=>encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
   const url=`mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}${cc?`&cc=${encodeURIComponent(cc)}`:''}`;
   window.location.href=url;
 }
+
 function telecharger(){
-  const blob=new Blob([el('message').value||MODELE_OFFICIEL()],{type:'text/plain'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mail-pour-syndicat.txt'; a.click(); URL.revokeObjectURL(a.href);
+  const msg=el('message').value||MODELE_OFFICIEL();
+  const blob=new Blob([msg],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='mail-syndicat-journee-sans-nous.txt';
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 
-/* Listeners + init */
-document.addEventListener('DOMContentLoaded',()=>{ 
-  document.getElementById('btnRemplir').addEventListener('click',chargerModele);
-  document.getElementById('btnApercu').addEventListener('click',apercu);
-  document.getElementById('btnCopier').addEventListener('click',copier);
-  document.getElementById('btnMailto').addEventListener('click',toMailto);
-  document.getElementById('btnTelecharger').addEventListener('click',telecharger);
-  document.getElementById('btnPreavis').addEventListener('click',()=>{navigator.clipboard.writeText(MODELE_PREAVIS).then(()=>alert('Modèle de préavis copié.'))});
-  document.getElementById('syndicat').addEventListener('change',fillStructures);
-  document.getElementById('dept').addEventListener('change',updateEmail);
-  document.getElementById('fede').addEventListener('change',updateEmail);
-  loadDB(); chargerModele();
+/* ===== Event listeners ===== */
+document.addEventListener('DOMContentLoaded',()=>{
+  // Boutons
+  el('btnCopier').onclick=copier;
+  el('btnMailto').onclick=toMailto;
+  el('btnTelecharger').onclick=telecharger;
+  
+  // Selects
+  el('syndicat').onchange=fillStructures;
+  el('dept').onchange=updateEmail;
+  el('fede').onchange=updateEmail;
+  
+  // Mandat toggle
+  el('hasMandat').onchange=e=>{
+    el('mandat-details').classList.toggle('show',e.target.checked);
+    chargerModele(); // Regénère le message
+  };
+  
+  // Aperçu auto + régénération intelligente du message
+  el('message').oninput=apercu;
+  el('nom').oninput=chargerModele;
+  el('lieu').oninput=chargerModele;
+  el('mandat').oninput=chargerModele;
+  
+  // Init
+  loadDB();
+  chargerModele();
 });
 </script>
-
 </body>
 </html>
