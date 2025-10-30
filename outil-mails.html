@@ -99,7 +99,8 @@
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
         <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour</a>
       </div>
-    </div>
+    <button class="btn ghost" id="btnShare"><i class="fa-solid fa-share-nodes"></i> Partager la page</button>
+</div>
   </header>
 
   <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
@@ -508,5 +509,50 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateProgress();
 });
 </script>
+  <!-- MENU FLOTTANT DE PARTAGE -->
+<div id="shareMenu" style="
+  position:fixed;top:70px;right:20px;
+  background:white;border:1px solid #ddd;
+  border-radius:12px;padding:10px;box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  display:none;z-index:9999;min-width:220px;">
+  <p style="font-weight:600;margin:0 0 6px">Partager sur :</p>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <a href="#" id="share-whatsapp" class="btn ghost"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <a href="#" id="share-telegram" class="btn ghost"><i class="fa-brands fa-telegram"></i> Telegram</a>
+    <a href="#" id="share-signal" class="btn ghost"><i class="fa-brands fa-signal-messenger"></i> Signal</a>
+    <a href="#" id="share-x" class="btn ghost"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+    <a href="#" id="share-facebook" class="btn ghost"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    <a href="#" id="share-instagram" class="btn ghost"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="#" id="share-bluesky" class="btn ghost"><i class="fa-brands fa-bluesky"></i> Bluesky</a>
+    <a href="#" id="share-email" class="btn ghost"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="#" id="share-copy" class="btn ghost"><i class="fa-solid fa-link"></i> Copier le lien</a>
+  </div>
+</div>
+<script>
+// Texte du message partagé
+const shareText = "#JournéeSansNous ✊ J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi ➜";
+const shareURL = window.location.href;
+
+document.getElementById('btnShare').addEventListener('click', ()=>{
+  const menu = document.getElementById('shareMenu');
+  menu.style.display = (menu.style.display === 'none' || !menu.style.display) ? 'block' : 'none';
+});
+
+// Fonctions de partage
+function openShare(url){ window.open(url, '_blank'); }
+
+document.getElementById('share-whatsapp').onclick = ()=>openShare(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareURL)}`);
+document.getElementById('share-telegram').onclick = ()=>openShare(`https://t.me/share/url?url=${encodeURIComponent(shareURL)}&text=${encodeURIComponent(shareText)}`);
+document.getElementById('share-signal').onclick = ()=>openShare(`https://signal.me/#p/+33600000000`); // pas de lien direct standard
+document.getElementById('share-x').onclick = ()=>openShare(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareURL)}`);
+document.getElementById('share-facebook').onclick = ()=>openShare(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareURL)}`);
+document.getElementById('share-instagram').onclick = ()=>alert("Instagram ne permet pas le partage direct via un lien — copie le lien !");
+document.getElementById('share-bluesky').onclick = ()=>openShare(`https://bsky.app/intent/compose?text=${encodeURIComponent(shareText + ' ' + shareURL)}`);
+document.getElementById('share-email').onclick = ()=>openShare(`mailto:?subject=${encodeURIComponent("Journée Sans Nous – Grève solidaire du 18 décembre")}&body=${encodeURIComponent(shareText + ' ' + shareURL)}`);
+document.getElementById('share-copy').onclick = ()=>{
+  navigator.clipboard.writeText(shareURL).then(()=>alert("Lien copié dans le presse-papiers ✅"));
+};
+</script>
+
 </body>
 </html>
