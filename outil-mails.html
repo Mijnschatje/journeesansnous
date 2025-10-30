@@ -117,7 +117,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="dept">Département (UD)</label>
+            <label for="dept">Département</label>
             <select id="dept">
               <option value="">— Optionnel —</option>
             </select>
@@ -131,14 +131,15 @@
             <div class="helper">Fédération de ton secteur professionnel</div>
           </div>
           <div class="form-group">
-            <label for="destinataire">Email du destinataire *</label>
-            <input id="destinataire" type="email" placeholder="contact@syndicat.org" required />
-            <div class="helper">Auto-rempli selon ta sélection, modifiable</div>
+            <label for="destinataire">Emails des destinataires *</label>
+            <input id="destinataire" type="text" placeholder="Les emails s'ajoutent automatiquement" required />
+            <div class="helper">Les emails sélectionnés apparaissent ici, séparés par des virgules</div>
           </div>
         </div>
         <div class="form-group" style="margin-top:10px">
           <label for="cc">Copie (CC - optionnel)</label>
-          <input id="cc" type="email" placeholder="section.locale@..." />
+          <input id="cc" type="text" placeholder="Emails supplémentaires en copie..." />
+          <div class="helper">Les emails en surplus s'ajoutent ici automatiquement</div>
         </div>
       </div>
     </div>
@@ -239,32 +240,42 @@ let DB={
 };
 
 async function loadDB(){
-  const here=location.pathname.replace(/[^/]+$/,'');
+  // Essayer plusieurs chemins possibles
   const urls = [
-    here+'data/emails-syndicats.json',
-    '/journeesansnous/data/emails-syndicats.json',
+    'data/emails-syndicats.json',
     './data/emails-syndicats.json',
-    '../data/emails-syndicats.json'
+    '../data/emails-syndicats.json',
+    '/journeesansnous/data/emails-syndicats.json',
+    'https://mijnschatje.github.io/journeesansnous/data/emails-syndicats.json'
   ];
   
   for(const url of urls){
     try{
-      console.log('Tentative de chargement:', url);
-      const r=await fetch(url,{cache:'no-store'});
+      console.log('🔍 Tentative de chargement:', url);
+      const r = await fetch(url, {cache:'no-store'});
       if(r.ok){
         const data = await r.json();
         DB = data;
-        console.log('✅ Base de données chargée avec succès depuis:', url);
-        console.log('Syndicats disponibles:', Object.keys(DB));
+        console.log('✅ BASE CHARGÉE depuis:', url);
+        console.log('📊 Syndicats:', Object.keys(DB));
+        
+        // Vérifier qu'on a bien des données
+        Object.keys(DB).forEach(synd => {
+          console.log(`  ${synd}: ${(DB[synd].ud||[]).length} départements, ${(DB[synd].fede||[]).length} fédérations`);
+        });
+        
         fillSyndicats();
-        return;
+        return true;
       }
     }catch(e){
-      console.log('❌ Échec pour:', url, e.message);
+      console.log('❌ Échec pour:', url, '-', e.message);
     }
   }
-  console.warn('⚠️ Impossible de charger la base - utilisation des valeurs par défaut');
+  
+  console.warn('⚠️ ATTENTION: Impossible de charger la base de données');
+  console.warn('📁 Assure-toi que le fichier emails-syndicats.json est dans un dossier "data/"');
   fillSyndicats();
+  return false;
 }
 
 /* ===== Helpers ===== */
@@ -293,55 +304,102 @@ function fillStructures(){
   const dept=el('dept'); 
   const fede=el('fede');
   
+  // Vider les selects
   dept.innerHTML='<option value="">— Optionnel —</option>';
   fede.innerHTML='<option value="">— Optionnel —</option>';
 
   if(!synd){
-    console.log('Aucun syndicat sélectionné');
+    console.log('❌ Aucun syndicat sélectionné');
     updateEmail();
     return;
   }
 
-  const rec=DB[synd]||{};
-  console.log('Syndicat sélectionné:', synd);
-  console.log('Données:', rec);
-  console.log('Nombre de fédérations:', (rec.fede||[]).length);
-  console.log('Nombre d\'UDs:', (rec.ud||[]).length);
-
-  // Fédérations
-  (rec.fede||[]).forEach(x=>{
-    console.log('Ajout fédé:', x.label, x.email);
-    fede.add(new Option(x.label, x.email||''));
-  });
-
-  // Départements
-  const udList = (rec.ud||[]).slice().sort((a,b)=>{
-    const [an,ac]=udSortKey(a);
-    const [bn,bc]=udSortKey(b);
-    return an-bn || ac.localeCompare(bc);
-  });
+  const rec = DB[synd] || {};
+  console.log('📋 Syndicat sélectionné:', synd);
+  console.log('📊 Données brutes:', rec);
   
-  udList.forEach(x=>{
-    const code=x.code||''; 
-    const nice = (code && DEPTS[code]) ? `${code} – ${DEPTS[code]}` : (x.label || code || 'UD');
-    console.log('Ajout UD:', nice, x.email);
-    dept.add(new Option(nice, x.email||''));
-  });
+  const fedeList = rec.fede || [];
+  const udList = rec.ud || [];
+  
+  console.log(`📦 Nombre de fédérations: ${fedeList.length}`);
+  console.log(`📦 Nombre de départements: ${udList.length}`);
 
-  console.log('Fin remplissage - Fédés:', fede.length-1, 'UDs:', dept.length-1);
+  // Remplir les fédérations
+  if(fedeList.length > 0) {
+    fedeList.forEach((x, index) => {
+      const label = x.label || `Fédération ${index+1}`;
+      const email = x.email || '';
+      console.log(`  ➕ Fédé ${index+1}: ${label} → ${email}`);
+      fede.add(new Option(label, email));
+    });
+    console.log(`✅ ${fedeList.length} fédérations ajoutées`);
+  } else {
+    console.log('⚠️ Aucune fédération disponible');
+  }
+
+  // Remplir les départements (triés)
+  if(udList.length > 0) {
+    const sortedUDs = udList.slice().sort((a,b) => {
+      const [an, ac] = udSortKey(a);
+      const [bn, bc] = udSortKey(b);
+      return an - bn || ac.localeCompare(bc);
+    });
+    
+    sortedUDs.forEach((x, index) => {
+      const code = x.code || '';
+      const email = x.email || '';
+      const deptName = DEPTS[code] || '';
+      const nice = (code && deptName) ? `${code} – ${deptName}` : (x.label || code || `UD ${index+1}`);
+      console.log(`  ➕ Dépt ${index+1}: ${nice} → ${email}`);
+      dept.add(new Option(nice, email));
+    });
+    console.log(`✅ ${sortedUDs.length} départements ajoutés`);
+  } else {
+    console.log('⚠️ Aucun département disponible');
+  }
+
+  console.log(`🎯 Remplissage terminé - Select Fédé: ${fede.options.length} options, Select Dépt: ${dept.options.length} options`);
   updateEmail();
 }
 
 function updateEmail(){
-  const fedeVal=el('fede').value||'';
-  const deptVal=el('dept').value||'';
-  const synd=el('syndicat').value;
-  const national=(DB[synd]||{}).national||'';
+  const synd = el('syndicat').value;
+  const deptVal = el('dept').value || '';
+  const fedeVal = el('fede').value || '';
   
-  const emailFinal = fedeVal || deptVal || national || '';
-  console.log('Mise à jour email:', {fede: fedeVal, dept: deptVal, national, final: emailFinal});
+  if(!synd) {
+    el('destinataire').value = '';
+    el('cc').value = '';
+    return;
+  }
   
-  el('destinataire').value = emailFinal;
+  const national = (DB[synd] || {}).national || '';
+  
+  // Collecter tous les emails sélectionnés
+  const emails = [];
+  
+  // Ajouter dans l'ordre : National → Département → Fédération
+  if (national) emails.push(national);
+  if (deptVal) emails.push(deptVal);
+  if (fedeVal) emails.push(fedeVal);
+  
+  console.log('Emails collectés:', emails);
+  
+  // Répartir les emails : le premier dans "destinataire", les autres dans "cc"
+  if (emails.length > 0) {
+    el('destinataire').value = emails[0];
+    if (emails.length > 1) {
+      el('cc').value = emails.slice(1).join(', ');
+    } else {
+      el('cc').value = '';
+    }
+  } else {
+    el('destinataire').value = '';
+    el('cc').value = '';
+  }
+  
+  console.log('Destinataire:', el('destinataire').value);
+  console.log('CC:', el('cc').value);
 }
 
 /* ===== Génération du modèle ===== */
@@ -425,12 +483,19 @@ function copier(){
 
 function toMailto(){
   const to=el('destinataire').value||'';
-  if(!to){alert('⚠️ Indique un email destinataire !');return;}
+  if(!to){alert('⚠️ Indique au moins un email destinataire !');return;}
+  
   const cc=el('cc').value||'';
   const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre';
   const body=el('message').value||MODELE_OFFICIEL();
   const enc=s=>encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
-  const url=`mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}${cc?`&cc=${encodeURIComponent(cc)}`:''}`;
+  
+  // Construction de l'URL mailto avec gestion des multiples destinataires
+  let url = `mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}`;
+  if(cc){
+    url += `&cc=${encodeURIComponent(cc)}`;
+  }
+  
   window.location.href=url;
 }
 
