@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journée Sans Nous — Générer mon mail aux syndicats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root{--brand:#ee4943;--brand-600:#d33e38;--ink:#0f172a;--muted:#475569;--line:#e5e7eb;--radius:16px}
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fff}
+    a{color:var(--brand);text-decoration:none}
+
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
+    .share-cta{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .share-cta:hover{background:var(--brand-600)}
+
+    /* Bandeau défilant */
+    .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
+    .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
+    h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
+    .lede{color:var(--muted);margin:.4rem 0 0}
+
+    /* Card + iframe */
+    .card{max-width:1100px;margin:18px auto;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .card-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+    .card-head h2{margin:0;color:var(--brand);font-size:20px}
+    .helpers{display:flex;gap:10px;flex-wrap:wrap}
+    .helpers a{border:1px solid var(--line);padding:8px 10px;border-radius:10px}
+    .frame-wrap{position:relative}
+    .frame{width:100%;height:min(85vh,1100px);border:0;display:block;background:#fff}
+    .fallback{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .open{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+
+    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:18px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="brand"><i></i><span>Journée Sans Nous</span></div>
+    <a class="share-cta" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour au guide</a>
+  </div>
+</header>
+
+<div class="ticker"><div class="track">
+  EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail • Tous les lundis 19h ➜ Réunion d’organisation – 3 rue du Château d’Eau • À L’ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale
+</div></div>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Générer mon mail aux syndicats</h1>
+    <p class="lede">Même habillage, même énergie — en 2 minutes tu interpelles ton syndicat pour couvrir la grève du 18 décembre.</p>
+  </div>
+</section>
+
+<div class="card">
+  <div class="card-head">
+    <h2>Outil de génération</h2>
+    <div class="helpers">
+      <a href="https://one8decsansnous.onrender.com" target="_blank" rel="noopener">Ouvrir dans un onglet</a>
+      <a href="./index.html#decide">Voir les étapes du guide</a>
+    </div>
+  </div>
+
+  <div class="frame-wrap">
+    <iframe
+      class="frame"
+      src="https://one8decsansnous.onrender.com"
+      title="Outil de génération de mails aux syndicats"
+      referrerpolicy="no-referrer"
+      loading="lazy"
+      sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation-by-user-activation"
+    ></iframe>
+  </div>
+
+  <div class="fallback">
+    <span>Si l’outil ne s’affiche pas ci-dessus (bloqué par le navigateur), clique :</span>
+    <a class="open" href="https://one8decsansnous.onrender.com" target="_blank" rel="noopener">
+      <i class="fa-solid fa-up-right-from-square"></i> Ouvrir l’outil
+    </a>
+  </div>
+</div>
+
+<footer><div class="wrap">© Journée Sans Nous — Outil de génération</div></footer>
+</body>
+</html>
