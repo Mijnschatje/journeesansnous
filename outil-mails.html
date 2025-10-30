@@ -220,9 +220,7 @@ function MODELE_OFFICIEL(){
   const nom=(el('nom').value||'[Prénom Nom]').trim();
   const lieu=(el('lieu').value||'[Ville / Lieu de travail / Établissement]').trim();
   const contact='[Contact (facultatif)]';
-  return `Objet : Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique
-
-Bonjour,
+  return `Bonjour,
 
 Je vous écris dans le cadre de la Journée Sans Nous – “Si on s’arrête, tout s’arrête !”, organisée le 18 décembre 2025, à l’occasion de la Journée internationale des migrant·e·s.
  À l’initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l’échelle nationale.
@@ -254,8 +252,8 @@ Merci pour votre écoute et pour l’engagement que vous prendrez.
 Solidairement,
 
 ${nom}
- ${lieu}
- ${contact}
+${lieu}
+${contact}
 `;}
 
 const MODELE_PREAVIS="Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
