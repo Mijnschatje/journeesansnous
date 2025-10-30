@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JournÃ©e Sans Nous â€” Le pari de la grÃ¨ve</title>
+  <title>Journée Sans Nous – Le pari de la grève</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root{--brand:#ee4943;--brand-600:#d33e38;--ink:#0f172a;--muted:#475569;--line:#e5e7eb;--radius:16px}
     body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink)}
     a{color:var(--brand);text-decoration:none}
+    *{box-sizing:border-box}
 
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
     .wrap{max-width:1100px;margin:auto;padding:0 18px}
     .topbar{display:flex;justify-content:space-between;align-items:center;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
-    .share-cta{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
-    .share-cta:hover{background:var(--brand-600)}
+    .share-cta{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+    .share-cta:hover{background:var(--brand-600);transform:scale(1.05)}
 
-    /* Bandeau dÃ©filant */
+    /* Bandeau défilant */
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -32,25 +33,40 @@
 
     /* Layout */
     main{display:grid;grid-template-columns:260px 1fr;gap:18px;max-width:1100px;margin:auto;padding:18px}
+    @media(max-width:899px){main{grid-template-columns:1fr;padding:12px}}
+    
+    /* Table des matières */
     .toc{position:sticky;top:88px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px;font-size:14px}
-    .toc h3{margin-top:0;font-size:14px;color:var(--brand)}
-    .toc a{display:block;color:#334155;padding:6px 8px;border-radius:8px;text-decoration:none}
+    .toc h3{margin-top:0;font-size:14px;color:var(--brand);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .toc-links{display:block}
+    .toc a{display:block;color:#334155;padding:6px 8px;border-radius:8px;text-decoration:none;transition:background .2s}
     .toc a:hover{background:#ffeceb}
+    
+    /* Mobile: sommaire repliable */
+    @media(max-width:899px){
+      .toc{position:relative;top:0;margin-bottom:18px}
+      .toc h3::after{content:'▼';font-size:12px;transition:transform .3s}
+      .toc.collapsed h3::after{transform:rotate(-90deg)}
+      .toc.collapsed .toc-links{display:none}
+    }
 
     /* Sections */
     section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:12px}
     section h2{color:var(--brand);margin:.2rem 0 .6rem}
-    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:.8rem;border-radius:12px}
+    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:.8rem;border-radius:12px;margin:1rem 0}
+    .warning{border-left:4px solid #f59e0b;background:#fffbeb;padding:.8rem;border-radius:12px;margin:1rem 0}
     .cards{display:grid;gap:12px}
     @media(min-width:700px){.cards{grid-template-columns:1fr 1fr}}
     .card{background:#fff7f6;border:1px solid #ffd5d3;border-radius:14px;padding:12px}
 
-    /* Emphase sur la section DÃ©cidÃ©Â·e */
+    /* Emphase sur la section Décidé·e */
     #decide{border:2px solid var(--brand);background:#fff2f1}
 
     /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-size:14px;transition:all .2s}
+    .btn:hover{background:#f8f9fa;transform:translateY(-1px)}
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
+    .btn.primary:hover{background:var(--brand-600)}
 
     footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line)}
   </style>
@@ -58,18 +74,18 @@
 <body>
   <header>
     <div class="wrap topbar">
-      <div class="brand"><i></i><span>JournÃ©e Sans Nous</span></div>
-      <button class="share-cta" id="shareTop"><i class="fa-solid fa-share-nodes"></i> Partager la page</button>
+      <div class="brand"><i></i><span>Journée Sans Nous</span></div>
+      <button class="share-cta" id="shareTop" aria-label="Partager cette page"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page</button>
     </div>
   </header>
 
-  <div class="ticker"><div class="track">EN RÃ‰GION PARISIENNE : lundi 17 novembre 19hâ€“21h âžœ AssemblÃ©e publique â€“ Bourse du Travail, 29 Bd du Temple, 75011 Paris â€¢ tous les lundis 19h âžœ RÃ©union dâ€™organisation â€“ 3 rue du ChÃ¢teau dâ€™Eau â€¢ Ã€ Lâ€™Ã‰CHELLE NATIONALE : jeudi 30 octobre 19hâ€“21h âžœ RÃ©union en visio nationale des collectifs signataires de lâ€™appel â€¢ EN RÃ‰GION PARISIENNE : lundi 17 novembre 19hâ€“21h âžœ AssemblÃ©e publique â€“ Bourse du Travail, 29 Bd du Temple, 75011 Paris â€¢ tous les lundis 19h âžœ RÃ©union dâ€™organisation â€“ 3 rue du ChÃ¢teau dâ€™Eau</div></div>
+  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
   <div class="hero">
     <div class="wrap inner">
       <div>
-        <h1>Le pari de la grÃ¨ve gÃ©nÃ©rale â€¢ guide pratique</h1>
-        <p class="lede">Participer lÃ©galement, te mettre en grÃ¨ve avec ou sans syndicat, te protÃ©ger et agir collectivement.</p>
+        <h1>Le pari de la grève générale • guide pratique</h1>
+        <p class="lede">Participer légalement, te mettre en grève avec ou sans syndicat, te protéger et agir collectivement.</p>
       </div>
     </div>
   </div>
@@ -77,137 +93,147 @@
   <main>
     <aside class="toc">
       <h3>Sommaire</h3>
-      <a href="#pourquoi">Pourquoi la grÃ¨ve ?</a>
-      <a href="#legal">Estâ€‘ce lÃ©gal ?</a>
-      <a href="#temoignage">TÃ©moignage</a>
+      <a href="#pourquoi">Pourquoi la grève ?</a>
+      <a href="#legal">Est‑ce légal ?</a>
+      <a href="#temoignage">Témoignage</a>
       <a href="#exemples">Exemples</a>
-      <a href="#concret">La grÃ¨ve, concrÃ¨tement</a>
+      <a href="#concret">La grève, concrètement</a>
       <a href="#formes">Formes</a>
-      <a href="#solidarite">SolidaritÃ©</a>
+      <a href="#solidarite">Solidarité</a>
       <a href="#agir">Agir le 18/12</a>
-      <a href="#decide">Je me mets en grÃ¨ve !</a>
+      <a href="#decide">Je me mets en grève !</a>
       <a href="#kit">Kit express</a>
     </aside>
 
     <div>
       <section id="pourquoi">
-        <h2>Pourquoi se mettre en grÃ¨ve le 18 dÃ©cembre ?</h2>
+        <h2>Pourquoi se mettre en grève le 18 décembre ?</h2>
         <ul>
-          <li>Les personnes immigrÃ©es et sans papiers subissent de plein fouet la prÃ©carisation, la rÃ©pression et la discrimination.</li>
-          <li>Leurs luttes rejoignent celles de toutes et tous pour lâ€™Ã©galitÃ© des droits, la justice sociale et la dignitÃ©.</li>
-          <li>Leur combat est celui de tout le peuple : contre le racisme, la pauvretÃ©, la perte des droits et la montÃ©e du fascisme.</li>
-          <li>Plus nous serons nombreux, plus les personnes sans papiers seront sÃ©curisÃ©es dans lâ€™action.</li>
-          <li>Une grÃ¨ve politique et solidaire peut imposer un changement et faire reculer lâ€™Ã‰tat.</li>
+          <li>Les personnes immigrées et sans papiers subissent de plein fouet la précarisation, la répression et la discrimination.</li>
+          <li>Leurs luttes rejoignent celles de toutes et tous pour l'égalité des droits, la justice sociale et la dignité.</li>
+          <li>Leur combat est celui de tout le peuple : contre le racisme, la pauvreté, la perte des droits et la montée du fascisme.</li>
+          <li>Plus nous serons nombreux, plus les personnes sans papiers seront sécurisées dans l'action.</li>
+          <li>Une grève politique et solidaire peut imposer un changement et faire reculer l'État.</li>
         </ul>
-        <p class="note">La grÃ¨ve solidaire bÃ©nÃ©ficie Ã  toutes et tous : elle affaiblit la sousâ€‘traitance abusive et la concurrence dÃ©loyale, et conteste des politiques racistes.</p>
+        <p class="note">La grève solidaire bénéficie à toutes et tous : elle affaiblit la sous‑traitance abusive et la concurrence déloyale, et conteste des politiques racistes.</p>
       </section>
 
       <section id="legal">
-        <h2>Estâ€‘ce lÃ©gal ?</h2>
-        <p>Oui, si elle sâ€™inscrit dans un cadre collectif et revendicatif clair. En France, le <strong>droit de grÃ¨ve est garanti par la Constitution</strong>, y compris pour des grÃ¨ves de solidaritÃ© lorsquâ€™elles dÃ©fendent les libertÃ©s publiques, lâ€™Ã©galitÃ© des droits ou les conditions de travail.</p>
+        <h2>Est‑ce légal ?</h2>
+        <p>Oui, si elle s'inscrit dans un cadre collectif et revendicatif clair. En France, le <strong>droit de grève est garanti par la Constitution</strong>, y compris pour des grèves de solidarité lorsqu'elles défendent les libertés publiques, l'égalité des droits ou les conditions de travail.</p>
         <ul>
-          <li>Les syndicats reprÃ©sentatifs peuvent dÃ©poser un <strong>prÃ©avis de grÃ¨ve</strong> couvrant public et privÃ©.</li>
-          <li>Les travailleurÂ·euses non syndiquÃ©Â·es peuvent <strong>se joindre Ã  un prÃ©avis existant</strong>.</li>
+          <li>Les syndicats représentatifs peuvent déposer un <strong>préavis de grève</strong> couvrant public et privé.</li>
+          <li>Les travailleur·euses non syndiqué·es peuvent <strong>se joindre à un préavis existant</strong>.</li>
+        </ul>
+        <div class="warning">
+          <strong>⚠️ À savoir :</strong> La grève entraîne une retenue sur salaire proportionnelle au temps non travaillé. Il est illégal de sanctionner un·e salarié·e pour fait de grève, mais l'employeur peut retenir le salaire correspondant. Organisez une caisse de grève pour mutualiser le soutien financier.
+        </div>
+        <p><strong>Ressources juridiques :</strong></p>
+        <ul>
+          <li><a href="https://www.cgt.fr" target="_blank" rel="noopener">CGT - Confédération Générale du Travail</a></li>
+          <li><a href="https://solidaires.org" target="_blank" rel="noopener">Union syndicale Solidaires</a></li>
+          <li><a href="https://www.gisti.org" target="_blank" rel="noopener">GISTI - Groupe d'information et de soutien des immigré·es</a></li>
+          <li><a href="https://www.syndicat-avocats.com" target="_blank" rel="noopener">Syndicat des Avocats de France (SAF)</a></li>
         </ul>
       </section>
 
       <section id="temoignage">
-        <h2>ðŸ’¬ TÃ©moignage syndical</h2>
-        <p><em>Â« Lâ€™enjeu, câ€™est souvent de faire comprendre aux collÃ¨gues lâ€™intÃ©rÃªt collectif de la rÃ©gularisation : Ã©galisation des salaires, fin de la concurrence dÃ©loyale, solidaritÃ© entre mÃ©tiers pÃ©nibles. Quand on met des noms et des visages sur les collÃ¨gues sans papiers, tout devient concret. Â» â€” Un camarade de la CGT Jeunes Toulouse</em></p>
+        <h2>💬 Témoignage syndical</h2>
+        <p><em>« L'enjeu, c'est souvent de faire comprendre aux collègues l'intérêt collectif de la régularisation : égalisation des salaires, fin de la concurrence déloyale, solidarité entre métiers pénibles. Quand on met des noms et des visages sur les collègues sans papiers, tout devient concret. » – Un camarade de la CGT Jeunes Toulouse</em></p>
       </section>
 
       <section id="exemples">
-        <h2>ðŸ“œ Ã‡a marche, les grÃ¨ves ? Oui, quand on est nombreux !</h2>
+        <h2>📜 Ça marche, les grèves ? Oui, quand on est nombreux !</h2>
         <div class="cards">
-          <div class="card"><strong>1936 â€” Accords de Matignon</strong> : grÃ¨ves massives et occupations âžœ libertÃ©s syndicales, hausses de salaire.</div>
-          <div class="card"><strong>1968 â€” Mai 68</strong> : jusquâ€™Ã  10 millions de grÃ©vistes âžœ articulation sociale et politique.</div>
-          <div class="card"><strong>1995 â€” Plan JuppÃ©</strong> : grÃ¨ves dans les transports âžœ recul du gouvernement.</div>
-          <div class="card"><strong>2006 â€” CPE</strong> : Ã©tudiantÂ·es + syndicats âžœ retrait du projet.</div>
-          <div class="card"><strong>2008â€“2010 â€” Sans papiers</strong> : occupations symboliques âžœ rÃ©gularisations par le travail.</div>
-          <div class="card"><strong>Octobre 2023</strong> : >800 travailleurs sans papiers en IDF, piquets et occupations âžœ rÃ©gularisations grÃ¢ce Ã  une action visible et collective.</div>
+          <div class="card"><strong>1936 – Accords de Matignon</strong> : grèves massives et occupations ➜ libertés syndicales, hausses de salaire.</div>
+          <div class="card"><strong>1968 – Mai 68</strong> : jusqu'à 10 millions de grévistes ➜ articulation sociale et politique.</div>
+          <div class="card"><strong>1995 – Plan Juppé</strong> : grèves dans les transports ➜ recul du gouvernement.</div>
+          <div class="card"><strong>2006 – CPE</strong> : étudiant·es + syndicats ➜ retrait du projet.</div>
+          <div class="card"><strong>2008–2010 – Sans papiers</strong> : occupations symboliques ➜ régularisations par le travail.</div>
+          <div class="card"><strong>Octobre 2023</strong> : >800 travailleurs sans papiers en IDF, piquets et occupations ➜ régularisations grâce à une action visible et collective.</div>
         </div>
       </section>
 
       <section id="concret">
-        <h2>La grÃ¨ve, câ€™est quoi concrÃ¨tement ?</h2>
-        <p>La grÃ¨ve, câ€™est un <strong>droit Ã  la rÃ©sistance</strong> : une cessation collective et concertÃ©e du travail. Câ€™est un droit individuel qui sâ€™exerce collectivement. En grÃ¨ve, on ne se prÃ©sente pas au travail : on reprend du pouvoir sur son temps et ses dÃ©cisions.</p>
-        <p class="note">MÃªme dans une TPE, et mÃªme sans syndicat dans lâ€™entreprise, tu peux te mettre en grÃ¨ve dÃ¨s lors quâ€™un appel national ou de branche existe.</p>
+        <h2>La grève, c'est quoi concrètement ?</h2>
+        <p>La grève, c'est un <strong>droit à la résistance</strong> : une cessation collective et concertée du travail. C'est un droit individuel qui s'exerce collectivement. En grève, on ne se présente pas au travail : on reprend du pouvoir sur son temps et ses décisions.</p>
+        <p class="note">Même dans une TPE, et même sans syndicat dans l'entreprise, tu peux te mettre en grève dès lors qu'un appel national ou de branche existe.</p>
       </section>
 
       <section id="formes">
-        <h2>Les diffÃ©rentes formes de grÃ¨ve</h2>
+        <h2>Les différentes formes de grève</h2>
         <ul>
-          <li><strong>DÃ©brayage</strong> : arrÃªt dâ€™une heure ou deux, au bon moment et au bon endroit.</li>
-          <li><strong>JournÃ©e entiÃ¨re</strong> : montrer sa force, sâ€™organiser.</li>
-          <li><strong>Reconduction</strong> : dÃ©cider ensemble chaque jour jusquâ€™Ã  obtenir gain de cause.</li>
+          <li><strong>Débrayage</strong> : arrêt d'une heure ou deux, au bon moment et au bon endroit.</li>
+          <li><strong>Journée entière</strong> : montrer sa force, s'organiser.</li>
+          <li><strong>Reconduction</strong> : décider ensemble chaque jour jusqu'à obtenir gain de cause.</li>
         </ul>
       </section>
 
       <section id="solidarite">
-        <h2>ðŸ«±ðŸ¾â€ðŸ«²ðŸ½ Organiser la solidaritÃ©</h2>
+        <h2>🫱🏾‍🫲🏽 Organiser la solidarité</h2>
         <ul>
-          <li><strong>AssemblÃ©es gÃ©nÃ©rales</strong> âžœ dÃ©cider ensemble, relier lieux de travail, associer les collÃ¨gues sans papiers.</li>
-          <li><strong>Caisse de grÃ¨ve</strong> âžœ mutualiser pour soutenir les grÃ©vistes.</li>
-          <li><strong>Cantines collectives</strong> âžœ repas partagÃ©s, soutien logistique.</li>
-          <li><strong>Piquets de grÃ¨ve</strong> âžœ lieux de rencontre, dâ€™organisation, de visibilitÃ©.</li>
-          <li><strong>PrÃ©paration en amont</strong> âžœ repÃ©rer lieux, sousâ€‘traitants, donneurs dâ€™ordre, organiser tractages et contacts.</li>
+          <li><strong>Assemblées générales</strong> ➜ décider ensemble, relier lieux de travail, associer les collègues sans papiers.</li>
+          <li><strong>Caisse de grève</strong> ➜ mutualiser pour soutenir les grévistes.</li>
+          <li><strong>Cantines collectives</strong> ➜ repas partagés, soutien logistique.</li>
+          <li><strong>Piquets de grève</strong> ➜ lieux de rencontre, d'organisation, de visibilité.</li>
+          <li><strong>Préparation en amont</strong> ➜ repérer lieux, sous‑traitants, donneurs d'ordre, organiser tractages et contacts.</li>
         </ul>
       </section>
 
       <section id="agir">
-        <h2>ðŸ“£ Comment agir le 18 dÃ©cembre ?</h2>
+        <h2>📣 Comment agir le 18 décembre ?</h2>
         <ul>
-          <li>Faire grÃ¨ve individuellement ou collectivement.</li>
-          <li>Fermer symboliquement son commerce, Ã©cole, service.</li>
-          <li>Organiser discussions, affichages, dÃ©bats.</li>
+          <li>Faire grève individuellement ou collectivement.</li>
+          <li>Fermer symboliquement son commerce, école, service.</li>
+          <li>Organiser discussions, affichages, débats.</li>
           <li>Rejoindre les manifestations locales.</li>
-          <li>Relayer lâ€™appel sur les rÃ©seaux et dans les mÃ©dias.</li>
+          <li>Relayer l'appel sur les réseaux et dans les médias.</li>
         </ul>
       </section>
 
       <section id="decide">
-        <h2>Je suis dÃ©cidÃ©Â·e, je me mets en grÃ¨ve !</h2>
+        <h2>Je suis décidé·e, je me mets en grève !</h2>
         <ol>
-          <li><strong>Informer les syndicats</strong> â€” Utilise lâ€™outil dâ€™envoi de mail (2 min) âžœ <a href="https://crinsys.pythonanywhere.com" target="_blank" rel="noopener">GÃ©nÃ©rer mon mail syndical</a>.</li>
-          <li><strong>VÃ©rifier le cadre</strong> â€” Certains secteurs (Ã©ducation, santÃ©, transports, pompiersâ€¦) ont service minimum ou prÃ©avis obligatoire.</li>
-          <li><strong>Anticiper les rÃ©quisitions</strong> â€” Possibles mais strictement encadrÃ©es.</li>
-          <li><strong>Constituer un kit juridique</strong> â€” Contrats, fiches de paie, attestations, contacts dâ€™avocats/associations.</li>
-          <li><strong>RÃ©diger le prÃ©avis / lâ€™appel</strong> â€” <button class="btn" id="copyPreavis">Copier le modÃ¨le</button></li>
-          <li><strong>Encourager mes connaissances Ã  faire pareil</strong> âžœ Je partage sur mes rÃ©seaux <button class="share-cta" id="shareBtnSection"><i class="fa-solid fa-share-nodes"></i> Partager sur mes rÃ©seaux</button></li>
+          <li><strong>Informer les syndicats</strong> – Utilise l'outil d'envoi de mail (2 min) ➜ <a href="https://one8decsansnous.onrender.com/" target="_blank" rel="noopener">Générer mon mail syndical</a>.</li>
+          <li><strong>Vérifier le cadre</strong> – Certains secteurs (éducation, santé, transports, pompiers…) ont service minimum ou préavis obligatoire.</li>
+          <li><strong>Anticiper les réquisitions</strong> – Possibles mais strictement encadrées.</li>
+          <li><strong>Constituer un kit juridique</strong> – Contrats, fiches de paie, attestations, contacts d'avocats/associations.</li>
+          <li><strong>Rédiger le préavis / l'appel</strong> – <button class="btn" id="copyPreavis">Copier le modèle</button></li>
+          <li><strong>Encourager mes connaissances à faire pareil</strong> ➜ Je partage sur mes réseaux <button class="share-cta" id="shareBtnSection" aria-label="Partager sur les réseaux sociaux"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager sur mes réseaux</button></li>
         </ol>
       </section>
 
       <section id="kit">
-        <h2>ðŸ§° Kit syndical express</h2>
+        <h2>🧰 Kit syndical express</h2>
         <ol>
-          <li><strong>VÃ©rifie le prÃ©avis</strong> â€” Sâ€™il nâ€™existe pas, interpelle ton syndicat via lâ€™outil.</li>
-          <li><strong>Informe ton syndicat</strong> â€” <a href="https://crinsys.pythonanywhere.com" target="_blank" rel="noopener">GÃ©nÃ©rer mon mail en 2 min</a>.</li>
-          <li><strong>Participe Ã  la grÃ¨ve</strong> â€” ArrÃªt collectif, piquet, manif, fermeture symbolique.</li>
-          <li><strong>Organise la solidaritÃ©</strong> â€” Caisse de grÃ¨ve, cantines, entraide.</li>
+          <li><strong>Vérifie le préavis</strong> – S'il n'existe pas, interpelle ton syndicat via l'outil.</li>
+          <li><strong>Informe ton syndicat</strong> – <a href="https://one8decsansnous.onrender.com/" target="_blank" rel="noopener">Générer mon mail en 2 min</a>.</li>
+          <li><strong>Participe à la grève</strong> – Arrêt collectif, piquet, manif, fermeture symbolique.</li>
+          <li><strong>Organise la solidarité</strong> – Caisse de grève, cantines, entraide.</li>
         </ol>
       </section>
 
       <section>
         <h2>Conclusion</h2>
-        <p>Le 18 dÃ©cembre, faisons ensemble la dÃ©monstration que <strong>sans nous, rien ne tourne</strong>. GrÃ¨ve pour lâ€™Ã©galitÃ©, la dignitÃ©, la solidaritÃ©.</p>
+        <p>Le 18 décembre, faisons ensemble la démonstration que <strong>sans nous, rien ne tourne</strong>. Grève pour l'égalité, la dignité, la solidarité.</p>
       </section>
     </div>
   </main>
 
-  <footer><div class="wrap">Â© JournÃ©e Sans Nous â€” Guide pratique</div></footer>
+  <footer><div class="wrap">© Journée Sans Nous – Guide pratique</div></footer>
 
   <script>
-    const shareText = "J'ai dÃ©cidÃ© de participer Ã  la GrÃ¨ve de SolidaritÃ© le 18 dÃ©cembre, afin de protester contre les lois racistes ! Si toi aussi tu es solidaire avec les immigrÃ©.e.s rejoins-moi et dÃ©couvre comment te mettre en grÃ¨ve.";
+    const shareText = "J'ai décidé de participer à la Grève de Solidarité le 18 décembre, afin de protester contre les lois racistes ! Si toi aussi tu es solidaire avec les immigré.e.s rejoins-moi et découvre comment te mettre en grève.";
     const shareUrl  = window.location.href;
 
     // Partage natif (haut + section 6)
-    document.getElementById('shareTop').onclick = ()=> navigator.share ? navigator.share({title:'JournÃ©e Sans Nous', text:shareText, url:shareUrl}) : alert('Copie le lien pour partager.');
-    document.getElementById('shareBtnSection').onclick = ()=> navigator.share ? navigator.share({title:'JournÃ©e Sans Nous', text:shareText, url:shareUrl}) : alert('Copie le lien pour partager.');
+    document.getElementById('shareTop').onclick = ()=> navigator.share ? navigator.share({title:'Journée Sans Nous', text:shareText, url:shareUrl}) : alert('Copie le lien pour partager.');
+    document.getElementById('shareBtnSection').onclick = ()=> navigator.share ? navigator.share({title:'Journée Sans Nous', text:shareText, url:shareUrl}) : alert('Copie le lien pour partager.');
 
-    // Copier le modÃ¨le de prÃ©avis (point 5)
+    // Copier le modèle de préavis (point 5)
     document.getElementById('copyPreavis').onclick = ()=>{
-      const modele = "Pour la JournÃ©e Sans Nous Ã  lâ€™occasion de la JournÃ©e internationale des Migrant.e.s 2025, nous appelons Ã  une journÃ©e de grÃ¨ve pour exiger [revendication professionnelle claire, ex : rÃ©gularisation par le travail / fin des contrÃ´les discriminatoires / protection juridique pour travailleursÂ·ses migrantÂ·es] et pour dÃ©noncer le racisme dâ€™Ã‰tat qui nie ces droits.";
-      navigator.clipboard.writeText(modele).then(()=>alert('ModÃ¨le de prÃ©avis copiÃ© !'));
+      const modele = "Pour la Journée Sans Nous à l'occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleur·ses migrant·es] et pour dénoncer le racisme d'État qui nie ces droits.";
+      navigator.clipboard.writeText(modele).then(()=>alert('Modèle de préavis copié !'));
     };
   </script>
 </body>
