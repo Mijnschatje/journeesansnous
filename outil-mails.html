@@ -32,6 +32,13 @@
     h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
     .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
     
+    /* Barre de progression */
+    .progress-bar{background:#f1f5f9;height:8px;border-radius:999px;overflow:hidden;margin:20px 0}
+    .progress-fill{background:linear-gradient(90deg,var(--brand),#ff6b6b);height:100%;transition:width .6s ease;border-radius:999px;position:relative}
+    .progress-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:30px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3));animation:shimmer 1.5s infinite}
+    @keyframes shimmer{0%,100%{opacity:0}50%{opacity:1}}
+    .progress-text{text-align:center;margin-top:8px;font-size:14px;font-weight:600;color:var(--brand)}
+    
     main{max-width:900px;margin:auto;padding:24px 18px}
     
     .step-card{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s}
@@ -43,7 +50,10 @@
     
     .form-group{margin-bottom:18px}
     .form-group:last-child{margin-bottom:0}
-    label{display:block;font-weight:600;margin-bottom:6px;color:var(--ink);font-size:14px}
+    label{display:block;font-weight:600;margin-bottom:6px;color:var(--ink);font-size:14px;display:flex;align-items:center;gap:8px}
+    .field-check{display:none;color:#10b981;font-size:16px}
+    .field-check.show{display:inline-block;animation:checkPop .3s ease}
+    @keyframes checkPop{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
     .helper{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
     input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;outline:none;font-family:inherit;font-size:15px;transition:all .2s}
     input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(238,73,67,.1)}
@@ -98,6 +108,11 @@
     <div class="wrap">
       <h1>Générateur de mails aux syndicats</h1>
       <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
+      
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressBar" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="progressText">0% complété</div>
     </div>
   </section>
 
@@ -111,33 +126,33 @@
       <div class="step-body">
         <div class="grid-2">
           <div class="form-group">
-            <label for="syndicat">Syndicat *</label>
+            <label for="syndicat">Syndicat * <span class="field-check" id="check-syndicat">✓</span></label>
             <select id="syndicat" required>
               <option value="">— Sélectionner —</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="dept">Département</label>
+            <label for="dept">Département <span class="field-check" id="check-dept">✓</span></label>
             <select id="dept">
               <option value="">— Optionnel —</option>
             </select>
             <div class="helper">Union Départementale de ton département</div>
           </div>
           <div class="form-group">
-            <label for="fede">Fédération (secteur)</label>
+            <label for="fede">Fédération (secteur) <span class="field-check" id="check-fede">✓</span></label>
             <select id="fede">
               <option value="">— Optionnel —</option>
             </select>
             <div class="helper">Fédération de ton secteur professionnel</div>
           </div>
           <div class="form-group">
-            <label for="destinataire">Emails des destinataires *</label>
+            <label for="destinataire">Emails des destinataires * <span class="field-check" id="check-destinataire">✓</span></label>
             <input id="destinataire" type="text" placeholder="Les emails s'ajoutent automatiquement" required />
             <div class="helper">Les emails sélectionnés apparaissent ici, séparés par des virgules</div>
           </div>
         </div>
         <div class="form-group" style="margin-top:10px">
-          <label for="cc">Copie (CC - optionnel)</label>
+          <label for="cc">Copie (CC - optionnel) <span class="field-check" id="check-cc">✓</span></label>
           <input id="cc" type="text" placeholder="Emails supplémentaires en copie..." />
           <div class="helper">Les emails en surplus s'ajoutent ici automatiquement</div>
         </div>
@@ -152,11 +167,11 @@
       <div class="step-body">
         <div class="grid-2">
           <div class="form-group">
-            <label for="nom">Nom / Prénom *</label>
+            <label for="nom">Nom / Prénom * <span class="field-check" id="check-nom">✓</span></label>
             <input id="nom" placeholder="Ton nom ou collectif" required />
           </div>
           <div class="form-group">
-            <label for="lieu">Ville / Lieu de travail *</label>
+            <label for="lieu">Ville / Lieu de travail * <span class="field-check" id="check-lieu">✓</span></label>
             <input id="lieu" placeholder="Paris 20e, entrepôt X..." required />
           </div>
         </div>
@@ -173,7 +188,7 @@
         </div>
 
         <div class="form-group">
-          <label for="sujet">Objet de l'email</label>
+          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
           <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
         </div>
       </div>
@@ -225,6 +240,87 @@
   <footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
 
 <script>
+/* ===== Système de progression ===== */
+function updateProgress(){
+  const fields = {
+    'syndicat': el('syndicat').value,
+    'destinataire': el('destinataire').value,
+    'nom': el('nom').value,
+    'lieu': el('lieu').value,
+    'sujet': el('sujet').value,
+    'message': el('message').value
+  };
+  
+  let completed = 0;
+  const total = Object.keys(fields).length;
+  
+  // Compter les champs remplis
+  Object.keys(fields).forEach(key => {
+    if(fields[key] && fields[key].trim()){
+      completed++;
+      // Afficher la coche verte
+      const check = document.getElementById(`check-${key}`);
+      if(check) check.classList.add('show');
+    } else {
+      // Cacher la coche
+      const check = document.getElementById(`check-${key}`);
+      if(check) check.classList.remove('show');
+    }
+  });
+  
+  // Gérer les champs optionnels avec coches
+  ['dept', 'fede', 'cc'].forEach(key => {
+    const val = el(key).value;
+    const check = document.getElementById(`check-${key}`);
+    if(check){
+      if(val && val.trim()){
+        check.classList.add('show');
+      } else {
+        check.classList.remove('show');
+      }
+    }
+  });
+  
+  const percentage = Math.round((completed / total) * 100);
+  
+  el('progressBar').style.width = percentage + '%';
+  el('progressText').textContent = percentage + '% complété';
+  
+  console.log(`Progression: ${completed}/${total} = ${percentage}%`);
+}
+
+/* ===== Animation confettis ===== */
+function createConfetti(){
+  const colors = ['#ee4943', '#fbbf24', '#3b82f6', '#10b981', '#f472b6', '#a78bfa'];
+  const confettiCount = 50;
+  
+  for(let i = 0; i < confettiCount; i++){
+    setTimeout(() => {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.setProperty('--confetti-color', colors[Math.floor(Math.random() * colors.length)]);
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.opacity = '1';
+      
+      document.body.appendChild(confetti);
+      
+      const duration = 2000 + Math.random() * 1000;
+      const rotation = Math.random() * 360;
+      const drift = (Math.random() - 0.5) * 200;
+      
+      confetti.animate([
+        { transform: 'translateY(0) rotate(0deg) translateX(0)', opacity: 1 },
+        { transform: `translateY(${window.innerHeight + 20}px) rotate(${rotation}deg) translateX(${drift}px)`, opacity: 0 }
+      ], {
+        duration: duration,
+        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      }).onfinish = () => confetti.remove();
+      
+    }, i * 30);
+  }
+}
+
 /* ===== Mapping départements ===== */
 const DEPTS={"01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence","05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes","09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime","18":"Cher","19":"Corrèze","2A":"Corse-du-Sud","2B":"Haute-Corse","21":"Côte-d'Or","22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère","30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord","60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme","64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales","67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône","71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie","75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines","79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne","83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe","972":"Martinique","973":"Guyane","974":"La Réunion","975":"Saint-Pierre-et-Miquelon","976":"Mayotte","977":"Saint-Barthélemy","978":"Saint-Martin","986":"Wallis-et-Futuna","987":"Polynésie française","988":"Nouvelle-Calédonie"};
 
@@ -496,7 +592,13 @@ function toMailto(){
     url += `&cc=${encodeURIComponent(cc)}`;
   }
   
-  window.location.href=url;
+  // Animation confettis !
+  createConfetti();
+  
+  // Petit délai pour voir les confettis avant d'ouvrir le mail
+  setTimeout(() => {
+    window.location.href=url;
+  }, 500);
 }
 
 function telecharger(){
