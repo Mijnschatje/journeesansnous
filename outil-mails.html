@@ -239,7 +239,7 @@
         </div>
         
         <div class="actions" style="margin-top:16px">
-          <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon logiciel mail</button>
+          <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
           <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
           <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
         </div>
@@ -593,22 +593,30 @@ function copier(){
   if(!msg){alert('Charge d\'abord le modèle !');return;}
   navigator.clipboard.writeText(msg).then(()=>alert('✅ Message copié dans le presse-papiers !'));
 }
-
+  
 function toMailto(){
-  const to=el('destinataire').value||'';
-  if(!to){alert('⚠️ Indique au moins un email destinataire !');return;}
-  
-  const cc=el('cc').value||'';
-  const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre';
-  const body=el('message').value||MODELE_OFFICIEL();
-  const enc=s=>encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
-  
-  // Construction de l'URL mailto avec gestion des multiples destinataires
-  let url = `mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}`;
-  if(cc){
-    url += `&cc=${encodeURIComponent(cc)}`;
-  }
-  
+  const to = (el('destinataire').value || '').trim();
+  if(!to){ alert('⚠️ Indique au moins un email destinataire !'); return; }
+
+  // Normaliser la liste CC : remplacer ; et espaces multiples par des virgules
+  let ccRaw = (el('cc').value || '').trim();
+  ccRaw = ccRaw.replace(/[; ]+/g, ',').replace(/,+/g, ',').replace(/^,|,$/g, '');
+  const sujet = el('sujet').value || 'Appel à la mobilisation du 18 décembre';
+  const body  = el('message').value || MODELE_OFFICIEL();
+
+  // Pour certains clients, l'ordre des paramètres compte : cc → subject → body
+  const enc = s => encodeURIComponent(s).replace(/%0A/g, '%0D%0A');
+
+  // Construire proprement la query string
+  const params = [];
+  if (ccRaw) params.push('cc=' + encodeURIComponent(ccRaw));
+  params.push('subject=' + enc(sujet));
+  params.push('body=' + enc(body));
+
+  const url = `mailto:${encodeURIComponent(to)}?` + params.join('&');
+  window.location.href = url;
+}
+
   // Animation confettis !
   createConfetti();
   
