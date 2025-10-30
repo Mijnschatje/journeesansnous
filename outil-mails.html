@@ -153,6 +153,145 @@
 
   <footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
 
-  <script src="https://mijnschatje.github.io/journeesansnous/js/generator-ud-fede.js"></script>
+<script>
+/* ===== Mapping départements pour affichage “code – nom” ===== */
+const DEPTS={"01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence","05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes","09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime","18":"Cher","19":"Corrèze","2A":"Corse-du-Sud","2B":"Haute-Corse","21":"Côte-d'Or","22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère","30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord","60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme","64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales","67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône","71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie","75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines","79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne","83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe","972":"Martinique","973":"Guyane","974":"La Réunion","975":"Saint-Pierre-et-Miquelon","976":"Mayotte","977":"Saint-Barthélemy","978":"Saint-Martin","986":"Wallis-et-Futuna","987":"Polynésie française","988":"Nouvelle-Calédonie"};
+
+/* ===== Chargement de la base JSON structurée ===== */
+let DB={};
+async function loadDB(){
+  const here=location.pathname.replace(/[^/]+$/,'');
+  for(const url of [here+'data/emails-syndicats.json','/journeesansnous/data/emails-syndicats.json']){
+    try{const r=await fetch(url,{cache:'no-store'});if(r.ok){DB=await r.json();break;}}catch(e){}
+  }
+  fillSyndicats();
+}
+
+/* ===== Remplissage des listes ===== */
+const el=id=>document.getElementById(id);
+
+function fillSyndicats(){
+  const s=el('syndicat'); s.innerHTML='';
+  s.add(new Option('— choisir —',''));
+  const keys=Object.keys(DB).sort();
+  (keys.length?keys:['CGT','CFDT','FO','CFE-CGC','CFTC','UNSA','Solidaires','FSU','CNT'])
+    .forEach(k=>s.add(new Option(k,k)));
+  fillStructures();
+}
+
+function udSortKey(x){
+  const c=(x.code||'').toUpperCase();
+  const m=c.match(/^(\d+)([A-Z]?)$/);
+  if(!m) return [9999,c];
+  const n=parseInt(m[1],10);
+  const frac=m[2]==='A'?0.1:(m[2]==='B'?0.2:0);
+  return [n+frac,c];
+}
+
+function fillStructures(){
+  const synd=el('syndicat').value;
+  const dept=el('dept'); const fede=el('fede');
+  dept.innerHTML=''; fede.innerHTML='';
+  dept.add(new Option('— UD (département) —',''));
+  fede.add(new Option('— Fédération (secteur) —',''));
+
+  const rec=DB[synd]||{};
+  (rec.fede||[]).forEach(x=>fede.add(new Option(x.label, x.email||'')));
+
+  (rec.ud||[]).slice().sort(udSortKey).forEach(x=>{
+    const code=x.code||''; 
+    const nice = (code && DEPTS[code]) ? `${code} – ${DEPTS[code]}` : (x.label || code || 'UD');
+    dept.add(new Option(nice, x.email||''));
+  });
+
+  updateEmail();
+}
+
+function updateEmail(){
+  const fedeVal=el('fede').value||'';
+  const deptVal=el('dept').value||'';
+  const synd=el('syndicat').value;
+  const national=(DB[synd]||{}).national||'';
+  el('destinataire').value = fedeVal || deptVal || national || '';
+}
+
+/* ===== Actions ===== */
+function MODELE_OFFICIEL(){
+  const nom=(el('nom').value||'[Prénom Nom]').trim();
+  const lieu=(el('lieu').value||'[Ville / Lieu de travail / Établissement]').trim();
+  const contact='[Contact (facultatif)]';
+  return `Objet : Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique
+
+Bonjour,
+
+Je vous écris dans le cadre de la Journée Sans Nous – “Si on s’arrête, tout s’arrête !”, organisée le 18 décembre 2025, à l’occasion de la Journée internationale des migrant·e·s.
+ À l’initiative des collectifs de personnes sans papiers, la Marche des Solidarités appelle à une grève générale solidaire à l’échelle nationale.
+ 👉 L’appel complet est consultable ici : https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
+
+Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.
+ Cette journée d’action me permettra de m’exprimer en solidarité avec les personnes immigrées et sans papiers, qui sont mes ami·es, mes voisin·es et mes collègues — celles et ceux qui font tourner le pays mais restent privé·es de droits, exploité·es dans des conditions indignes et constamment discriminé·es.
+
+Aujourd’hui, les politiques racistes et inhumaines menées par l’État (rafles, enfermements en CRA, durcissement des lois sur l’immigration, atteintes aux droits sociaux) ne sont pas seulement une attaque contre les personnes étrangères :
+ elles fragilisent tout le socle social en remettant en cause le droit du travail, en banalisant le travail dissimulé et l’exploitation humaine, en organisant une mise en concurrence destructrice entre salarié·es, et en affaiblissant la solidarité collective.
+ Ces atteintes participent à un glissement général vers une société d’inégalités et de peur, où les droits fondamentaux de chacun deviennent négociables.
+
+Face à cette urgence, nous avons besoin que les syndicats prennent position et ouvrent la voie à une grève politique et solidaire, comme ils l’ont déjà fait dans l’histoire pour des causes universelles :
+ contre la guerre d’Algérie, pour les droits civiques, pour la régularisation des sans-papiers, ou pour la défense des libertés publiques.
+
+👉 Je vous demande :
+
+• de vous prononcer publiquement en faveur de la Journée Sans Nous,
+• d’informer vos adhérent·es et salarié·es sur la possibilité de se mobiliser le 18 décembre,
+• et de mettre en œuvre les moyens légaux pour permettre une grève solidaire (préavis, communication, appui logistique…).
+
+Cette journée sera l’occasion de manifester, débattre, fermer symboliquement nos lieux de travail, d’enseignement ou d’activité, pour rappeler que la solidarité n’a pas de papiers et que la société ne fonctionne que grâce à celles et ceux qu’on invisibilise.
+
+https://www.antiracisme-solidarite.org/18-d%C3%A9cembre-2025-journee-sans-nous
+
+Merci pour votre écoute et pour l’engagement que vous prendrez.
+ Je reste à votre disposition pour toute information complémentaire ou pour participer à l’organisation locale.
+
+Solidairement,
+
+${nom}
+ ${lieu}
+ ${contact}
+`;}
+
+const MODELE_PREAVIS="Pour la Journée Sans Nous à l’occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleurs·ses migrant·es] et pour dénoncer le racisme d’État qui nie ces droits.";
+
+function chargerModele(){el('message').value=MODELE_OFFICIEL(); apercu();}
+function apercu(){el('preview').textContent=el('message').value||'Aucun message saisi.';}
+function copier(){navigator.clipboard.writeText(el('message').value).then(()=>alert('Message copié dans le presse-papiers.'));}
+
+function toMailto(){
+  const to=el('destinataire').value||'';
+  const cc=el('cc').value||'';
+  const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique';
+  const body=el('message').value||MODELE_OFFICIEL();
+  const enc=s=>encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
+  const url=`mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}${cc?`&cc=${encodeURIComponent(cc)}`:''}`;
+  window.location.href=url;
+}
+function telecharger(){
+  const blob=new Blob([el('message').value||MODELE_OFFICIEL()],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mail-pour-syndicat.txt'; a.click(); URL.revokeObjectURL(a.href);
+}
+
+/* Listeners + init */
+document.addEventListener('DOMContentLoaded',()=>{ 
+  document.getElementById('btnRemplir').addEventListener('click',chargerModele);
+  document.getElementById('btnApercu').addEventListener('click',apercu);
+  document.getElementById('btnCopier').addEventListener('click',copier);
+  document.getElementById('btnMailto').addEventListener('click',toMailto);
+  document.getElementById('btnTelecharger').addEventListener('click',telecharger);
+  document.getElementById('btnPreavis').addEventListener('click',()=>{navigator.clipboard.writeText(MODELE_PREAVIS).then(()=>alert('Modèle de préavis copié.'))});
+  document.getElementById('syndicat').addEventListener('change',fillStructures);
+  document.getElementById('dept').addEventListener('change',updateEmail);
+  document.getElementById('fede').addEventListener('change',updateEmail);
+  loadDB(); chargerModele();
+});
+</script>
+
 </body>
 </html>
