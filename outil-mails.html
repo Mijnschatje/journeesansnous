@@ -146,9 +146,26 @@
             <div class="helper">Fédération de ton secteur professionnel</div>
           </div>
           <div class="form-group">
-            <label for="destinataire">Emails des destinataires * <span class="field-check" id="check-destinataire">✓</span></label>
-            <input id="destinataire" type="text" placeholder="Les emails s'ajoutent automatiquement" required />
-            <div class="helper">Les emails sélectionnés apparaissent ici, séparés par des virgules</div>
+           <!-- Champ email protégé contre l’autofill du navigateur -->
+<!-- On ajoute un champ invisible pour "piéger" l'autofill -->
+<input type="email" name="fake_email" autocomplete="email"
+       style="position:absolute;left:-9999px;opacity:0;width:0;height:0;border:0;padding:0"
+       tabindex="-1" aria-hidden="true">
+
+<label for="destinataire">Destinataire</label>
+<input
+  id="destinataire"
+  name="destinataire_os"
+  type="email"
+  inputmode="email"
+  placeholder="ex : contact@syndicat-xx.org"
+  autocomplete="off"
+  autocapitalize="off"
+  spellcheck="false"
+  style="flex:1"
+/>
+<div class="muted">Auto-rempli par la base (priorité Fédération ➜ UD ➜ National).</div>
+
           </div>
         </div>
         <div class="form-group" style="margin-top:10px">
