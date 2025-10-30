@@ -91,18 +91,20 @@
   </div>
 
   <main>
-    <aside class="toc">
+    <aside class="toc collapsed">
       <h3>Sommaire</h3>
-      <a href="#pourquoi">Pourquoi la grève ?</a>
-      <a href="#legal">Est‑ce légal ?</a>
-      <a href="#temoignage">Témoignage</a>
-      <a href="#exemples">Exemples</a>
-      <a href="#concret">La grève, concrètement</a>
-      <a href="#formes">Formes</a>
-      <a href="#solidarite">Solidarité</a>
-      <a href="#agir">Agir le 18/12</a>
-      <a href="#decide">Je me mets en grève !</a>
-      <a href="#kit">Kit express</a>
+      <div class="toc-links">
+        <a href="#pourquoi">Pourquoi la grève ?</a>
+        <a href="#legal">Est‑ce légal ?</a>
+        <a href="#temoignage">Témoignage</a>
+        <a href="#exemples">Exemples</a>
+        <a href="#concret">La grève, concrètement</a>
+        <a href="#formes">Formes</a>
+        <a href="#solidarite">Solidarité</a>
+        <a href="#agir">Agir le 18/12</a>
+        <a href="#decide">Je me mets en grève !</a>
+        <a href="#kit">Kit express</a>
+      </div>
     </aside>
 
     <div>
@@ -235,6 +237,40 @@
       const modele = "Pour la Journée Sans Nous à l'occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleur·ses migrant·es] et pour dénoncer le racisme d'État qui nie ces droits.";
       navigator.clipboard.writeText(modele).then(()=>alert('Modèle de préavis copié !'));
     };
+
+    // Sommaire repliable sur mobile
+    const toc = document.querySelector('.toc');
+    const tocTitle = document.querySelector('.toc h3');
+    
+    // Détecter si on est sur mobile
+    function isMobile() {
+      return window.innerWidth <= 899;
+    }
+    
+    // Toggle du sommaire
+    tocTitle.addEventListener('click', () => {
+      if (isMobile()) {
+        toc.classList.toggle('collapsed');
+      }
+    });
+    
+    // Fermer le sommaire après clic sur un lien (mobile uniquement)
+    document.querySelectorAll('.toc a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMobile()) {
+          toc.classList.add('collapsed');
+        }
+      });
+    });
+    
+    // Gérer le resize de la fenêtre
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        toc.classList.remove('collapsed');
+      } else {
+        toc.classList.add('collapsed');
+      }
+    });
   </script>
 </body>
 </html>
