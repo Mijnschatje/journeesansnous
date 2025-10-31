@@ -161,7 +161,87 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
     <h2>Frontex et la guerre aux frontières</h2>
     <p>Alors que l’État prétend manquer de moyens pour la santé, l’éducation ou le logement, il finance massivement <strong class="emphase">Frontex</strong>, l’agence européenne de surveillance des frontières, dont le budget a explosé à près d’un milliard d’euros en 2024.</p>
     <p>Drones, radars, navires et effectifs militaires traquent les exilé·e·s, au prix de milliers de vies perdues en Méditerranée et dans la Manche. <strong class="emphase">Cette militarisation montre la priorité politique donnée à la guerre contre les migrant·e·s plutôt qu’aux droits sociaux.</strong></p>
-  </section>
+  <!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX ===== -->
+<section id="frontex-budget">
+  <h2>Explosion du budget de Frontex</h2>
+  <p>En moins de vingt ans, le budget de l’agence européenne de surveillance des frontières a été multiplié par plus de <strong class="emphase">150</strong>, illustrant la priorité donnée à la militarisation des frontières plutôt qu’à la solidarité.</p>
+
+  <div style="max-width:800px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05)">
+    <canvas id="frontexChart"></canvas>
+  </div>
+
+  <table style="width:100%;margin-top:18px;border-collapse:collapse;font-size:14px">
+    <thead style="background:#fff5f4;color:var(--brand)">
+      <tr>
+        <th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Année</th>
+        <th style="text-align:right;padding:8px;border-bottom:1px solid var(--line)">Budget (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:6px 8px">2005</td><td style="text-align:right;padding:6px 8px">6 000 000</td></tr>
+      <tr><td style="padding:6px 8px">2006</td><td style="text-align:right;padding:6px 8px">19 166 300</td></tr>
+      <tr><td style="padding:6px 8px">2014</td><td style="text-align:right;padding:6px 8px">98 000 000</td></tr>
+      <tr><td style="padding:6px 8px">2015</td><td style="text-align:right;padding:6px 8px">143 000 000</td></tr>
+      <tr><td style="padding:6px 8px">2020</td><td style="text-align:right;padding:6px 8px">460 000 000</td></tr>
+      <tr><td style="padding:6px 8px">2023</td><td style="text-align:right;padding:6px 8px">845 000 000</td></tr>
+      <tr><td style="padding:6px 8px">2024</td><td style="text-align:right;padding:6px 8px">922 000 000</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== CHART.JS SCRIPT ===== -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  const ctx = document.getElementById('frontexChart');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['2005','2006','2014','2015','2020','2023','2024'],
+      datasets: [{
+        label: 'Budget de Frontex (€)',
+        data: [6000000,19166300,98000000,143000000,460000000,845000000,922000000],
+        borderColor: '#ee4943',
+        backgroundColor: 'rgba(238,73,67,0.15)',
+        fill: true,
+        tension: 0.25,
+        borderWidth: 3,
+        pointRadius: 5,
+        pointBackgroundColor: '#ee4943'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: {
+        duration: 2500,
+        easing: 'easeInOutQuart'
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => 
+              'Budget : ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €'
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Année', color:'#475569', font:{weight:600} },
+          grid: { color:'rgba(0,0,0,0.05)' }
+        },
+        y: {
+          title: { display: true, text: 'Budget (en €)', color:'#475569', font:{weight:600} },
+          grid: { color:'rgba(0,0,0,0.05)' },
+          ticks: { callback: (v)=> (v/1000000)+' M€' }
+        }
+      }
+    }
+  });
+});
+</script>
+</section>
 
   <div class="note">
     <p><strong class="emphase">Comprendre, c’est déjà agir.</strong> Ces politiques ne sont pas isolées : elles dessinent une stratégie globale de contrôle, de précarisation et de peur. La grève du 18 décembre est une réponse collective à ce système.</p>
