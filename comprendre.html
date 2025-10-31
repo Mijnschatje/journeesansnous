@@ -17,19 +17,23 @@
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
     .share-cta{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
     .share-cta:hover{background:var(--brand-600);transform:scale(1.05)}
+
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
     .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
     h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
     .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
+
     main{max-width:900px;margin:auto;padding:28px 18px}
     h2{color:var(--brand);margin-top:40px;font-size:22px}
     p{margin-bottom:16px}
     .note{border-left:4px solid var(--brand);background:#fff2f1;padding:10px 14px;border-radius:10px;margin:20px 0}
     .emphase{color:#1e1e1e;font-weight:700}
+    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
 
-    /* KPI local */
+    /* KPI section */
     .kpi-wrap{max-width:1100px;margin:auto;padding:0 18px}
     .kpi-grid{display:grid;gap:14px;margin:28px 0 8px;grid-template-columns:repeat(2,minmax(0,1fr))}
     @media(min-width:840px){.kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -41,8 +45,16 @@
     .kpi-list{display:grid;gap:10px;margin:14px 0 0;grid-template-columns:1fr}
     @media(min-width:720px){.kpi-list{grid-template-columns:repeat(2,1fr)}}
     .kpi-item{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+    .kpi-item b{color:var(--ink)}
 
-    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
+    /* Modules Sources (En savoir +) */
+    .sources{margin:10px 0 0;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .sources summary{list-style:none;cursor:pointer;color:var(--brand);font-weight:700;padding:10px 12px}
+    .sources summary::-webkit-details-marker{display:none}
+    .sources[open] summary{border-bottom:1px solid var(--line);background:#fff8f7}
+    .sources ul{margin:10px 12px;padding-left:18px}
+    .sources li{margin:6px 0}
+    .sources a{color:var(--ink);text-decoration:underline}
   </style>
 </head>
 
@@ -68,12 +80,20 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
 <main>
   <section id="intro">
     <p><strong class="emphase">Les politiques migratoires et sociales actuelles fragilisent tout le monde.</strong> Ce qui commence par la remise en cause des droits des personnes sans papiers ou étrangères finit par affaiblir les droits de l’ensemble des travailleurs. <strong class="emphase">Comprendre ce qui se joue aujourd’hui, c’est refuser la division et reconstruire la solidarité.</strong></p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.insee.fr/fr/statistiques/2381750" target="_blank" rel="noopener">Insee — Immigrés et descendants d’immigrés (définitions & repères)</a></li>
+        <li><a href="https://www.service-public.fr/particuliers/vosdroits/N19810" target="_blank" rel="noopener">Service-Public — Droits des étrangers en France (portail thématique)</a></li>
+      </ul>
+    </details>
   </section>
 
   <!-- ===== CHIFFRES-CLÉS ===== -->
   <section id="chiffres-cles" class="kpi-section">
     <div class="kpi-wrap">
       <h2>Chiffres-clés pour comprendre</h2>
+
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-num">11,3 %</div>
@@ -88,6 +108,7 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
       </div>
 
       <p class="kpi-note">Dans de nombreux métiers essentiels et/ou pénibles, la part d’immigré·es est nettement supérieure à la moyenne :</p>
+
       <div class="kpi-list">
         <div class="kpi-item"><b>Employé·es de maison</b> : 38,8 %</div>
         <div class="kpi-item"><b>Gardiennage & sécurité</b> : 28,4 %</div>
@@ -96,6 +117,13 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
         <div class="kpi-item"><b>Cuisinier·es</b> : 22 %</div>
         <div class="kpi-item"><b>Agents d’entretien</b> : 17,4 %</div>
       </div>
+
+      <details class="sources"><summary>En savoir +</summary>
+        <ul>
+          <li><a href="https://www.insee.fr/fr/statistiques/7096291" target="_blank" rel="noopener">Insee — Population immigrée et étrangère (synthèses récentes)</a></li>
+          <li><a href="https://www.insee.fr/fr/statistiques/7063295" target="_blank" rel="noopener">Insee — Immigrés selon les métiers (données Emploi)</a></li>
+        </ul>
+      </details>
 
       <div class="note" style="margin-top:16px">
         <strong class="emphase">À retenir :</strong> la proportion d’immigré·es dans les métiers dits « essentiels » est
@@ -108,54 +136,109 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
   <section id="regu">
     <h2>Être régularisé devient impossible</h2>
     <p>Alors que la régularisation par le travail, introduite pour les métiers « en tension », semblait offrir une ouverture, elle se heurte à des critères toujours plus stricts et à des pratiques préfectorales arbitraires. La circulaire du 23 janvier 2025, impulsée par Bruno Retailleau, exige désormais trois années de présence en France, douze mois d’ancienneté de travail et une maîtrise certifiée du français.</p>
-    <p>Ces critères, auparavant plus souples, sont appliqués de façon inégale selon les préfectures. Dans certains départements, la voie « métiers en tension » n’est même pas indiquée sur les sites officiels. Les refus se multiplient, souvent assortis d’une <strong class="emphase">obligation de quitter le territoire (OQTF)</strong>, y compris pour des personnes parfaitement intégrées et en emploi stable.</p>
-    <p>Des titres de séjour sont aussi retirés à des personnes déjà régularisées, sur la base de prétextes administratifs comme la « perte des conditions de droit au séjour » ou des accusations de « menace à l’ordre public ». <strong class="emphase">Des familles entières se retrouvent ainsi précarisées, privées de droits et menacées d’expulsion.</strong></p>
+    <p>Ces critères, auparavant plus souples, sont appliqués de façon inégale selon les préfectures. Dans certains départements, la voie « métiers en tension » n’est même pas indiquée sur les sites officiels. Les refus se multiplient, souvent assortis d’une obligation de quitter le territoire (OQTF), y compris pour des personnes parfaitement intégrées et en emploi stable.</p>
+    <p>Des titres de séjour sont aussi retirés à des personnes déjà régularisées, sur la base de prétextes administratifs comme la « perte des conditions de droit au séjour » ou des accusations de « menace à l’ordre public ». Des familles entières se retrouvent ainsi précarisées, privées de droits et menacées d’expulsion.</p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.service-public.fr/particuliers/vosdroits/F169" target="_blank" rel="noopener">Service-Public — Autorisation de travail pour un salarié étranger</a></li>
+        <li><a href="https://www.immigration.interieur.gouv.fr/fr/immigration-professionnelle" target="_blank" rel="noopener">Ministère de l’Intérieur — Immigration professionnelle (métiers en tension)</a></li>
+        <li><a href="https://www.lacimade.org/publications/" target="_blank" rel="noopener">La Cimade — Publications & analyses (régularisations, OQTF)</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="mineurs">
     <h2>Les mineur·e·s isolé·e·s : la France bafoue la Convention des Droits de l'Enfant</h2>
     <p>En France, des milliers de jeunes étrangers vivent à la rue, faute de reconnaissance par l’Aide Sociale à l’Enfance. En 2024, plus de 3 200 mineur·e·s isolé·e·s ont été recensé·e·s en errance. <strong class="emphase">Leur sort dépend du département où ils se présentent</strong> : moins de 10 % des demandes sont acceptées dans certains territoires, contre plus de 50 % ailleurs.</p>
     <p>En attendant un recours, beaucoup dorment dehors malgré l’obligation légale de protection immédiate. Même pris en charge, l’accompagnement est souvent minimal : chambres d’hôtel partagées, visites ponctuelles, absence de suivi éducatif. <strong class="emphase">Cette inégalité de traitement viole les principes élémentaires de la protection de l’enfance.</strong></p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.unicef.fr/programme-france/mineurs-non-accompagnes/" target="_blank" rel="noopener">UNICEF France — Mineurs non accompagnés : repères & données</a></li>
+        <li><a href="https://www.defenseurdesdroits.fr/fr/dossier-thematique/mineurs-non-accompagnes" target="_blank" rel="noopener">Défenseur des droits — Dossier Mineurs non accompagnés</a></li>
+        <li><a href="https://www.forumrefugies.org/" target="_blank" rel="noopener">Forum Réfugiés-Cosi — Analyses et rapports en France</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="cra">
     <h2>Centres de rétention et rafles : l’Histoire se répète</h2>
     <p>Chaque année, des dizaines de milliers de personnes sont enfermées dans les <strong class="emphase">Centres de Rétention Administratifs (CRA)</strong>, véritables prisons où les droits fondamentaux sont bafoués. Ces lieux, dénoncés par les associations, se multiplient avec des conditions toujours plus indignes et des durées d’enfermement prolongées.</p>
     <p>Dans les rues, les rafles ordonnées par Gérald Darmanin et Bruno Retailleau se multiplient. Elles visent les sans-papiers, souvent au faciès, pour « faire du chiffre ». <strong class="emphase">Ces pratiques de chasse aux migrant·e·s rappellent les heures les plus sombres de notre histoire.</strong></p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.lacimade.org/publication/au-bout-de-lenfermement-rapport-sur-les-cra/" target="_blank" rel="noopener">La Cimade — Rapport annuel sur les CRA</a></li>
+        <li><a href="https://www.cglpl.fr/" target="_blank" rel="noopener">CGLPL — Contrôleur général des lieux de privation de liberté</a></li>
+        <li><a href="https://www.coe.int/fr/web/cpt" target="_blank" rel="noopener">Conseil de l’Europe — CPT (prévention de la torture) : rapports France</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="uk">
     <h2>Complicité franco-britannique</h2>
     <p>La France collabore avec le Royaume-Uni pour renforcer la répression des exilé·e·s. L’accord « one in, one out » prévoit qu’à chaque personne admise au Royaume-Uni correspond une personne renvoyée vers la France. <strong class="emphase">Cette logique cynique transforme les vies humaines en monnaie d’échange diplomatique.</strong></p>
     <p>Sur le littoral, la violence s’intensifie : embarcations crevées, gaz lacrymogènes, campements détruits. <strong class="emphase">Au nom d’une politique de “zéro point de fixation”, la France devient le bras policier du Royaume-Uni.</strong></p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.gov.uk/government/collections/illegal-migration-and-small-boats" target="_blank" rel="noopener">Gouvernement UK — Dossier “Illegal migration & small boats”</a></li>
+        <li><a href="https://english.elpais.com/international/2023-11-10/uk-france-migration-deals-and-funding.html" target="_blank" rel="noopener">El País (EN) — Accords UK-France : financements et retours</a></li>
+        <li><a href="https://www.bbc.com/news/explainers-62260043" target="_blank" rel="noopener">BBC — UK-France cooperation on Channel crossings</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="palestine">
     <h2>Refus d’accueillir les réfugié·e·s palestinien·ne·s</h2>
     <p>Alors que le génocide à Gaza se poursuit, la France a refusé d’accueillir des réfugié·e·s palestinien·ne·s, y compris des enfants orphelins. Ce refus contredit les obligations internationales d’asile et révèle le cynisme d’un État qui prétend défendre les droits humains tout en fermant ses portes à celles et ceux qui fuient la guerre.</p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.unhcr.org/fr" target="_blank" rel="noopener">HCR — Réfugiés : droit d’asile et protection (cadre international)</a></li>
+        <li><a href="https://www.amnesty.fr/actualites/conflit-israel-palestine-que-fait-la-france" target="_blank" rel="noopener">Amnesty France — Position et obligations de la France</a></li>
+        <li><a href="https://www.ldh-france.org/tag/palestine/" target="_blank" rel="noopener">LDH — Communiqués & analyses sur la Palestine</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="foyers">
     <h2>Foyers de travailleurs migrants : une disparition programmée</h2>
     <p>Les foyers, souvent insalubres, sont transformés en « résidences sociales » dans le cadre d’une politique de restructuration qui aboutit à leur fermeture. Les résident·es subissent expulsions et sanctions arbitraires, sans les protections du droit commun. <strong class="emphase">Cette politique de précarisation menace directement le droit au logement et à l’autonomie.</strong></p>
+
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://www.unafo.org/publications/" target="_blank" rel="noopener">Unafo — Études & publications sur les résidences sociales</a></li>
+        <li><a href="https://www.cerema.fr/fr/actualites/foyers-travailleurs-migrants-elements-clefs" target="_blank" rel="noopener">Cerema — Foyers de travailleurs migrants : éléments clefs</a></li>
+        <li><a href="https://www.interministeriel-logement.gouv.fr/dihal" target="_blank" rel="noopener">DIHAL — Hébergement & accès au logement (transformations FTM)</a></li>
+      </ul>
+    </details>
   </section>
 
   <section id="frontex">
     <h2>Frontex et la guerre aux frontières</h2>
     <p>Alors que l’État prétend manquer de moyens pour la santé, l’éducation ou le logement, il finance massivement <strong class="emphase">Frontex</strong>, l’agence européenne de surveillance des frontières, dont le budget a explosé à près d’un milliard d’euros en 2024.</p>
     <p>Drones, radars, navires et effectifs militaires traquent les exilé·e·s, au prix de milliers de vies perdues en Méditerranée et dans la Manche. <strong class="emphase">Cette militarisation montre la priorité politique donnée à la guerre contre les migrant·e·s plutôt qu’aux droits sociaux.</strong></p>
-  </section>
 
-  <!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX (graphe animé) ===== -->
-  <section id="frontex-budget" style="margin-top:36px">
-    <p class="lede" style="margin:.4rem 0 12px;color:#475569">
-      Explosion du budget de Frontex.
-    </p>
-    <div style="max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-      <div style="position:relative;height:360px">
-        <canvas id="frontexChart"></canvas>
+    <details class="sources"><summary>En savoir +</summary>
+      <ul>
+        <li><a href="https://frontex.europa.eu/about-frontex/key-documents/budget/" target="_blank" rel="noopener">Frontex — Budgets & documents financiers</a></li>
+        <li><a href="https://ec.europa.eu/commission/presscorner/home/en" target="_blank" rel="noopener">Commission européenne — Communiqués budgetaires UE (rubriques migration/sécurité)</a></li>
+        <li><a href="https://www.statewatch.org/analyses/2024/frontex-oversight-and-budget-increase/" target="_blank" rel="noopener">Statewatch — Analyses sur l’augmentation du budget Frontex</a></li>
+      </ul>
+    </details>
+
+    <!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX : GRAPHIQUE ===== -->
+    <section id="frontex-budget" style="margin-top:24px">
+      <h2>Explosion du budget de Frontex</h2>
+      <p class="lede" style="margin:.4rem 0 12px;color:#475569">Le tracé se déroule automatiquement à l’affichage de cette section.</p>
+      <div style="max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="position:relative;height:360px">
+          <canvas id="frontexChart"></canvas>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 
   <div class="note">
@@ -165,27 +248,32 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
 
 <footer><div class="wrap">© Journée Sans Nous — Comprendre la situation</div></footer>
 
-<!-- Chart.js (ne pas dupliquer si déjà inclus ailleurs sur le site) -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<!-- Partage -->
 <script>
-/* Partage */
 const shareText = "📚 Je viens de lire la page ‘Comprendre’ du site Journée Sans Nous. Elle explique pourquoi la grève du 18 décembre est nécessaire face aux politiques de précarisation et de répression. #JournéeSansNous";
 const shareUrl = window.location.href;
+
 document.getElementById('shareTop').addEventListener('click', () => {
   if (navigator.share) {
-    navigator.share({ title: "Journée Sans Nous — Comprendre la situation", text: shareText, url: shareUrl });
+    navigator.share({
+      title: "Journée Sans Nous — Comprendre la situation",
+      text: shareText,
+      url: shareUrl
+    });
   } else {
     navigator.clipboard.writeText(shareUrl).then(() => alert("📎 Lien copié dans le presse-papiers !"));
   }
 });
+</script>
 
-/* Graphique Frontex — ajout année par année au scroll */
+<!-- Chart.js pour le graphique -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
 (function(){
+  // Données Frontex
   const labels = ['2005','2006','2014','2015','2020','2023','2024'];
-  const values = [6000000,19166300,98000000,143000000,460000000,845000000,922000000];
-
-  const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim() || '#ee4943';
+  const values = [ 6000000, 19166300, 98000000, 143000000, 460000000, 845000000, 922000000 ];
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--brand')?.trim() || '#ee4943';
 
   const ctx = document.getElementById('frontexChart').getContext('2d');
   const chart = new Chart(ctx, {
@@ -193,26 +281,23 @@ document.getElementById('shareTop').addEventListener('click', () => {
     data: { labels: [], datasets: [{
       label: 'Budget de Frontex (€)',
       data: [],
-      borderColor: brand,
+      borderColor: color,
       backgroundColor: 'rgba(238,73,67,0.15)',
-      fill: true,
-      tension: 0.25,
-      borderWidth: 3,
-      pointRadius: 4,
-      pointBackgroundColor: brand
+      fill: true, tension: 0.25, borderWidth: 3,
+      pointRadius: 4, pointBackgroundColor: color
     }]},
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false,
       animation: { duration: 800, easing: 'easeOutQuart' },
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: (c)=> 'Budget : ' + c.parsed.y.toLocaleString('fr-FR') + ' €' } }
+      plugins: { legend: { display:false },
+        tooltip: { callbacks: { label: (ctx)=> 'Budget : ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €' } }
       },
       scales: {
-        x: { title: { display:true, text:'Année', color:'#475569', font:{weight:600} }, grid:{ color:'rgba(0,0,0,0.05)' } },
-        y: { title: { display:true, text:'Budget (en €)', color:'#475569', font:{weight:600} }, grid:{ color:'rgba(0,0,0,0.05)' },
-             ticks: { callback: (v)=> (v/1_000_000)+' M€' } }
+        x: { title:{display:true,text:'Année',color:'#475569',font:{weight:600}},
+             grid:{color:'rgba(0,0,0,0.05)'} },
+        y: { title:{display:true,text:'Budget (en €)',color:'#475569',font:{weight:600}},
+             grid:{color:'rgba(0,0,0,0.05)'},
+             ticks:{ callback:(v)=> (v/1_000_000)+' M€' } }
       }
     }
   });
@@ -221,8 +306,7 @@ document.getElementById('shareTop').addEventListener('click', () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function playSequence(){
-    if (hasPlayed) return;
-    hasPlayed = true;
+    if (hasPlayed) return; hasPlayed = true;
     let i = 0;
     const step = () => {
       if (i >= labels.length) return;
@@ -233,8 +317,7 @@ document.getElementById('shareTop').addEventListener('click', () => {
       if (prefersReduced) {
         while (i < labels.length) {
           chart.data.labels.push(labels[i]);
-          chart.data.datasets[0].data.push(values[i]);
-          i++;
+          chart.data.datasets[0].data.push(values[i]); i++;
         }
         chart.update();
       } else {
@@ -245,15 +328,14 @@ document.getElementById('shareTop').addEventListener('click', () => {
   }
 
   const section = document.getElementById('frontex-budget');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if (entry.isIntersecting) {
-        playSequence();
-        io.unobserve(section);
-      }
-    });
-  }, { threshold: 0.35 });
-  io.observe(section);
+  if (section) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting) { playSequence(); io.unobserve(section); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(section);
+  }
 })();
 </script>
 
