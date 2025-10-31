@@ -47,20 +47,18 @@
     /* Layout principal */
     main{max-width:900px;margin:auto;padding:40px 18px}
     
-    /* Sommaire moderne */
-    .toc{position:sticky;top:88px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-    .toc h3{margin:0 0 12px;font-size:16px;color:var(--brand);display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+    /* Sommaire moderne - plus discret */
+    .toc{position:fixed;top:120px;right:20px;width:200px;align-self:start;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:var(--radius);padding:12px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.08);backdrop-filter:blur(10px);opacity:.7;transition:opacity .3s}
+    .toc:hover{opacity:1}
+    .toc h3{margin:0 0 10px;font-size:13px;color:var(--brand);display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
     .toc-links{display:block}
-    .toc a{display:flex;align-items:center;gap:8px;color:#334155;padding:8px 10px;border-radius:8px;text-decoration:none;transition:all .2s;border-left:3px solid transparent}
-    .toc a:hover{background:#fff2f1;border-left-color:var(--brand);transform:translateX(4px)}
-    .toc a i{font-size:12px;color:var(--brand);opacity:0;transition:opacity .2s}
+    .toc a{display:flex;align-items:center;gap:6px;color:#334155;padding:6px 8px;border-radius:6px;text-decoration:none;transition:all .2s;border-left:2px solid transparent;font-size:12px}
+    .toc a:hover{background:#fff2f1;border-left-color:var(--brand);transform:translateX(2px)}
+    .toc a i{font-size:10px;color:var(--brand);opacity:0;transition:opacity .2s}
     .toc a:hover i{opacity:1}
     
-    @media(max-width:899px){
-      .toc{position:relative;top:0;margin-bottom:24px}
-      .toc h3::after{content:'▼';font-size:12px;margin-left:auto;transition:transform .3s}
-      .toc.collapsed h3::after{transform:rotate(-90deg)}
-      .toc.collapsed .toc-links{display:none}
+    @media(max-width:1200px){
+      .toc{display:none}
     }
     
     /* Sections avec design amélioré */
@@ -76,10 +74,15 @@
     .warning{border-left:4px solid var(--warning);background:#fffbeb;padding:16px;border-radius:12px;margin:20px 0}
     .warning strong{color:var(--warning)}
     
-    /* Cards modernes */
+    /* Cards modernes avec animation */
     .cards{display:grid;gap:16px}
     @media(min-width:700px){.cards{grid-template-columns:1fr 1fr}}
-    .card{background:linear-gradient(135deg,#fff7f6,#fff);border:1px solid #ffd5d3;border-radius:14px;padding:16px;transition:all .3s;position:relative;overflow:hidden}
+    .card{background:linear-gradient(135deg,#fff7f6,#fff);border:1px solid #ffd5d3;border-radius:14px;padding:16px;transition:all .3s;position:relative;overflow:hidden;opacity:0;transform:translateY(30px)}
+    .card.animate-in{animation:slideInUp .6s ease forwards}
+    @keyframes slideInUp{
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
+    }
     .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),#ff6b6b);transform:scaleX(0);transition:transform .3s}
     .card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(238,73,67,.15)}
     .card:hover::before{transform:scaleX(1)}
@@ -164,19 +167,19 @@
   </div>
 
   <main>
-    <aside class="toc collapsed">
+    <aside class="toc">
       <h3><i class="fa-solid fa-list"></i> Sommaire</h3>
       <div class="toc-links">
-        <a href="#pourquoi"><i class="fa-solid fa-chevron-right"></i> Pourquoi la grève ?</a>
-        <a href="#legal"><i class="fa-solid fa-chevron-right"></i> Est‑ce légal ?</a>
+        <a href="#pourquoi"><i class="fa-solid fa-chevron-right"></i> Pourquoi ?</a>
+        <a href="#legal"><i class="fa-solid fa-chevron-right"></i> Légal ?</a>
         <a href="#temoignage"><i class="fa-solid fa-chevron-right"></i> Témoignage</a>
         <a href="#exemples"><i class="fa-solid fa-chevron-right"></i> Exemples</a>
-        <a href="#concret"><i class="fa-solid fa-chevron-right"></i> La grève, concrètement</a>
+        <a href="#concret"><i class="fa-solid fa-chevron-right"></i> Concrètement</a>
         <a href="#formes"><i class="fa-solid fa-chevron-right"></i> Formes</a>
         <a href="#solidarite"><i class="fa-solid fa-chevron-right"></i> Solidarité</a>
-        <a href="#agir"><i class="fa-solid fa-chevron-right"></i> Agir le 18/12</a>
-        <a href="#decide"><i class="fa-solid fa-chevron-right"></i> Je me mets en grève !</a>
-        <a href="#kit"><i class="fa-solid fa-chevron-right"></i> Kit express</a>
+        <a href="#agir"><i class="fa-solid fa-chevron-right"></i> Agir</a>
+        <a href="#decide"><i class="fa-solid fa-chevron-right"></i> Je participe !</a>
+        <a href="#kit"><i class="fa-solid fa-chevron-right"></i> Kit</a>
       </div>
     </aside>
 
@@ -290,7 +293,12 @@
           <li><strong>Informer les syndicats</strong> – Utilise notre outil d'envoi de mail (2 min) ➜ <a href="./outil-mails.html">Générer mon mail syndical</a>.</li>
           <li><strong>Vérifier le cadre</strong> – Certains secteurs (éducation, santé, transports, pompiers…) ont service minimum ou préavis obligatoire.</li>
           <li><strong>Anticiper les réquisitions</strong> – Possibles mais strictement encadrées.</li>
-          <li><strong>Constituer un kit juridique</strong> – Contrats, fiches de paie, attestations, contacts d'avocats/associations.</li>
+          <li>
+            <strong>Constituer un kit juridique</strong> – Contrats, fiches de paie, attestations, contacts d'avocats/associations.
+            <div style="margin-top:8px;padding:10px;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:6px;font-size:14px">
+              👉 <strong>Conseil spécifique pour les personnes sans papiers</strong> : rassemble tous les documents qui prouvent ton travail et ton ancienneté.
+            </div>
+          </li>
           <li><strong>Encourager mes connaissances à faire pareil</strong> ➜ <button class="btn primary" id="shareBtn"><i class="fa-solid fa-share-nodes"></i> Partager sur mes réseaux</button></li>
         </ol>
       </section>
@@ -329,21 +337,34 @@
       }
     };
 
-    // Toggle sommaire sur mobile
-    const toc = document.querySelector('.toc');
-    const tocTitle = document.querySelector('.toc h3');
-    tocTitle.addEventListener('click', () => {
-      if(window.innerWidth <= 899){
-        toc.classList.toggle('collapsed');
-      }
-    });
-    
     // Accordéon ressources juridiques
     const resourcesTrigger = document.getElementById('resourcesTrigger');
     const resourcesContent = document.getElementById('resourcesContent');
-    resourcesTrigger.addEventListener('click', () => {
-      resourcesTrigger.classList.toggle('open');
-      resourcesContent.classList.toggle('open');
+    if(resourcesTrigger && resourcesContent){
+      resourcesTrigger.addEventListener('click', () => {
+        resourcesTrigger.classList.toggle('open');
+        resourcesContent.classList.toggle('open');
+      });
+    }
+
+    // Animation des cards au scroll
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if(entry.isIntersecting){
+          setTimeout(() => {
+            entry.target.classList.add('animate-in');
+          }, index * 100); // Délai progressif
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
     });
   </script>
 </body>
