@@ -103,30 +103,37 @@
     gap: 6px;
     overflow-x: auto;
   }
-  .share-cta {
-  background: var(--brand);
-  color: #fff;
-  border: 0;
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .2s;
-  font-family: inherit;
+ .share-cta{
+  background:var(--brand);
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:10px 14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:inherit;
 }
-.share-cta:hover {
-  background: var(--brand-600);
-  transform: scale(1.05);
+.share-cta:hover{
+  background:var(--brand-600);
+  transform:scale(1.05);
     }
+  #sujet {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
   </style>
 </head>
 <body>
 <header>
   <div class="wrap topbar">
     <div class="brand"><i></i><span>Journée Sans Nous</span></div>
-    <button class="share-cta" id="shareTop" aria-label="Partager cette page">
-      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page
-    </button>
+   <!-- dans le header -->
+<button class="share-cta" id="shareTop" aria-label="Partager cette page">
+  <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page
+</button>
   </div>
 </header>
 
@@ -533,27 +540,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   chargerModele();
   updateProgress();
 });
-</script>
-  <!-- MENU FLOTTANT DE PARTAGE -->
-<div id="shareMenu" style="
-  position:fixed;top:70px;right:20px;
-  background:white;border:1px solid #ddd;
-  border-radius:12px;padding:10px;box-shadow:0 2px 8px rgba(0,0,0,0.15);
-  display:none;z-index:9999;min-width:220px;">
-  <p style="font-weight:600;margin:0 0 6px">Partager sur :</p>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <a href="#" id="share-whatsapp" class="btn ghost"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-    <a href="#" id="share-telegram" class="btn ghost"><i class="fa-brands fa-telegram"></i> Telegram</a>
-    <a href="#" id="share-signal" class="btn ghost"><i class="fa-brands fa-signal-messenger"></i> Signal</a>
-    <a href="#" id="share-x" class="btn ghost"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
-    <a href="#" id="share-facebook" class="btn ghost"><i class="fa-brands fa-facebook"></i> Facebook</a>
-    <a href="#" id="share-instagram" class="btn ghost"><i class="fa-brands fa-instagram"></i> Instagram</a>
-    <a href="#" id="share-bluesky" class="btn ghost"><i class="fa-brands fa-bluesky"></i> Bluesky</a>
-    <a href="#" id="share-email" class="btn ghost"><i class="fa-solid fa-envelope"></i> Email</a>
-    <a href="#" id="share-copy" class="btn ghost"><i class="fa-solid fa-link"></i> Copier le lien</a>
-  </div>
-</div>
-<script>
 // Texte du message partagé
 const shareText = "#JournéeSansNous ✊ J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi ➜";
 const shareURL = window.location.href;
@@ -577,6 +563,26 @@ document.getElementById('share-email').onclick = ()=>openShare(`mailto:?subject=
 document.getElementById('share-copy').onclick = ()=>{
   navigator.clipboard.writeText(shareURL).then(()=>alert("Lien copié dans le presse-papiers ✅"));
 };
+</script>
+<script>
+  // Même comportement que la page principale
+  // (partage natif si disponible, sinon fallback simple)
+  const shareText = "J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi !";
+  const shareUrl  = window.location.href;
+
+  document.getElementById('shareTop').addEventListener('click', () => {
+    if (navigator.share) {
+      navigator.share({
+        title: "Journée Sans Nous – Générateur de mails syndicaux",
+        text: shareText,
+        url: shareUrl
+      }).catch(()=>{});
+    } else {
+      navigator.clipboard.writeText(shareUrl).then(()=> {
+        alert("📎 Lien copié dans le presse-papiers !");
+      });
+    }
+  });
 </script>
 
 </body>
