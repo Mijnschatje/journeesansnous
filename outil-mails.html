@@ -89,19 +89,42 @@
       .topbar{height:auto;padding:12px 0}
       .step-head{flex-direction:column;align-items:flex-start;gap:12px}
       .step-head .actions{width:100%}
+      .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.header-actions .btn {
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .header-actions {
+    gap: 6px;
+    overflow-x: auto;
+  }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap topbar">
-      <div class="brand"><span>Journée Sans Nous</span></div>
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour</a>
-      </div>
-    <button class="btn ghost" id="btnShare"><i class="fa-solid fa-share-nodes"></i> Partager la page</button>
-</div>
-  </header>
+<header>
+  <div class="wrap topbar">
+    <div class="brand"><span>Journée Sans Nous</span></div>
+
+    <!-- Boutons d'action alignés à droite -->
+    <div class="header-actions">
+      <a class="btn ghost" href="./index.html">
+        <i class="fa-solid fa-arrow-left"></i> Retour
+      </a>
+      <a class="btn primary" target="_blank" rel="noopener" href="https://mijnschatje.github.io/journeesansnous/">
+        <i class="fa-solid fa-house"></i> Accueil
+      </a>
+      <button class="btn ghost share" id="btnShare">
+        <i class="fa-solid fa-share-nodes"></i> Partager la page
+      </button>
+    </div>
+  </div>
+</header>
 
   <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
