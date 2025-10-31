@@ -382,6 +382,96 @@ document.getElementById('shareTop').addEventListener('click', () => {
   }
 })();
 </script>
+<!-- bouton de partage À ajouter juste avant </body> -->
+<button class="share-button" id="shareButton">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="18" cy="5" r="3"></circle>
+    <circle cx="6" cy="12" r="3"></circle>
+    <circle cx="18" cy="19" r="3"></circle>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+  </svg>
+  <span>Partager</span>
+</button>
 
+<style>
+.share-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #ee4943;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(238, 73, 67, 0.4);
+  transition: all 0.3s ease;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 73, 67, 0.6);
+  background: #d33e38;
+}
+
+.share-button:active {
+  transform: translateY(0);
+}
+
+.share-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .share-button {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .share-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+</style>
+
+<script>
+document.getElementById('shareButton').addEventListener('click', function() {
+  const shareText = "18 décembre 2025, Journée Internationale des Migrant.e.s, mettons-nous en grève solidaire avec les personnes sans papiers pour agir contre les lois racistes et les discriminations ➜ JOURNÉE SANS NOUS, Si on s'arrête, tout s'arrête !";
+  const shareUrl = window.location.href;
+  
+  if (navigator.share) {
+    // API native de partage (mobile)
+    navigator.share({
+      title: 'Journée Sans Nous - 18 décembre 2025',
+      text: shareText,
+      url: shareUrl
+    }).catch(err => console.log('Partage annulé'));
+  } else {
+    // Fallback : copier dans le presse-papier
+    const fullText = shareText + '\n\n' + shareUrl;
+    navigator.clipboard.writeText(fullText).then(() => {
+      // Feedback visuel
+      const btn = document.getElementById('shareButton');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Copié !</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    });
+  }
+});
+</script>
 </body>
 </html>
