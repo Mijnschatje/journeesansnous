@@ -103,23 +103,30 @@
     gap: 6px;
     overflow-x: auto;
   }
+  .share-cta {
+  background: var(--brand);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: inherit;
+}
+.share-cta:hover {
+  background: var(--brand-600);
+  transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 <header>
   <div class="wrap topbar">
-    <div class="brand"><span>Journée Sans Nous</span></div>
-
-    <!-- Boutons d'action alignés à droite -->
-    <div class="header-actions">
-      <a class="btn primary" target="_blank" rel="noopener" href="https://mijnschatje.github.io/journeesansnous/">
-        <i class="fa-solid fa-house"></i> Accueil
-      </a>
-      <button class="btn ghost share" id="btnShare">
-        <i class="fa-solid fa-share-nodes"></i> Partager la page
-      </button>
-    </div>
+    <div class="brand"><i></i><span>Journée Sans Nous</span></div>
+    <button class="share-cta" id="shareTop" aria-label="Partager cette page">
+      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page
+    </button>
   </div>
 </header>
 
