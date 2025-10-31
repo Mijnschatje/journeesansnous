@@ -11,10 +11,13 @@
     *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fafafa}
     a{color:var(--brand);text-decoration:none}
+
+    /* Header */
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.05)}
     .wrap{max-width:1100px;margin:auto;padding:0 18px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;flex-wrap:wrap;gap:10px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;gap:10px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
+
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;transition:all .2s;font-weight:600}
     .btn:hover{background:#f8f9fa;transform:translateY(-1px)}
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
@@ -23,31 +26,52 @@
     .btn.ghost:hover{background:#f8f9fa}
     .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
     .btn i{font-size:14px}
-    
+
+    /* Actions dans le header */
+    .header-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+    .header-actions .btn{white-space:nowrap}
+
+    /* Share CTA identical to homepage */
+    .share-cta{
+      background:var(--brand);
+      color:#fff;
+      border:0;
+      border-radius:12px;
+      padding:10px 14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:all .2s;
+      font-family:inherit;
+    }
+    .share-cta:hover{
+      background:var(--brand-600);
+      transform:scale(1.05);
+    }
+
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    
+
     .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
     h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
     .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
-    
+
     /* Barre de progression */
     .progress-bar{background:#f1f5f9;height:8px;border-radius:999px;overflow:hidden;margin:20px 0}
     .progress-fill{background:linear-gradient(90deg,var(--brand),#ff6b6b);height:100%;transition:width .6s ease;border-radius:999px;position:relative}
     .progress-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:30px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3));animation:shimmer 1.5s infinite}
     @keyframes shimmer{0%,100%{opacity:0}50%{opacity:1}}
     .progress-text{text-align:center;margin-top:8px;font-size:14px;font-weight:600;color:var(--brand)}
-    
+
     main{max-width:900px;margin:auto;padding:24px 18px}
-    
+
     .step-card{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s}
     .step-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
     .step-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);background:#fafafa;border-radius:16px 16px 0 0}
     .step-head h2{margin:0;color:var(--brand);font-size:18px;display:flex;align-items:center;gap:10px}
     .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--brand);color:#fff;border-radius:50%;font-size:14px;font-weight:800}
     .step-body{padding:20px}
-    
+
     .form-group{margin-bottom:18px}
     .form-group:last-child{margin-bottom:0}
     label{display:block;font-weight:600;margin-bottom:6px;color:var(--ink);font-size:14px;display:flex;align-items:center;gap:8px}
@@ -59,101 +83,71 @@
     input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(238,73,67,.1)}
     textarea{min-height:280px;resize:vertical;font-size:14px;line-height:1.6}
     select{cursor:pointer}
-    
+
     .grid-2{display:grid;gap:14px;grid-template-columns:1fr}
     @media(min-width:680px){.grid-2{grid-template-columns:1fr 1fr}}
-    
+
     .checkbox-group{display:flex;align-items:center;gap:10px;padding:12px;background:#f8f9fa;border-radius:10px;cursor:pointer;transition:background .2s}
     .checkbox-group:hover{background:#f1f3f5}
     .checkbox-group input[type="checkbox"]{width:auto;margin:0;cursor:pointer}
     .checkbox-group label{margin:0;cursor:pointer;font-weight:500}
-    
+
     #mandat-details{display:none;margin-top:10px}
     #mandat-details.show{display:block}
-    
+
     .actions{display:flex;gap:10px;flex-wrap:wrap}
     @media(max-width:680px){.actions{flex-direction:column}}
-    
+
     .note{border-left:4px solid var(--brand);background:#fff2f1;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.5}
     .note strong{color:var(--brand)}
-    
+
     .preview-box{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;background:#fafafa;font-size:14px;line-height:1.7;max-height:400px;overflow-y:auto;color:#334155}
     .preview-box.empty{color:var(--muted);font-style:italic;text-align:center;padding:40px 20px}
-    
+
     .success-banner{background:#10b981;color:#fff;padding:12px 20px;border-radius:10px;display:none;align-items:center;gap:10px;margin-bottom:16px}
     .success-banner.show{display:flex}
-    
+
     footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
-    
-    @media(max-width:680px){
-      .topbar{height:auto;padding:12px 0}
-      .step-head{flex-direction:column;align-items:flex-start;gap:12px}
-      .step-head .actions{width:100%}
-      .header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: nowrap;
-}
-.header-actions .btn {
-  white-space: nowrap;
-}
-@media (max-width: 600px) {
-  .header-actions {
-    gap: 6px;
-    overflow-x: auto;
-  }
- .share-cta{
-  background:var(--brand);
-  color:#fff;
-  border:0;
-  border-radius:12px;
-  padding:10px 14px;
-  font-weight:700;
-  cursor:pointer;
-  transition:all .2s;
-  font-family:inherit;
-}
-.share-cta:hover{
-  background:var(--brand-600);
-  transform:scale(1.05);
+
+    /* Correction d’alignement du champ “Objet de l’email” */
+    #sujet{display:block;width:100%;box-sizing:border-box;margin-top:4px}
+
+    /* Ajustements mobiles uniquement */
+    @media (max-width:600px){
+      .header-actions{gap:6px;overflow-x:auto}
     }
-  #sujet {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 4px;
-}
   </style>
 </head>
 <body>
+
 <header>
   <div class="wrap topbar">
-    <div class="brand"><i></i><span>Journée Sans Nous</span></div>
-   <!-- dans le header -->
-<button class="share-cta" id="shareTop" aria-label="Partager cette page">
-  <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page
-</button>
+    <div class="brand"><span>Journée Sans Nous</span></div>
+    <div class="header-actions">
+      <a class="btn primary" target="_blank" rel="noopener" href="https://mijnschatje.github.io/journeesansnous/">
+        <i class="fa-solid fa-house"></i> Accueil
+      </a>
+      <button class="share-cta" id="shareTop" aria-label="Partager cette page">
+        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager la page
+      </button>
+    </div>
   </div>
 </header>
 
-  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
+<div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
-  <section class="hero">
-    <div class="wrap">
-      <h1>Générateur de mails aux syndicats</h1>
-      <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
-      
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressBar" style="width:0%"></div>
-      </div>
-      <div class="progress-text" id="progressText">0% complété</div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="wrap">
+    <h1>Générateur de mails aux syndicats</h1>
+    <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
+    <div class="progress-bar"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
+    <div class="progress-text" id="progressText">0% complété</div>
+  </div>
+</section>
 
-  <main>
-    <div>
-      <!-- ÉTAPE 1 -->
+<main>
+  <div>
+    <!-- ÉTAPE 1 -->
     <div class="step-card">
       <div class="step-head">
         <h2><span class="step-num">1</span> Choisis ton syndicat</h2>
@@ -171,7 +165,7 @@
             <select id="dept">
               <option value="">— Optionnel —</option>
             </select>
-            <div class="helper">Union de ton département</div>
+            <div class="helper">Union Départementale de ton département</div>
           </div>
           <div class="form-group">
             <label for="fede">Fédération (secteur) <span class="field-check" id="check-fede">✓</span></label>
@@ -181,26 +175,13 @@
             <div class="helper">Fédération de ton secteur professionnel</div>
           </div>
           <div class="form-group">
-           <!-- Champ email protégé contre l’autofill du navigateur -->
-<!-- On ajoute un champ invisible pour "piéger" l'autofill -->
-<input type="email" name="fake_email" autocomplete="email"
-       style="position:absolute;left:-9999px;opacity:0;width:0;height:0;border:0;padding:0"
-       tabindex="-1" aria-hidden="true">
-
-<label for="destinataire">Destinataire</label>
-<input
-  id="destinataire"
-  name="destinataire_os"
-  type="email"
-  inputmode="email"
-  placeholder="ex : contact@syndicat-xx.org"
-  autocomplete="off"
-  autocapitalize="off"
-  spellcheck="false"
-  style="flex:1"
-/>
-<div class="helper">Auto-rempli par la base (priorité Fédération/UD/National).</div>
-
+            <!-- Champ email protégé contre l’autofill -->
+            <input type="email" name="fake_email" autocomplete="email"
+              style="position:absolute;left:-9999px;opacity:0;width:0;height:0;border:0;padding:0" tabindex="-1" aria-hidden="true">
+            <label for="destinataire">Destinataire</label>
+            <input id="destinataire" name="destinataire_os" type="email" inputmode="email"
+              placeholder="ex : contact@syndicat-xx.org" autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1" />
+            <div class="helper">Auto-rempli par la base (priorité Fédération ➜ UD ➜ National).</div>
           </div>
         </div>
         <div class="form-group" style="margin-top:10px">
@@ -227,7 +208,6 @@
             <input id="lieu" placeholder="Paris 20e, entrepôt X..." required />
           </div>
         </div>
-        
         <div class="form-group">
           <div class="checkbox-group" onclick="document.getElementById('hasMandat').click()">
             <input type="checkbox" id="hasMandat" onclick="event.stopPropagation()">
@@ -238,6 +218,10 @@
             <div class="helper">Précise ton mandat pour renforcer ta légitimité</div>
           </div>
         </div>
+        <div class="form-group">
+          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
+          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
+        </div>
       </div>
     </div>
 
@@ -246,17 +230,13 @@
       <div class="step-head">
         <h2><span class="step-num">3</span> Personnaliser le message</h2>
       </div>
-      <div class="form-group">
-          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
-          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
-        </div>
       <div class="step-body">
         <div class="form-group">
-          <label for="message">Mon message (modifiable)</label>
+          <label for="message">Corps du message (modifiable si besoin)</label>
           <textarea id="message" placeholder="Le message se génère automatiquement avec tes informations..."></textarea>
         </div>
         <div class="note">
-          <strong>💡 Le message se remplit automatiquement</strong> avec tes infos. Tu peux le modifier si tu veux le personnaliser.
+          <strong>💡 Le message se remplit automatiquement</strong> avec tes infos. Tu peux le modifier si tu veux le personnaliser davantage.
         </div>
       </div>
     </div>
@@ -271,23 +251,23 @@
           <label>Aperçu du message</label>
           <div id="preview" class="preview-box empty">Charge le modèle pour voir l'aperçu...</div>
         </div>
-        
         <div class="actions" style="margin-top:16px">
           <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
-          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier </button><button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
+          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
+          <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
         </div>
-        
         <div class="note" style="margin-top:12px">
           <strong>📧 Comment envoyer :</strong><br>
-          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail avec tout pré-rempli<br>
-          • <strong>"Copier le message"</strong> : copie le texte pour le coller où tu veux<br>
+          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail (Gmail, Outlook, etc.) avec tout pré-rempli<br>
+          • <strong>"Copier le message"</strong> : copie juste le texte pour le coller où tu veux<br>
           • <strong>"Télécharger"</strong> : sauvegarde le message en fichier texte
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 
-  <footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
+<footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
 
 <script>
 /* ===== Helpers & progression ===== */
@@ -322,7 +302,7 @@ function updateProgress(){
 /* ===== Mapping départements ===== */
 const DEPTS={"01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence","05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes","09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime","18":"Cher","19":"Corrèze","2A":"Corse-du-Sud","2B":"Haute-Corse","21":"Côte-d'Or","22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère","30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord","60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme","64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales","67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône","71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie","75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines","79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne","83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe","972":"Martinique","973":"Guyane","974":"La Réunion","975":"Saint-Pierre-et-Miquelon","976":"Mayotte","977":"Saint-Barthélemy","978":"Saint-Martin","986":"Wallis-et-Futuna","987":"Polynésie française","988":"Nouvelle-Calédonie"};
 
-/* ===== Base emails (sera remplacée par le JSON chargé) ===== */
+/* ===== Base emails (remplacée au chargement JSON) ===== */
 let DB={
   "CFDT": {"national": "paris@sgen.cfdt.fr", "ud": [], "fede": []},
   "CFTC": {"national": "organisation@cftc.fr", "ud": [], "fede": []},
@@ -345,10 +325,7 @@ async function loadDB(){
   for (const url of urls){
     try{
       const r = await fetch(url, {cache:'no-store'});
-      if (r.ok){
-        DB = await r.json();
-        break;
-      }
+      if (r.ok){ DB = await r.json(); break; }
     }catch(e){}
   }
   fillSyndicats();
@@ -362,7 +339,6 @@ function fillSyndicats(){
   fillStructures();
   updateProgress();
 }
-
 function udSortKey(x){
   const c=(x.code||'').toUpperCase();
   const m=c.match(/^(\d+)([A-Z]?)$/);
@@ -371,7 +347,6 @@ function udSortKey(x){
   const frac = m[2]==='A'?0.1:(m[2]==='B'?0.2:0);
   return [n+frac,c];
 }
-
 function fillStructures(){
   const synd = el('syndicat').value;
   const dept = el('dept');
@@ -382,9 +357,7 @@ function fillStructures(){
   if (!synd){ updateEmail(); updateProgress(); return; }
 
   const rec = DB[synd] || {};
-  (rec.fede||[]).forEach(x => {
-    fede.add(new Option(x.label || 'Fédération', x.email || ''));
-  });
+  (rec.fede||[]).forEach(x => { fede.add(new Option(x.label || 'Fédération', x.email || '')); });
 
   const sortedUDs = (rec.ud||[]).slice().sort((a,b)=>{
     const [an,ac]=udSortKey(a), [bn,bc]=udSortKey(b);
@@ -407,9 +380,7 @@ function updateEmail(){
   const deptVal = el('dept').value || '';
   const national = (DB[synd]||{}).national || '';
 
-  // Priorité: Fédé → UD → National
   const ordered = [fedeVal, deptVal, national].filter(Boolean);
-
   if (ordered.length){
     el('destinataire').value = ordered[0];
     el('cc').value = ordered.slice(1).join(', ');
@@ -540,49 +511,30 @@ document.addEventListener('DOMContentLoaded',()=>{
   chargerModele();
   updateProgress();
 });
-// Texte du message partagé
-const shareText = "#JournéeSansNous ✊ J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi ➜";
-const shareURL = window.location.href;
-
-document.getElementById('btnShare').addEventListener('click', ()=>{
-  const menu = document.getElementById('shareMenu');
-  menu.style.display = (menu.style.display === 'none' || !menu.style.display) ? 'block' : 'none';
-});
-
-// Fonctions de partage
-function openShare(url){ window.open(url, '_blank'); }
-
-document.getElementById('share-whatsapp').onclick = ()=>openShare(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareURL)}`);
-document.getElementById('share-telegram').onclick = ()=>openShare(`https://t.me/share/url?url=${encodeURIComponent(shareURL)}&text=${encodeURIComponent(shareText)}`);
-document.getElementById('share-signal').onclick = ()=>openShare(`https://signal.me/#p/+33600000000`); // pas de lien direct standard
-document.getElementById('share-x').onclick = ()=>openShare(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareURL)}`);
-document.getElementById('share-facebook').onclick = ()=>openShare(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareURL)}`);
-document.getElementById('share-instagram').onclick = ()=>alert("Instagram ne permet pas le partage direct via un lien — copie le lien !");
-document.getElementById('share-bluesky').onclick = ()=>openShare(`https://bsky.app/intent/compose?text=${encodeURIComponent(shareText + ' ' + shareURL)}`);
-document.getElementById('share-email').onclick = ()=>openShare(`mailto:?subject=${encodeURIComponent("Journée Sans Nous – Grève solidaire du 18 décembre")}&body=${encodeURIComponent(shareText + ' ' + shareURL)}`);
-document.getElementById('share-copy').onclick = ()=>{
-  navigator.clipboard.writeText(shareURL).then(()=>alert("Lien copié dans le presse-papiers ✅"));
-};
 </script>
-<script>
-  // Même comportement que la page principale
-  // (partage natif si disponible, sinon fallback simple)
-  const shareText = "J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi !";
-  const shareUrl  = window.location.href;
 
-  document.getElementById('shareTop').addEventListener('click', () => {
-    if (navigator.share) {
-      navigator.share({
-        title: "Journée Sans Nous – Générateur de mails syndicaux",
-        text: shareText,
-        url: shareUrl
-      }).catch(()=>{});
-    } else {
-      navigator.clipboard.writeText(shareUrl).then(()=> {
-        alert("📎 Lien copié dans le presse-papiers !");
-      });
-    }
-  });
+<!-- === PARTAGE : identique à la page principale, texte spécifique à l'outil === -->
+<script>
+  (function(){
+    const shareText = "J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi !";
+    const shareUrl  = window.location.href;
+    const btn = document.getElementById('shareTop');
+
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: "Journée Sans Nous – Générateur de mails syndicaux",
+          text: shareText,
+          url: shareUrl
+        }).catch(()=>{ /* annulation */ });
+      } else {
+        navigator.clipboard.writeText(shareUrl).then(()=>{
+          alert("📎 Lien copié dans le presse-papiers !");
+        });
+      }
+    });
+  })();
 </script>
 
 </body>
