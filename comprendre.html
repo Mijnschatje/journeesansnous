@@ -161,54 +161,118 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
     <h2>Frontex et la guerre aux frontières</h2>
     <p>Alors que l’État prétend manquer de moyens pour la santé, l’éducation ou le logement, il finance massivement <strong class="emphase">Frontex</strong>, l’agence européenne de surveillance des frontières, dont le budget a explosé à près d’un milliard d’euros en 2024.</p>
     <p>Drones, radars, navires et effectifs militaires traquent les exilé·e·s, au prix de milliers de vies perdues en Méditerranée et dans la Manche. <strong class="emphase">Cette militarisation montre la priorité politique donnée à la guerre contre les migrant·e·s plutôt qu’aux droits sociaux.</strong></p>
-  <!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX ===== -->
-<section id="frontex-budget">
+<!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX ===== -->
+<section id="frontex-budget" style="margin-top:36px">
   <h2>Explosion du budget de Frontex</h2>
-  <p>En moins de vingt ans, le budget de l’agence européenne de surveillance des frontières a été multiplié par plus de <strong class="emphase">150</strong>, illustrant la priorité donnée à la militarisation des frontières plutôt qu’à la solidarité.</p>
-
-  <div style="max-width:800px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05)">
-    <canvas id="frontexChart"></canvas>
+  <p class="lede" style="margin:.4rem 0 12px;color:#475569">
+    Le tracé se déroule automatiquement à l’affichage de cette section.
+  </p>
+  <div style="max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+    <div style="position:relative;height:360px">
+      <canvas id="frontexChart"></canvas>
+    </div>
   </div>
-
-  <table style="width:100%;margin-top:18px;border-collapse:collapse;font-size:14px">
-    <thead style="background:#fff5f4;color:var(--brand)">
-      <tr>
-        <th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Année</th>
-        <th style="text-align:right;padding:8px;border-bottom:1px solid var(--line)">Budget (€)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td style="padding:6px 8px">2005</td><td style="text-align:right;padding:6px 8px">6 000 000</td></tr>
-      <tr><td style="padding:6px 8px">2006</td><td style="text-align:right;padding:6px 8px">19 166 300</td></tr>
-      <tr><td style="padding:6px 8px">2014</td><td style="text-align:right;padding:6px 8px">98 000 000</td></tr>
-      <tr><td style="padding:6px 8px">2015</td><td style="text-align:right;padding:6px 8px">143 000 000</td></tr>
-      <tr><td style="padding:6px 8px">2020</td><td style="text-align:right;padding:6px 8px">460 000 000</td></tr>
-      <tr><td style="padding:6px 8px">2023</td><td style="text-align:right;padding:6px 8px">845 000 000</td></tr>
-      <tr><td style="padding:6px 8px">2024</td><td style="text-align:right;padding:6px 8px">922 000 000</td></tr>
-    </tbody>
-  </table>
 </section>
-
-<!-- ===== CHART.JS SCRIPT ===== -->
+<!-- Chart.js (si pas encore inclus sur la page) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-document.addEventListener('DOMContentLoaded', ()=>{
-  const ctx = document.getElementById('frontexChart');
-  new Chart(ctx, {
+(function(){
+  // Données
+  const labels = ['2005','2006','2014','2015','2020','2023','2024'];
+  const values = [ 6000000, 19166300, 98000000, 143000000, 460000000, 845000000, 922000000 ];
+
+  // Couleurs cohérentes avec ta charte
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--brand')?.trim() || '#ee4943';
+
+  // Chart.js — initialisation à vide (on remplira au scroll)
+  const ctx = document.getElementById('frontexChart').getContext('2d');
+  const chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['2005','2006','2014','2015','2020','2023','2024'],
+      labels: [],            // on démarre sans labels
       datasets: [{
         label: 'Budget de Frontex (€)',
-        data: [6000000,19166300,98000000,143000000,460000000,845000000,922000000],
-        borderColor: '#ee4943',
+        data: [],            // on démarre sans points
+        borderColor: color,
         backgroundColor: 'rgba(238,73,67,0.15)',
         fill: true,
         tension: 0.25,
         borderWidth: 3,
-        pointRadius: 5,
-        pointBackgroundColor: '#ee4943'
+        pointRadius: 4,
+        pointBackgroundColor: color
       }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 800, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => 'Budget : ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €'
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Année', color:'#475569', font:{weight:600} },
+          grid: { color:'rgba(0,0,0,0.05)' }
+        },
+        y: {
+          title: { display: true, text: 'Budget (en €)', color:'#475569', font:{weight:600} },
+          grid: { color:'rgba(0,0,0,0.05)' },
+          ticks: { callback: (v)=> (v/1_000_000)+' M€' }
+        }
+      }
+    }
+  });
+
+  // Animation progressive au scroll (IntersectionObserver)
+  let hasPlayed = false;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function playSequence(){
+    if (hasPlayed) return;
+    hasPlayed = true;
+
+    // Ajoute les points un par un
+    let i = 0;
+    const step = () => {
+      if (i >= labels.length) return;
+      chart.data.labels.push(labels[i]);
+      chart.data.datasets[0].data.push(values[i]);
+      chart.update();
+      i++;
+      // Respecte l’accessibilité : si réduction des animations, on ajoute tout d’un coup
+      if (prefersReduced) {
+        while (i < labels.length) {
+          chart.data.labels.push(labels[i]);
+          chart.data.datasets[0].data.push(values[i]);
+          i++;
+        }
+        chart.update();
+      } else {
+        setTimeout(step, 500); // délai entre chaque année
+      }
+    };
+    step();
+  }
+
+  const section = document.getElementById('frontex-budget');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.isIntersecting) {
+        playSequence();
+        io.unobserve(section);
+      }
+    });
+  }, { threshold: 0.35 }); // joue quand ~35% de la section est visible
+  io.observe(section);
+})();
+</script>
+
     },
     options: {
       responsive: true,
