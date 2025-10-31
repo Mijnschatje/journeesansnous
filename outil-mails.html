@@ -164,7 +164,7 @@
             <select id="dept">
               <option value="">— Optionnel —</option>
             </select>
-            <div class="helper">Union Départementale de ton département</div>
+            <div class="helper">Union de ton département</div>
           </div>
           <div class="form-group">
             <label for="fede">Fédération (secteur) <span class="field-check" id="check-fede">✓</span></label>
@@ -192,7 +192,7 @@
   spellcheck="false"
   style="flex:1"
 />
-<div class="helper">Auto-rempli par la base (priorité Fédération ➜ UD ➜ National).</div>
+<div class="helper">Auto-rempli par la base (priorité Fédération/UD/National).</div>
 
           </div>
         </div>
@@ -231,11 +231,6 @@
             <div class="helper">Précise ton mandat pour renforcer ta légitimité</div>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
-          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
-        </div>
       </div>
     </div>
 
@@ -244,13 +239,17 @@
       <div class="step-head">
         <h2><span class="step-num">3</span> Personnaliser le message</h2>
       </div>
+      <div class="form-group">
+          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
+          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
+        </div>
       <div class="step-body">
         <div class="form-group">
-          <label for="message">Corps du message (modifiable si besoin)</label>
+          <label for="message">Mon message (modifiable)</label>
           <textarea id="message" placeholder="Le message se génère automatiquement avec tes informations..."></textarea>
         </div>
         <div class="note">
-          <strong>💡 Le message se remplit automatiquement</strong> avec tes infos. Tu peux le modifier si tu veux le personnaliser davantage.
+          <strong>💡 Le message se remplit automatiquement</strong> avec tes infos. Tu peux le modifier si tu veux le personnaliser.
         </div>
       </div>
     </div>
@@ -268,14 +267,13 @@
         
         <div class="actions" style="margin-top:16px">
           <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
-          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
-          <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
+          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier </button><button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
         </div>
         
         <div class="note" style="margin-top:12px">
           <strong>📧 Comment envoyer :</strong><br>
-          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail (Gmail, Outlook, etc.) avec tout pré-rempli<br>
-          • <strong>"Copier le message"</strong> : copie juste le texte pour le coller où tu veux<br>
+          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail avec tout pré-rempli<br>
+          • <strong>"Copier le message"</strong> : copie le texte pour le coller où tu veux<br>
           • <strong>"Télécharger"</strong> : sauvegarde le message en fichier texte
         </div>
       </div>
