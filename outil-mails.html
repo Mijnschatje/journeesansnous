@@ -11,13 +11,10 @@
     *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fafafa}
     a{color:var(--brand);text-decoration:none}
-
-    /* Header */
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.05)}
     .wrap{max-width:1100px;margin:auto;padding:0 18px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;gap:10px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;flex-wrap:wrap;gap:10px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
-
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;transition:all .2s;font-weight:600}
     .btn:hover{background:#f8f9fa;transform:translateY(-1px)}
     .btn.primary{background:var(--brand);border-color:var(--brand-600);color:#fff}
@@ -26,52 +23,32 @@
     .btn.ghost:hover{background:#f8f9fa}
     .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
     .btn i{font-size:14px}
-
-    /* Actions dans le header */
-    .header-actions{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
-    .header-actions .btn{white-space:nowrap}
-
-    /* Share CTA identical to homepage */
-    .share-cta{
-      background:var(--brand);
-      color:#fff;
-      border:0;
-      border-radius:12px;
-      padding:10px 14px;
-      font-weight:700;
-      cursor:pointer;
-      transition:all .2s;
-      font-family:inherit;
-    }
-    .share-cta:hover{
-      background:var(--brand-600);
-      transform:scale(1.05);
-    }
-
+    
     .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
     .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
     @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-    .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
-    h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
+    
+    .hero{background:linear-gradient(135deg,#fff 0%,#fff5f4 50%,#ffe8e6 100%);padding:60px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(238,73,67,.1),transparent);border-radius:50%}
+    h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0;font-weight:800}
     .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
-
+    
     /* Barre de progression */
     .progress-bar{background:#f1f5f9;height:8px;border-radius:999px;overflow:hidden;margin:20px 0}
     .progress-fill{background:linear-gradient(90deg,var(--brand),#ff6b6b);height:100%;transition:width .6s ease;border-radius:999px;position:relative}
     .progress-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:30px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3));animation:shimmer 1.5s infinite}
     @keyframes shimmer{0%,100%{opacity:0}50%{opacity:1}}
     .progress-text{text-align:center;margin-top:8px;font-size:14px;font-weight:600;color:var(--brand)}
-
+    
     main{max-width:900px;margin:auto;padding:24px 18px}
-
+    
     .step-card{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s}
     .step-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
     .step-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);background:#fafafa;border-radius:16px 16px 0 0}
     .step-head h2{margin:0;color:var(--brand);font-size:18px;display:flex;align-items:center;gap:10px}
     .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--brand);color:#fff;border-radius:50%;font-size:14px;font-weight:800}
     .step-body{padding:20px}
-
+    
     .form-group{margin-bottom:18px}
     .form-group:last-child{margin-bottom:0}
     label{display:block;font-weight:600;margin-bottom:6px;color:var(--ink);font-size:14px;display:flex;align-items:center;gap:8px}
@@ -83,71 +60,64 @@
     input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(238,73,67,.1)}
     textarea{min-height:280px;resize:vertical;font-size:14px;line-height:1.6}
     select{cursor:pointer}
-
+    
     .grid-2{display:grid;gap:14px;grid-template-columns:1fr}
     @media(min-width:680px){.grid-2{grid-template-columns:1fr 1fr}}
-
+    
     .checkbox-group{display:flex;align-items:center;gap:10px;padding:12px;background:#f8f9fa;border-radius:10px;cursor:pointer;transition:background .2s}
     .checkbox-group:hover{background:#f1f3f5}
     .checkbox-group input[type="checkbox"]{width:auto;margin:0;cursor:pointer}
     .checkbox-group label{margin:0;cursor:pointer;font-weight:500}
-
+    
     #mandat-details{display:none;margin-top:10px}
     #mandat-details.show{display:block}
-
+    
     .actions{display:flex;gap:10px;flex-wrap:wrap}
     @media(max-width:680px){.actions{flex-direction:column}}
-
-    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.5}
+    
+    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.5;position:relative;overflow:hidden}
+    .note::before{content:'💡';position:absolute;top:8px;right:8px;font-size:20px;opacity:.3}
     .note strong{color:var(--brand)}
-
+    
     .preview-box{white-space:pre-wrap;border:1px solid var(--line);border-radius:10px;padding:16px;background:#fafafa;font-size:14px;line-height:1.7;max-height:400px;overflow-y:auto;color:#334155}
     .preview-box.empty{color:var(--muted);font-style:italic;text-align:center;padding:40px 20px}
-
+    
     .success-banner{background:#10b981;color:#fff;padding:12px 20px;border-radius:10px;display:none;align-items:center;gap:10px;margin-bottom:16px}
     .success-banner.show{display:flex}
-
-    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
-
-    /* Correction d’alignement du champ “Objet de l’email” */
-    #sujet{display:block;width:100%;box-sizing:border-box;margin-top:4px}
-
-    /* Ajustements mobiles uniquement */
-    @media (max-width:600px){
-      .header-actions{gap:6px;overflow-x:auto}
+    
+    footer{color:#64748b;text-align:center;padding:40px 20px;border-top:1px solid var(--line);background:#fff;margin-top:60px}
+    
+    @media(max-width:680px){
+      .topbar{height:auto;padding:12px 0}
+      .step-head{flex-direction:column;align-items:flex-start;gap:12px}
+      .step-head .actions{width:100%}
+      .hero{padding:40px 0}
+      main{margin-top:0;padding-left:50px}
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap topbar">
-    <div class="brand"><span>Journée Sans Nous</span></div>
-    <div class="header-actions">
-      <a class="btn primary" target="_blank" rel="noopener" href="https://mijnschatje.github.io/journeesansnous/">
-        <i class="fa-solid fa-house"></i> Accueil
-      </a>
-      <button class="share-cta" id="shareTop" aria-label="Partager cette page">
-        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Partager
-      </button>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand"><span>Journée Sans Nous</span></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
+  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Générateur de mails aux syndicats</h1>
-    <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
-    <div class="progress-bar"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
-    <div class="progress-text" id="progressText">0% complété</div>
-  </div>
-</section>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Générateur de mails aux syndicats</h1>
+      <p class="lede">Contacte ton syndicat en 3 étapes pour organiser la grève solidaire du 18 décembre</p>
+    </div>
+  </section>
 
-<main>
-  <div>
-    <!-- ÉTAPE 1 -->
+  <main>
+    <div>
+      <!-- ÉTAPE 1 -->
     <div class="step-card">
       <div class="step-head">
         <h2><span class="step-num">1</span> Choisis ton syndicat</h2>
@@ -175,13 +145,9 @@
             <div class="helper">Fédération de ton secteur professionnel</div>
           </div>
           <div class="form-group">
-            <!-- Champ email protégé contre l’autofill -->
-            <input type="email" name="fake_email" autocomplete="email"
-              style="position:absolute;left:-9999px;opacity:0;width:0;height:0;border:0;padding:0" tabindex="-1" aria-hidden="true">
-            <label for="destinataire">Destinataire</label>
-            <input id="destinataire" name="destinataire_os" type="email" inputmode="email"
-              placeholder="ex : contact@syndicat-xx.org" autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1" />
-            <div class="helper">Auto-rempli par la base (priorité Fédération ➜ UD ➜ National).</div>
+            <label for="destinataire">Emails des destinataires * <span class="field-check" id="check-destinataire">✓</span></label>
+            <input id="destinataire" type="text" placeholder="Les emails s'ajoutent automatiquement" required />
+            <div class="helper">Les emails sélectionnés apparaissent ici, séparés par des virgules</div>
           </div>
         </div>
         <div class="form-group" style="margin-top:10px">
@@ -208,6 +174,7 @@
             <input id="lieu" placeholder="Paris 20e, entrepôt X..." required />
           </div>
         </div>
+        
         <div class="form-group">
           <div class="checkbox-group" onclick="document.getElementById('hasMandat').click()">
             <input type="checkbox" id="hasMandat" onclick="event.stopPropagation()">
@@ -217,10 +184,6 @@
             <input id="mandat" placeholder="Ex : délégué·e syndical·e, élu·e CSE..." style="margin-top:10px" />
             <div class="helper">Précise ton mandat pour renforcer ta légitimité</div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
-          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
         </div>
       </div>
     </div>
@@ -232,11 +195,16 @@
       </div>
       <div class="step-body">
         <div class="form-group">
+          <label for="sujet">Objet de l'email <span class="field-check" id="check-sujet">✓</span></label>
+          <input id="sujet" value="Appel à la mobilisation du 18 décembre – Journée Sans Nous : pour une grève solidaire et politique" />
+        </div>
+        
+        <div class="form-group">
           <label for="message">Corps du message (modifiable si besoin)</label>
           <textarea id="message" placeholder="Le message se génère automatiquement avec tes informations..."></textarea>
         </div>
         <div class="note">
-          <strong>💡 Le message se remplit automatiquement</strong> avec tes infos. Tu peux le modifier si tu veux le personnaliser davantage.
+          <strong>💡 Le message se remplit automatiquement</strong> avec tes informations. Tu peux le modifier directement dans la zone de texte si tu veux le personnaliser davantage.
         </div>
       </div>
     </div>
@@ -251,28 +219,29 @@
           <label>Aperçu du message</label>
           <div id="preview" class="preview-box empty">Charge le modèle pour voir l'aperçu...</div>
         </div>
-        <div class="actions" style="margin-top:16px">
-          <button class="btn primary" id="btnMailto"><i class="fa-solid fa-paper-plane"></i> Ouvrir dans mon mail</button>
-          <button class="btn" id="btnCopier"><i class="fa-solid fa-copy"></i> Copier le message</button>
-          <button class="btn" id="btnTelecharger"><i class="fa-solid fa-file-arrow-down"></i> Télécharger (.txt)</button>
+        
+        <div class="actions" style="margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:12px">
+          <button class="btn primary" id="btnMailto" style="width:100%;max-width:300px;justify-content:center">📧 Envoyer le mail</button>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <button class="btn" id="btnCopier">📋 Copier</button>
+            <button class="btn" id="btnTelecharger">💾 Télécharger</button>
+          </div>
         </div>
+        
         <div class="note" style="margin-top:12px">
           <strong>📧 Comment envoyer :</strong><br>
-          • <strong>"Ouvrir dans mon logiciel mail"</strong> : ouvre automatiquement ton application mail (Gmail, Outlook, etc.) avec tout pré-rempli<br>
-          • <strong>"Copier le message"</strong> : copie juste le texte pour le coller où tu veux<br>
+          • <strong>"Envoyer le mail"</strong> : ouvre automatiquement ton application mail (Gmail, Outlook, etc.) avec tout pré-rempli<br>
+          • <strong>"Copier"</strong> : copie juste le texte pour le coller où tu veux<br>
           • <strong>"Télécharger"</strong> : sauvegarde le message en fichier texte
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<footer><div class="wrap">© Journée Sans Nous — Générateur de mails</div></footer>
+  <footer><div class="wrap">© Journée Sans Nous – Générateur de mails • <a href="https://www.antiracisme-solidarite.org" target="_blank">antiracisme-solidarite.org</a></div></footer>
 
 <script>
-/* ===== Helpers & progression ===== */
-const el = id => document.getElementById(id);
-
+/* ===== Système de progression ===== */
 function updateProgress(){
   const fields = {
     'syndicat': el('syndicat').value,
@@ -282,27 +251,92 @@ function updateProgress(){
     'sujet': el('sujet').value,
     'message': el('message').value
   };
-  let completed = 0, total = Object.keys(fields).length;
+  
+  let completed = 0;
+  const total = Object.keys(fields).length;
+  
+  // Compter les champs remplis
   Object.keys(fields).forEach(key => {
-    const filled = fields[key] && fields[key].trim();
-    const check = document.getElementById(`check-${key}`);
-    if (check) check.classList.toggle('show', !!filled);
-    if (filled) completed++;
+    if(fields[key] && fields[key].trim()){
+      completed++;
+      // Afficher la coche verte
+      const check = document.getElementById(`check-${key}`);
+      if(check) check.classList.add('show');
+    } else {
+      // Cacher la coche
+      const check = document.getElementById(`check-${key}`);
+      if(check) check.classList.remove('show');
+    }
   });
-  ['dept','fede','cc'].forEach(key=>{
-    const v = el(key).value||'';
+  
+  // Gérer les champs optionnels avec coches
+  ['dept', 'fede', 'cc'].forEach(key => {
+    const val = el(key).value;
     const check = document.getElementById(`check-${key}`);
-    if (check) check.classList.toggle('show', !!v.trim());
+    if(check){
+      if(val && val.trim()){
+        check.classList.add('show');
+      } else {
+        check.classList.remove('show');
+      }
+    }
   });
-  const pct = Math.round((completed/total)*100);
-  el('progressBar').style.width = pct+'%';
-  el('progressText').textContent = pct+'% complété';
+  
+  const percentage = Math.round((completed / total) * 100);
+  
+  // Mise à jour responsive : width sur desktop, height sur mobile
+  const isMobile = window.innerWidth <= 768;
+  const progressBar = el('progressBar');
+  
+  if(isMobile){
+    progressBar.style.height = percentage + '%';
+    progressBar.style.width = '100%';
+  } else {
+    progressBar.style.width = percentage + '%';
+    progressBar.style.height = '100%';
+  }
+  
+  el('progressText').textContent = percentage + '% complété';
+  
+  console.log(`Progression: ${completed}/${total} = ${percentage}%`);
+}
+
+/* ===== Animation confettis ===== */
+function createConfetti(){
+  const colors = ['#ee4943', '#fbbf24', '#3b82f6', '#10b981', '#f472b6', '#a78bfa'];
+  const confettiCount = 50;
+  
+  for(let i = 0; i < confettiCount; i++){
+    setTimeout(() => {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.setProperty('--confetti-color', colors[Math.floor(Math.random() * colors.length)]);
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.opacity = '1';
+      
+      document.body.appendChild(confetti);
+      
+      const duration = 2000 + Math.random() * 1000;
+      const rotation = Math.random() * 360;
+      const drift = (Math.random() - 0.5) * 200;
+      
+      confetti.animate([
+        { transform: 'translateY(0) rotate(0deg) translateX(0)', opacity: 1 },
+        { transform: `translateY(${window.innerHeight + 20}px) rotate(${rotation}deg) translateX(${drift}px)`, opacity: 0 }
+      ], {
+        duration: duration,
+        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      }).onfinish = () => confetti.remove();
+      
+    }, i * 30);
+  }
 }
 
 /* ===== Mapping départements ===== */
 const DEPTS={"01":"Ain","02":"Aisne","03":"Allier","04":"Alpes-de-Haute-Provence","05":"Hautes-Alpes","06":"Alpes-Maritimes","07":"Ardèche","08":"Ardennes","09":"Ariège","10":"Aube","11":"Aude","12":"Aveyron","13":"Bouches-du-Rhône","14":"Calvados","15":"Cantal","16":"Charente","17":"Charente-Maritime","18":"Cher","19":"Corrèze","2A":"Corse-du-Sud","2B":"Haute-Corse","21":"Côte-d'Or","22":"Côtes-d'Armor","23":"Creuse","24":"Dordogne","25":"Doubs","26":"Drôme","27":"Eure","28":"Eure-et-Loir","29":"Finistère","30":"Gard","31":"Haute-Garonne","32":"Gers","33":"Gironde","34":"Hérault","35":"Ille-et-Vilaine","36":"Indre","37":"Indre-et-Loire","38":"Isère","39":"Jura","40":"Landes","41":"Loir-et-Cher","42":"Loire","43":"Haute-Loire","44":"Loire-Atlantique","45":"Loiret","46":"Lot","47":"Lot-et-Garonne","48":"Lozère","49":"Maine-et-Loire","50":"Manche","51":"Marne","52":"Haute-Marne","53":"Mayenne","54":"Meurthe-et-Moselle","55":"Meuse","56":"Morbihan","57":"Moselle","58":"Nièvre","59":"Nord","60":"Oise","61":"Orne","62":"Pas-de-Calais","63":"Puy-de-Dôme","64":"Pyrénées-Atlantiques","65":"Hautes-Pyrénées","66":"Pyrénées-Orientales","67":"Bas-Rhin","68":"Haut-Rhin","69":"Rhône","70":"Haute-Saône","71":"Saône-et-Loire","72":"Sarthe","73":"Savoie","74":"Haute-Savoie","75":"Paris","76":"Seine-Maritime","77":"Seine-et-Marne","78":"Yvelines","79":"Deux-Sèvres","80":"Somme","81":"Tarn","82":"Tarn-et-Garonne","83":"Var","84":"Vaucluse","85":"Vendée","86":"Vienne","87":"Haute-Vienne","88":"Vosges","89":"Yonne","90":"Territoire de Belfort","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise","971":"Guadeloupe","972":"Martinique","973":"Guyane","974":"La Réunion","975":"Saint-Pierre-et-Miquelon","976":"Mayotte","977":"Saint-Barthélemy","978":"Saint-Martin","986":"Wallis-et-Futuna","987":"Polynésie française","988":"Nouvelle-Calédonie"};
 
-/* ===== Base emails (remplacée au chargement JSON) ===== */
+/* ===== Chargement de la base JSON ===== */
 let DB={
   "CFDT": {"national": "paris@sgen.cfdt.fr", "ud": [], "fede": []},
   "CFTC": {"national": "organisation@cftc.fr", "ud": [], "fede": []},
@@ -313,8 +347,8 @@ let DB={
   "UNSA": {"national": null, "ud": [], "fede": []}
 };
 
-/* ===== Chargement JSON ===== */
 async function loadDB(){
+  // Essayer plusieurs chemins possibles
   const urls = [
     'data/emails-syndicats.json',
     './data/emails-syndicats.json',
@@ -322,73 +356,158 @@ async function loadDB(){
     '/journeesansnous/data/emails-syndicats.json',
     'https://mijnschatje.github.io/journeesansnous/data/emails-syndicats.json'
   ];
-  for (const url of urls){
+  
+  for(const url of urls){
     try{
+      console.log('🔍 Tentative de chargement:', url);
       const r = await fetch(url, {cache:'no-store'});
-      if (r.ok){ DB = await r.json(); break; }
-    }catch(e){}
+      if(r.ok){
+        const data = await r.json();
+        DB = data;
+        console.log('✅ BASE CHARGÉE depuis:', url);
+        console.log('📊 Syndicats:', Object.keys(DB));
+        
+        // Vérifier qu'on a bien des données
+        Object.keys(DB).forEach(synd => {
+          console.log(`  ${synd}: ${(DB[synd].ud||[]).length} départements, ${(DB[synd].fede||[]).length} fédérations`);
+        });
+        
+        fillSyndicats();
+        return true;
+      }
+    }catch(e){
+      console.log('❌ Échec pour:', url, '-', e.message);
+    }
   }
+  
+  console.warn('⚠️ ATTENTION: Impossible de charger la base de données');
+  console.warn('📁 Assure-toi que le fichier emails-syndicats.json est dans un dossier "data/"');
   fillSyndicats();
+  return false;
 }
 
-/* ===== Remplissage listes ===== */
+/* ===== Helpers ===== */
+const el=id=>document.getElementById(id);
+
 function fillSyndicats(){
-  const s = el('syndicat');
-  s.innerHTML = '<option value="">— Sélectionner —</option>';
-  Object.keys(DB).sort().forEach(k=> s.add(new Option(k,k)));
+  const s=el('syndicat'); 
+  s.innerHTML='<option value="">— Sélectionner —</option>';
+  const keys=Object.keys(DB).sort();
+  console.log('Remplissage syndicats:', keys);
+  keys.forEach(k=>s.add(new Option(k,k)));
   fillStructures();
-  updateProgress();
 }
+
 function udSortKey(x){
   const c=(x.code||'').toUpperCase();
   const m=c.match(/^(\d+)([A-Z]?)$/);
   if(!m) return [9999,c];
   const n=parseInt(m[1],10);
-  const frac = m[2]==='A'?0.1:(m[2]==='B'?0.2:0);
+  const frac=m[2]==='A'?0.1:(m[2]==='B'?0.2:0);
   return [n+frac,c];
 }
-function fillStructures(){
-  const synd = el('syndicat').value;
-  const dept = el('dept');
-  const fede = el('fede');
-  dept.innerHTML = '<option value="">— Optionnel —</option>';
-  fede.innerHTML = '<option value="">— Optionnel —</option>';
 
-  if (!synd){ updateEmail(); updateProgress(); return; }
+function fillStructures(){
+  const synd=el('syndicat').value;
+  const dept=el('dept'); 
+  const fede=el('fede');
+  
+  // Vider les selects
+  dept.innerHTML='<option value="">— Optionnel —</option>';
+  fede.innerHTML='<option value="">— Optionnel —</option>';
+
+  if(!synd){
+    console.log('❌ Aucun syndicat sélectionné');
+    updateEmail();
+    return;
+  }
 
   const rec = DB[synd] || {};
-  (rec.fede||[]).forEach(x => { fede.add(new Option(x.label || 'Fédération', x.email || '')); });
+  console.log('📋 Syndicat sélectionné:', synd);
+  console.log('📊 Données brutes:', rec);
+  
+  const fedeList = rec.fede || [];
+  const udList = rec.ud || [];
+  
+  console.log(`📦 Nombre de fédérations: ${fedeList.length}`);
+  console.log(`📦 Nombre de départements: ${udList.length}`);
 
-  const sortedUDs = (rec.ud||[]).slice().sort((a,b)=>{
-    const [an,ac]=udSortKey(a), [bn,bc]=udSortKey(b);
-    return an-bn || ac.localeCompare(bc);
-  });
-  sortedUDs.forEach(x=>{
-    const code=x.code||''; const email=x.email||'';
-    const nice = (code && DEPTS[code]) ? `${code} – ${DEPTS[code]}` : (x.label || code || 'UD');
-    dept.add(new Option(nice, email));
-  });
+  // Remplir les fédérations
+  if(fedeList.length > 0) {
+    fedeList.forEach((x, index) => {
+      const label = x.label || `Fédération ${index+1}`;
+      const email = x.email || '';
+      console.log(`  ➕ Fédé ${index+1}: ${label} → ${email}`);
+      fede.add(new Option(label, email));
+    });
+    console.log(`✅ ${fedeList.length} fédérations ajoutées`);
+  } else {
+    console.log('⚠️ Aucune fédération disponible');
+  }
 
+  // Remplir les départements (triés)
+  if(udList.length > 0) {
+    const sortedUDs = udList.slice().sort((a,b) => {
+      const [an, ac] = udSortKey(a);
+      const [bn, bc] = udSortKey(b);
+      return an - bn || ac.localeCompare(bc);
+    });
+    
+    sortedUDs.forEach((x, index) => {
+      const code = x.code || '';
+      const email = x.email || '';
+      const deptName = DEPTS[code] || '';
+      const nice = (code && deptName) ? `${code} – ${deptName}` : (x.label || code || `UD ${index+1}`);
+      console.log(`  ➕ Dépt ${index+1}: ${nice} → ${email}`);
+      dept.add(new Option(nice, email));
+    });
+    console.log(`✅ ${sortedUDs.length} départements ajoutés`);
+  } else {
+    console.log('⚠️ Aucun département disponible');
+  }
+
+  console.log(`🎯 Remplissage terminé - Select Fédé: ${fede.options.length} options, Select Dépt: ${dept.options.length} options`);
   updateEmail();
-  updateProgress();
 }
 
-/* ===== Choix email auto: priorité Fédé → UD → National ===== */
 function updateEmail(){
   const synd = el('syndicat').value;
-  const fedeVal = el('fede').value || '';
   const deptVal = el('dept').value || '';
-  const national = (DB[synd]||{}).national || '';
-
-  const ordered = [fedeVal, deptVal, national].filter(Boolean);
-  if (ordered.length){
-    el('destinataire').value = ordered[0];
-    el('cc').value = ordered.slice(1).join(', ');
-  }else{
+  const fedeVal = el('fede').value || '';
+  
+  if(!synd) {
+    el('destinataire').value = '';
+    el('cc').value = '';
+    return;
+  }
+  
+  const national = (DB[synd] || {}).national || '';
+  
+  // Collecter tous les emails sélectionnés
+  const emails = [];
+  
+  // Ajouter dans l'ordre : National → Département → Fédération
+  if (national) emails.push(national);
+  if (deptVal) emails.push(deptVal);
+  if (fedeVal) emails.push(fedeVal);
+  
+  console.log('Emails collectés:', emails);
+  
+  // Répartir les emails : le premier dans "destinataire", les autres dans "cc"
+  if (emails.length > 0) {
+    el('destinataire').value = emails[0];
+    if (emails.length > 1) {
+      el('cc').value = emails.slice(1).join(', ');
+    } else {
+      el('cc').value = '';
+    }
+  } else {
     el('destinataire').value = '';
     el('cc').value = '';
   }
-  updateProgress();
+  
+  console.log('Destinataire:', el('destinataire').value);
+  console.log('CC:', el('cc').value);
 }
 
 /* ===== Génération du modèle ===== */
@@ -397,12 +516,21 @@ function MODELE_OFFICIEL(){
   const lieu=(el('lieu').value||'').trim() || '[Ville / Lieu de travail / Établissement]';
   const hasMandat=el('hasMandat').checked;
   const mandat=hasMandat ? (el('mandat').value||'').trim() : '';
-  const phraseMobilisation = (hasMandat && mandat)
-    ? `En tant que ${mandat}, je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`
-    : `Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`;
+  
+  // Construction de la phrase selon le mandat
+  let phraseMobilisation;
+  if (hasMandat && mandat) {
+    phraseMobilisation = `En tant que ${mandat}, je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`;
+  } else {
+    phraseMobilisation = `Je souhaite que mon lieu de travail puisse se joindre à cette mobilisation historique.`;
+  }
+  
+  // Signature avec mandat si applicable
   let signature = `${nom}\n${lieu}`;
-  if (hasMandat && mandat) signature += `\nMandat : ${mandat}`;
-
+  if (hasMandat && mandat) {
+    signature += `\nMandat : ${mandat}`;
+  }
+  
   return `Bonjour,
 
 Je vous écris dans le cadre de la Journée Sans Nous – "Si on s'arrête, tout s'arrête !", organisée le 18 décembre 2025, à l'occasion de la Journée internationale des migrant·e·s.
@@ -434,45 +562,57 @@ Solidairement,
 ${signature}
 `;}
 
-const MODELE_PREAVIS = "Pour la Journée Sans Nous à l'occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleur·ses migrant·es] et pour dénoncer le racisme d'État qui nie ces droits.";
+const MODELE_PREAVIS="Pour la Journée Sans Nous à l'occasion de la Journée internationale des Migrant.e.s 2025, nous appelons à une journée de grève pour exiger [revendication professionnelle claire, ex : régularisation par le travail / fin des contrôles discriminatoires / protection juridique pour travailleur·ses migrant·es] et pour dénoncer le racisme d'État qui nie ces droits.";
 
-/* ===== Actions message ===== */
-function chargerModele(){ el('message').value=MODELE_OFFICIEL(); apercu(); updateProgress(); }
+/* ===== Actions ===== */
+function chargerModele(){
+  el('message').value=MODELE_OFFICIEL();
+  apercu();
+  showSuccess();
+}
+
 function apercu(){
   const msg=el('message').value;
   const prev=el('preview');
-  if(msg){ prev.textContent=msg; prev.classList.remove('empty'); }
-  else { prev.textContent="Aucun message saisi."; prev.classList.add('empty'); }
+  if(msg){
+    prev.textContent=msg;
+    prev.classList.remove('empty');
+  }else{
+    prev.textContent='Aucun message saisi.';
+    prev.classList.add('empty');
+  }
 }
+
 function copier(){
   const msg=el('message').value;
-  if(!msg){ alert("Charge d'abord le modèle !"); return; }
+  if(!msg){alert('Charge d\'abord le modèle !');return;}
   navigator.clipboard.writeText(msg).then(()=>alert('✅ Message copié dans le presse-papiers !'));
 }
 
-/* ===== Ouvrir dans le mail (Cc robuste) ===== */
 function toMailto(){
-  const to = (el('destinataire').value || '').trim();
-  if(!to){ alert('⚠️ Indique au moins un email destinataire !'); return; }
-
-  // Normaliser la liste CC (accepte ; ou ,)
-  let ccRaw = (el('cc').value || '').trim();
-  ccRaw = ccRaw.replace(/[; ]+/g, ',').replace(/,+/g, ',').replace(/^,|,$/g, '');
-
-  const sujet = el('sujet').value || 'Appel à la mobilisation du 18 décembre';
-  const body  = el('message').value || MODELE_OFFICIEL();
-  const enc = s => encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
-
-  const params = [];
-  if (ccRaw) params.push('cc=' + encodeURIComponent(ccRaw));
-  params.push('subject=' + enc(sujet));
-  params.push('body=' + enc(body));
-
-  const url = `mailto:${encodeURIComponent(to)}?` + params.join('&');
-  window.location.href = url;
+  const to=el('destinataire').value||'';
+  if(!to){alert('⚠️ Indique au moins un email destinataire !');return;}
+  
+  const cc=el('cc').value||'';
+  const sujet=el('sujet').value||'Appel à la mobilisation du 18 décembre';
+  const body=el('message').value||MODELE_OFFICIEL();
+  const enc=s=>encodeURIComponent(s).replace(/%0A/g,'%0D%0A');
+  
+  // Construction de l'URL mailto avec gestion des multiples destinataires
+  let url = `mailto:${encodeURIComponent(to)}?subject=${enc(sujet)}&body=${enc(body)}`;
+  if(cc){
+    url += `&cc=${encodeURIComponent(cc)}`;
+  }
+  
+  // Animation confettis !
+  createConfetti();
+  
+  // Petit délai pour voir les confettis avant d'ouvrir le mail
+  setTimeout(() => {
+    window.location.href=url;
+  }, 500);
 }
 
-/* ===== Télécharger ===== */
 function telecharger(){
   const msg=el('message').value||MODELE_OFFICIEL();
   const blob=new Blob([msg],{type:'text/plain;charset=utf-8'});
@@ -483,59 +623,34 @@ function telecharger(){
   URL.revokeObjectURL(a.href);
 }
 
-/* ===== Listeners & init ===== */
+/* ===== Event listeners ===== */
 document.addEventListener('DOMContentLoaded',()=>{
   // Boutons
   el('btnCopier').onclick=copier;
   el('btnMailto').onclick=toMailto;
   el('btnTelecharger').onclick=telecharger;
-
+  
   // Selects
-  el('syndicat').onchange=()=>{ fillStructures(); };
-  el('dept').onchange=()=>{ updateEmail(); };
-  el('fede').onchange=()=>{ updateEmail(); };
-
+  el('syndicat').onchange=fillStructures;
+  el('dept').onchange=updateEmail;
+  el('fede').onchange=updateEmail;
+  
   // Mandat toggle
   el('hasMandat').onchange=e=>{
-    el('mandat-details').classList.toggle('show', e.target.checked);
-    chargerModele();
+    el('mandat-details').classList.toggle('show',e.target.checked);
+    chargerModele(); // Regénère le message
   };
-
-  // Contenu dynamique
-  ['message','nom','lieu','mandat','sujet','cc','destinataire'].forEach(id=>{
-    const node = el(id);
-    if (node) node.addEventListener('input', ()=>{ if(id!=='message') chargerModele(); else apercu(); updateProgress(); });
-  });
-
+  
+  // Aperçu auto + régénération intelligente du message
+  el('message').oninput=apercu;
+  el('nom').oninput=chargerModele;
+  el('lieu').oninput=chargerModele;
+  el('mandat').oninput=chargerModele;
+  
+  // Init
   loadDB();
   chargerModele();
-  updateProgress();
 });
 </script>
-
-<!-- === PARTAGE : identique à la page principale, texte spécifique à l'outil === -->
-<script>
-  (function(){
-    const shareText = "J’ai utilisé cet outil pour écrire à mon syndicat afin qu’il soutienne la Grève de Solidarité du 18 décembre et couvre les travailleur·ses qui veulent y participer. Rejoins le mouvement et envoie ton mail aussi !";
-    const shareUrl  = window.location.href;
-    const btn = document.getElementById('shareTop');
-
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      if (navigator.share) {
-        navigator.share({
-          title: "Journée Sans Nous – Générateur de mails syndicaux",
-          text: shareText,
-          url: shareUrl
-        }).catch(()=>{ /* annulation */ });
-      } else {
-        navigator.clipboard.writeText(shareUrl).then(()=>{
-          alert("📎 Lien copié dans le presse-papiers !");
-        });
-      }
-    });
-  })();
-</script>
-
 </body>
 </html>
