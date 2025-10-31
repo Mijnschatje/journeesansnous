@@ -28,6 +28,20 @@
     p{margin-bottom:16px}
     .note{border-left:4px solid var(--brand);background:#fff2f1;padding:10px 14px;border-radius:10px;margin:20px 0}
     .emphase{color:#1e1e1e;font-weight:700}
+
+    /* KPI local */
+    .kpi-wrap{max-width:1100px;margin:auto;padding:0 18px}
+    .kpi-grid{display:grid;gap:14px;margin:28px 0 8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(min-width:840px){.kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .kpi-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+    .kpi-num{font-weight:800;font-size:28px;color:var(--brand);line-height:1}
+    .kpi-sub{font-size:13px;color:var(--muted);margin-top:6px}
+    .kpi-note{font-size:13px;color:#334155;margin-top:8px}
+    .kpi-section h2{color:var(--brand);margin-top:36px;font-size:22px}
+    .kpi-list{display:grid;gap:10px;margin:14px 0 0;grid-template-columns:1fr}
+    @media(min-width:720px){.kpi-list{grid-template-columns:repeat(2,1fr)}}
+    .kpi-item{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+
     footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
   </style>
 </head>
@@ -55,72 +69,41 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
   <section id="intro">
     <p><strong class="emphase">Les politiques migratoires et sociales actuelles fragilisent tout le monde.</strong> Ce qui commence par la remise en cause des droits des personnes sans papiers ou étrangères finit par affaiblir les droits de l’ensemble des travailleurs. <strong class="emphase">Comprendre ce qui se joue aujourd’hui, c’est refuser la division et reconstruire la solidarité.</strong></p>
   </section>
-<!-- ===== CHIFFRES-CLÉS ===== -->
-<style>
-  .kpi-wrap{max-width:1100px;margin:auto;padding:0 18px}
-  .kpi-grid{
-    display:grid;gap:14px;margin:28px 0 8px;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-  @media(min-width:840px){.kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-  .kpi-card{
-    background:#fff;border:1px solid var(--line);border-radius:16px;
-    padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.04)
-  }
-  .kpi-num{font-weight:800;font-size:28px;color:var(--brand);line-height:1}
-  .kpi-sub{font-size:13px;color:var(--muted);margin-top:6px}
-  .kpi-note{font-size:13px;color:#334155;margin-top:8px}
-  .kpi-section h2{color:var(--brand);margin-top:36px;font-size:22px}
-  .kpi-list{
-    display:grid;gap:10px;margin:14px 0 0;
-    grid-template-columns:1fr; 
-  }
-  @media(min-width:720px){.kpi-list{grid-template-columns:repeat(2,1fr)}}
-  .kpi-item{
-    background:#fff;border:1px dashed var(--line);border-radius:12px;
-    padding:12px 14px
-  }
-  .kpi-item b{color:var(--ink)}
-</style>
 
-<section id="chiffres-cles" class="kpi-section">
-  <div class="kpi-wrap">
-    <h2>Chiffres-clés pour comprendre</h2>
-
-    <!-- Ligne de KPIs -->
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-num">11,3 %</div>
-        <div class="kpi-sub">de la population en 2024 sont des <b>immigré·es</b> (France hors Mayotte).</div>
-        <div class="kpi-note">Source : Insee.</div>
+  <!-- ===== CHIFFRES-CLÉS ===== -->
+  <section id="chiffres-cles" class="kpi-section">
+    <div class="kpi-wrap">
+      <h2>Chiffres-clés pour comprendre</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-num">11,3 %</div>
+          <div class="kpi-sub">de la population en 2024 sont des <b>immigré·es</b> (France hors Mayotte).</div>
+          <div class="kpi-note">Source : Insee.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">8,8 %</div>
+          <div class="kpi-sub">de la population en 2024 sont des <b>étranger·es</b>.</div>
+          <div class="kpi-note">Source : Insee.</div>
+        </div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-num">8,8 %</div>
-        <div class="kpi-sub">de la population en 2024 sont des <b>étranger·es</b>.</div>
-        <div class="kpi-note">Source : Insee.</div>
+
+      <p class="kpi-note">Dans de nombreux métiers essentiels et/ou pénibles, la part d’immigré·es est nettement supérieure à la moyenne :</p>
+      <div class="kpi-list">
+        <div class="kpi-item"><b>Employé·es de maison</b> : 38,8 %</div>
+        <div class="kpi-item"><b>Gardiennage & sécurité</b> : 28,4 %</div>
+        <div class="kpi-item"><b>Ouvrier·es non qualifiés du BTP</b> : 27 %</div>
+        <div class="kpi-item"><b>Gros œuvre du bâtiment (qualifiés)</b> : 24,8 %</div>
+        <div class="kpi-item"><b>Cuisinier·es</b> : 22 %</div>
+        <div class="kpi-item"><b>Agents d’entretien</b> : 17,4 %</div>
+      </div>
+
+      <div class="note" style="margin-top:16px">
+        <strong class="emphase">À retenir :</strong> la proportion d’immigré·es dans les métiers dits « essentiels » est
+        globalement à la hauteur de leur poids dans l’emploi total — mais avec une forte concentration dans des secteurs
+        pénibles (BTP, nettoyage, hôtellerie-restauration, sécurité).
       </div>
     </div>
-
-    <!-- Répartition par métiers "essentiels" / exposés -->
-    <p class="kpi-note">Dans de nombreux métiers essentiels et/ou pénibles, la part d’immigré·es est nettement supérieure à la moyenne :</p>
-
-    <div class="kpi-list">
-      <div class="kpi-item"><b>Employé·es de maison</b> : 38,8 %</div>
-      <div class="kpi-item"><b>Gardiennage & sécurité</b> : 28,4 %</div>
-      <div class="kpi-item"><b>Ouvrier·es non qualifiés du BTP</b> : 27 %</div>
-      <div class="kpi-item"><b>Gros œuvre du bâtiment (qualifiés)</b> : 24,8 %</div>
-      <div class="kpi-item"><b>Cuisinier·es</b> : 22 %</div>
-      <div class="kpi-item"><b>Agents d’entretien</b> : 17,4 %</div>
-      <!-- Tu peux en ajouter d'autres si besoin -->
-    </div>
-
-    <div class="note" style="margin-top:16px">
-      <strong class="emphase">À retenir :</strong> la proportion d’immigré·es dans les métiers dits « essentiels » est
-      globalement à la hauteur de leur poids dans l’emploi total — mais avec une forte concentration dans des secteurs
-      pénibles (BTP, nettoyage, hôtellerie-restauration, sécurité).
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="regu">
     <h2>Être régularisé devient impossible</h2>
@@ -161,83 +144,86 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
     <h2>Frontex et la guerre aux frontières</h2>
     <p>Alors que l’État prétend manquer de moyens pour la santé, l’éducation ou le logement, il finance massivement <strong class="emphase">Frontex</strong>, l’agence européenne de surveillance des frontières, dont le budget a explosé à près d’un milliard d’euros en 2024.</p>
     <p>Drones, radars, navires et effectifs militaires traquent les exilé·e·s, au prix de milliers de vies perdues en Méditerranée et dans la Manche. <strong class="emphase">Cette militarisation montre la priorité politique donnée à la guerre contre les migrant·e·s plutôt qu’aux droits sociaux.</strong></p>
-<!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX ===== -->
-<section id="frontex-budget" style="margin-top:36px">
-  <h2>Explosion du budget de Frontex</h2>
-  <p class="lede" style="margin:.4rem 0 12px;color:#475569">
-    Le tracé se déroule automatiquement à l’affichage de cette section.
-  </p>
-  <div style="max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-    <div style="position:relative;height:360px">
-      <canvas id="frontexChart"></canvas>
+  </section>
+
+  <!-- ===== ÉVOLUTION DU BUDGET DE FRONTEX (graphe animé) ===== -->
+  <section id="frontex-budget" style="margin-top:36px">
+    <h2>Explosion du budget de Frontex</h2>
+    <p class="lede" style="margin:.4rem 0 12px;color:#475569">
+      Le tracé se déroule automatiquement à l’affichage de cette section.
+    </p>
+    <div style="max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+      <div style="position:relative;height:360px">
+        <canvas id="frontexChart"></canvas>
+      </div>
     </div>
+  </section>
+
+  <div class="note">
+    <p><strong class="emphase">Comprendre, c’est déjà agir.</strong> Ces politiques ne sont pas isolées : elles dessinent une stratégie globale de contrôle, de précarisation et de peur. La grève du 18 décembre est une réponse collective à ce système.</p>
   </div>
-</section>
-<!-- Chart.js (si pas encore inclus sur la page) -->
+</main>
+
+<footer><div class="wrap">© Journée Sans Nous — Comprendre la situation</div></footer>
+
+<!-- Chart.js (ne pas dupliquer si déjà inclus ailleurs sur le site) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+/* Partage */
+const shareText = "📚 Je viens de lire la page ‘Comprendre’ du site Journée Sans Nous. Elle explique pourquoi la grève du 18 décembre est nécessaire face aux politiques de précarisation et de répression. #JournéeSansNous";
+const shareUrl = window.location.href;
+document.getElementById('shareTop').addEventListener('click', () => {
+  if (navigator.share) {
+    navigator.share({ title: "Journée Sans Nous — Comprendre la situation", text: shareText, url: shareUrl });
+  } else {
+    navigator.clipboard.writeText(shareUrl).then(() => alert("📎 Lien copié dans le presse-papiers !"));
+  }
+});
+
+/* Graphique Frontex — ajout année par année au scroll */
 (function(){
-  // Données
   const labels = ['2005','2006','2014','2015','2020','2023','2024'];
-  const values = [ 6000000, 19166300, 98000000, 143000000, 460000000, 845000000, 922000000 ];
+  const values = [6000000,19166300,98000000,143000000,460000000,845000000,922000000];
 
-  // Couleurs cohérentes avec ta charte
-  const color = getComputedStyle(document.documentElement).getPropertyValue('--brand')?.trim() || '#ee4943';
+  const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim() || '#ee4943';
 
-  // Chart.js — initialisation à vide (on remplira au scroll)
   const ctx = document.getElementById('frontexChart').getContext('2d');
   const chart = new Chart(ctx, {
     type: 'line',
-    data: {
-      labels: [],            // on démarre sans labels
-      datasets: [{
-        label: 'Budget de Frontex (€)',
-        data: [],            // on démarre sans points
-        borderColor: color,
-        backgroundColor: 'rgba(238,73,67,0.15)',
-        fill: true,
-        tension: 0.25,
-        borderWidth: 3,
-        pointRadius: 4,
-        pointBackgroundColor: color
-      }]
-    },
+    data: { labels: [], datasets: [{
+      label: 'Budget de Frontex (€)',
+      data: [],
+      borderColor: brand,
+      backgroundColor: 'rgba(238,73,67,0.15)',
+      fill: true,
+      tension: 0.25,
+      borderWidth: 3,
+      pointRadius: 4,
+      pointBackgroundColor: brand
+    }]},
     options: {
       responsive: true,
       maintainAspectRatio: false,
       animation: { duration: 800, easing: 'easeOutQuart' },
       plugins: {
         legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => 'Budget : ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €'
-          }
-        }
+        tooltip: { callbacks: { label: (c)=> 'Budget : ' + c.parsed.y.toLocaleString('fr-FR') + ' €' } }
       },
       scales: {
-        x: {
-          title: { display: true, text: 'Année', color:'#475569', font:{weight:600} },
-          grid: { color:'rgba(0,0,0,0.05)' }
-        },
-        y: {
-          title: { display: true, text: 'Budget (en €)', color:'#475569', font:{weight:600} },
-          grid: { color:'rgba(0,0,0,0.05)' },
-          ticks: { callback: (v)=> (v/1_000_000)+' M€' }
-        }
+        x: { title: { display:true, text:'Année', color:'#475569', font:{weight:600} }, grid:{ color:'rgba(0,0,0,0.05)' } },
+        y: { title: { display:true, text:'Budget (en €)', color:'#475569', font:{weight:600} }, grid:{ color:'rgba(0,0,0,0.05)' },
+             ticks: { callback: (v)=> (v/1_000_000)+' M€' } }
       }
     }
   });
 
-  // Animation progressive au scroll (IntersectionObserver)
   let hasPlayed = false;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function playSequence(){
     if (hasPlayed) return;
     hasPlayed = true;
-
-    // Ajoute les points un par un
     let i = 0;
     const step = () => {
       if (i >= labels.length) return;
@@ -245,7 +231,6 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
       chart.data.datasets[0].data.push(values[i]);
       chart.update();
       i++;
-      // Respecte l’accessibilité : si réduction des animations, on ajoute tout d’un coup
       if (prefersReduced) {
         while (i < labels.length) {
           chart.data.labels.push(labels[i]);
@@ -254,7 +239,7 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
         }
         chart.update();
       } else {
-        setTimeout(step, 500); // délai entre chaque année
+        setTimeout(step, 500);
       }
     };
     step();
@@ -268,67 +253,9 @@ EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – 
         io.unobserve(section);
       }
     });
-  }, { threshold: 0.35 }); // joue quand ~35% de la section est visible
+  }, { threshold: 0.35 });
   io.observe(section);
 })();
-</script>
-
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: {
-        duration: 2500,
-        easing: 'easeInOutQuart'
-      },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => 
-              'Budget : ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €'
-          }
-        }
-      },
-      scales: {
-        x: {
-          title: { display: true, text: 'Année', color:'#475569', font:{weight:600} },
-          grid: { color:'rgba(0,0,0,0.05)' }
-        },
-        y: {
-          title: { display: true, text: 'Budget (en €)', color:'#475569', font:{weight:600} },
-          grid: { color:'rgba(0,0,0,0.05)' },
-          ticks: { callback: (v)=> (v/1000000)+' M€' }
-        }
-      }
-    }
-  });
-});
-</script>
-</section>
-
-  <div class="note">
-    <p><strong class="emphase">Comprendre, c’est déjà agir.</strong> Ces politiques ne sont pas isolées : elles dessinent une stratégie globale de contrôle, de précarisation et de peur. La grève du 18 décembre est une réponse collective à ce système.</p>
-  </div>
-</main>
-
-<footer><div class="wrap">© Journée Sans Nous — Comprendre la situation</div></footer>
-
-<script>
-const shareText = "📚 Je viens de lire la page ‘Comprendre’ du site Journée Sans Nous. Elle explique pourquoi la grève du 18 décembre est nécessaire face aux politiques de précarisation et de répression. #JournéeSansNous";
-const shareUrl = window.location.href;
-
-document.getElementById('shareTop').addEventListener('click', () => {
-  if (navigator.share) {
-    navigator.share({
-      title: "Journée Sans Nous — Comprendre la situation",
-      text: shareText,
-      url: shareUrl
-    });
-  } else {
-    navigator.clipboard.writeText(shareUrl).then(() => alert("📎 Lien copié dans le presse-papiers !"));
-  }
-});
 </script>
 
 </body>
