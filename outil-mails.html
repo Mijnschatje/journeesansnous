@@ -92,21 +92,21 @@
       .step-head{flex-direction:column;align-items:flex-start;gap:12px}
       .step-head .actions{width:100%}
       .hero{padding:40px 0}
-      main{margin-top:0;padding-left:50px}
+      main{margin-top:0;margin-left:0;padding-bottom:60px}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap topbar">
-      <div class="brand"><span> Journée Sans Nous</span></div>
+      <div class="brand"><span>Journée Sans Nous</span></div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
         <a class="btn ghost" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Retour</a>
       </div>
     </div>
   </header>
 
-  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
+  <div class="ticker"><div class="track">EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau • À L'ÉCHELLE NATIONALE : jeudi 13 novembre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l'appel • EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d'organisation – 3 rue du Château d'Eau</div></div>
 
   <section class="hero">
     <div class="wrap">
@@ -284,19 +284,20 @@ function updateProgress(){
   
   const percentage = Math.round((completed / total) * 100);
   
-  // Mise à jour responsive : width sur desktop, height sur mobile
+  // Mise à jour de la barre : verticale sur desktop, horizontale sur mobile
   const isMobile = window.innerWidth <= 768;
   const progressBar = el('progressBar');
   
   if(isMobile){
-    progressBar.style.height = percentage + '%';
-    progressBar.style.width = '100%';
-  } else {
     progressBar.style.width = percentage + '%';
     progressBar.style.height = '100%';
+  } else {
+    progressBar.style.height = percentage + '%';
+    progressBar.style.width = '100%';
   }
   
-  el('progressText').textContent = percentage + '% complété';
+  // Mise à jour du tooltip
+  el('progressTooltip').textContent = percentage + '%';
   
   console.log(`Progression: ${completed}/${total} = ${percentage}%`);
 }
@@ -629,6 +630,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   el('btnCopier').onclick=copier;
   el('btnMailto').onclick=toMailto;
   el('btnTelecharger').onclick=telecharger;
+  
+  // Bouton de partage flottant
+  el('shareFloatBtn').onclick=()=>{
+    const shareText = "Rejoins la grève solidaire du 18 décembre ! Utilise cet outil pour contacter ton syndicat en 2 minutes. #JournéeSansNous";
+    const shareUrl = window.location.href;
+    if(navigator.share){
+      navigator.share({title:'Générateur de mails - Journée Sans Nous', text:shareText, url:shareUrl});
+    }else{
+      // Fallback : copier dans le presse-papier
+      const fullText = shareText + '\n' + shareUrl;
+      navigator.clipboard.writeText(fullText).then(()=>alert('✅ Lien copié ! Colle-le dans ton message.'));
+    }
+  };
   
   // Selects
   el('syndicat').onchange=fillStructures;
