@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journée Sans Nous — Comprendre la situation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root{--brand:#ee4943;--brand-600:#d33e38;--ink:#0f172a;--muted:#475569;--line:#e5e7eb;--radius:16px}
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.6 'Manrope',sans-serif;color:var(--ink);background:#fafafa}
+    a{color:var(--brand);text-decoration:none}
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+    .wrap{max-width:1100px;margin:auto;padding:0 18px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;height:64px;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand)}
+    .share-cta{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+    .share-cta:hover{background:var(--brand-600);transform:scale(1.05)}
+    .ticker{background:var(--brand);color:#fff;overflow:hidden;white-space:nowrap}
+    .ticker .track{display:inline-block;animation:scroll 60s linear infinite;padding:6px 0}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .hero{background:linear-gradient(180deg,#fff 0%,#fff5f4 100%);padding:30px 0;border-bottom:1px solid var(--line)}
+    h1{color:var(--brand);font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0}
+    .lede{color:var(--muted);margin:.6rem 0 0;font-size:17px}
+    main{max-width:900px;margin:auto;padding:28px 18px}
+    h2{color:var(--brand);margin-top:40px;font-size:22px}
+    p{margin-bottom:16px}
+    .note{border-left:4px solid var(--brand);background:#fff2f1;padding:10px 14px;border-radius:10px;margin:20px 0}
+    .emphase{color:#1e1e1e;font-weight:700}
+    footer{color:#64748b;text-align:center;padding:26px 0;border-top:1px solid var(--line);margin-top:40px;background:#fff}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="brand"><span>Journée Sans Nous</span></div>
+    <button class="share-cta" id="shareTop"><i class="fa-solid fa-share-nodes"></i> Partager la page</button>
+  </div>
+</header>
+
+<div class="ticker"><div class="track">
+EN RÉGION PARISIENNE : lundi 17 novembre 19h–21h ➜ Assemblée publique – Bourse du Travail, 29 Bd du Temple, 75011 Paris • tous les lundis 19h ➜ Réunion d’organisation – 3 rue du Château d’Eau • À L’ÉCHELLE NATIONALE : jeudi 30 octobre 19h–21h ➜ Réunion en visio nationale des collectifs signataires de l’appel
+</div></div>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Comprendre la situation</h1>
+    <p class="lede">Pourquoi la grève du 18 décembre est une réponse nécessaire aux politiques de précarisation et de répression.</p>
+  </div>
+</section>
+
+<main>
+  <section id="intro">
+    <p><strong class="emphase">Les politiques migratoires et sociales actuelles fragilisent tout le monde.</strong> Ce qui commence par la remise en cause des droits des personnes sans papiers ou étrangères finit par affaiblir les droits de l’ensemble des travailleurs. <strong class="emphase">Comprendre ce qui se joue aujourd’hui, c’est refuser la division et reconstruire la solidarité.</strong></p>
+  </section>
+
+  <section id="regu">
+    <h2>Un parcours de régularisation rendu quasi inaccessible</h2>
+    <p>Alors que la régularisation par le travail, introduite pour les métiers « en tension », semblait offrir une ouverture, elle se heurte à des critères toujours plus stricts et à des pratiques préfectorales arbitraires. La circulaire du 23 janvier 2025, impulsée par Bruno Retailleau, exige désormais trois années de présence en France, douze mois d’ancienneté de travail et une maîtrise certifiée du français.</p>
+    <p>Ces critères, auparavant plus souples, sont appliqués de façon inégale selon les préfectures. Dans certains départements, la voie « métiers en tension » n’est même pas indiquée sur les sites officiels. Les refus se multiplient, souvent assortis d’une <strong class="emphase">obligation de quitter le territoire (OQTF)</strong>, y compris pour des personnes parfaitement intégrées et en emploi stable.</p>
+    <p>Des titres de séjour sont aussi retirés à des personnes déjà régularisées, sur la base de prétextes administratifs comme la « perte des conditions de droit au séjour » ou des accusations de « menace à l’ordre public ». <strong class="emphase">Des familles entières se retrouvent ainsi précarisées, privées de droits et menacées d’expulsion.</strong></p>
+  </section>
+
+  <section id="mineurs">
+    <h2>Les mineur·e·s isolé·e·s : des enfants laissés à la rue</h2>
+    <p>En France, des milliers de jeunes étrangers vivent à la rue, faute de reconnaissance par l’Aide Sociale à l’Enfance. En 2024, plus de 3 200 mineur·e·s isolé·e·s ont été recensé·e·s en errance. <strong class="emphase">Leur sort dépend du département où ils se présentent</strong> : moins de 10 % des demandes sont acceptées dans certains territoires, contre plus de 50 % ailleurs.</p>
+    <p>En attendant un recours, beaucoup dorment dehors malgré l’obligation légale de protection immédiate. Même pris en charge, l’accompagnement est souvent minimal : chambres d’hôtel partagées, visites ponctuelles, absence de suivi éducatif. <strong class="emphase">Cette inégalité de traitement viole les principes élémentaires de la protection de l’enfance.</strong></p>
+  </section>
+
+  <section id="cra">
+    <h2>Centres de rétention et rafles : l’Histoire se répète</h2>
+    <p>Chaque année, des dizaines de milliers de personnes sont enfermées dans les <strong class="emphase">Centres de Rétention Administratifs (CRA)</strong>, véritables prisons où les droits fondamentaux sont bafoués. Ces lieux, dénoncés par les associations, se multiplient avec des conditions toujours plus indignes et des durées d’enfermement prolongées.</p>
+    <p>Dans les rues, les rafles ordonnées par Gérald Darmanin et Bruno Retailleau se multiplient. Elles visent les sans-papiers, souvent au faciès, pour « faire du chiffre ». <strong class="emphase">Ces pratiques de chasse aux migrant·e·s rappellent les heures les plus sombres de notre histoire.</strong></p>
+  </section>
+
+  <section id="uk">
+    <h2>Complicité franco-britannique</h2>
+    <p>La France collabore avec le Royaume-Uni pour renforcer la répression des exilé·e·s. L’accord « one in, one out » prévoit qu’à chaque personne admise au Royaume-Uni correspond une personne renvoyée vers la France. <strong class="emphase">Cette logique cynique transforme les vies humaines en monnaie d’échange diplomatique.</strong></p>
+    <p>Sur le littoral, la violence s’intensifie : embarcations crevées, gaz lacrymogènes, campements détruits. <strong class="emphase">Au nom d’une politique de “zéro point de fixation”, la France devient le bras policier du Royaume-Uni.</strong></p>
+  </section>
+
+  <section id="palestine">
+    <h2>Refus d’accueillir les réfugié·e·s palestinien·ne·s</h2>
+    <p>Alors que le génocide à Gaza se poursuit, la France a refusé d’accueillir des réfugié·e·s palestinien·ne·s, y compris des enfants orphelins. Ce refus contredit les obligations internationales d’asile et révèle le cynisme d’un État qui prétend défendre les droits humains tout en fermant ses portes à celles et ceux qui fuient la guerre.</p>
+  </section>
+
+  <section id="foyers">
+    <h2>Foyers de travailleurs migrants : une disparition programmée</h2>
+    <p>Les foyers, souvent insalubres, sont transformés en « résidences sociales » dans le cadre d’une politique de restructuration qui aboutit à leur fermeture. Les résident·es subissent expulsions et sanctions arbitraires, sans les protections du droit commun. <strong class="emphase">Cette politique de précarisation menace directement le droit au logement et à l’autonomie.</strong></p>
+  </section>
+
+  <section id="frontex">
+    <h2>Frontex et la guerre aux frontières</h2>
+    <p>Alors que l’État prétend manquer de moyens pour la santé, l’éducation ou le logement, il finance massivement <strong class="emphase">Frontex</strong>, l’agence européenne de surveillance des frontières, dont le budget a explosé à près d’un milliard d’euros en 2024.</p>
+    <p>Drones, radars, navires et effectifs militaires traquent les exilé·e·s, au prix de milliers de vies perdues en Méditerranée et dans la Manche. <strong class="emphase">Cette militarisation montre la priorité politique donnée à la guerre contre les migrant·e·s plutôt qu’aux droits sociaux.</strong></p>
+  </section>
+
+  <div class="note">
+    <p><strong class="emphase">Comprendre, c’est déjà agir.</strong> Ces politiques ne sont pas isolées : elles dessinent une stratégie globale de contrôle, de précarisation et de peur. La grève du 18 décembre est une réponse collective à ce système.</p>
+  </div>
+</main>
+
+<footer><div class="wrap">© Journée Sans Nous — Comprendre la situation</div></footer>
+
+<script>
+const shareText = "📚 Je viens de lire la page ‘Comprendre’ du site Journée Sans Nous. Elle explique pourquoi la grève du 18 décembre est nécessaire face aux politiques de précarisation et de répression. #JournéeSansNous";
+const shareUrl = window.location.href;
+
+document.getElementById('shareTop').addEventListener('click', () => {
+  if (navigator.share) {
+    navigator.share({
+      title: "Journée Sans Nous — Comprendre la situation",
+      text: shareText,
+      url: shareUrl
+    });
+  } else {
+    navigator.clipboard.writeText(shareUrl).then(() => alert("📎 Lien copié dans le presse-papiers !"));
+  }
+});
+</script>
+
+</body>
+</html>
